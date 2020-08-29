@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About
-sidebar_link: true
+title: Proj2
+permalink: /projects/proj2
 ---
 
 <p class="message">

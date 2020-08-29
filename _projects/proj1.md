@@ -1,7 +1,9 @@
 ---
 layout: page
-title: About
-sidebar_link: true
+title: Covid Browser
+start_date: '2020-07-30'
+end_date: '2020-08-24'
+permalink: /projects/proj1
 ---
 
 <p class="message">
