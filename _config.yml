@@ -38,3 +38,8 @@ sidebar_home_link:  true
 collections:
   projects:
     output: true
+
+disqus:
+  shortname: sihagmnis36-github-io
+
+google_analytics: UA-177002244-1
