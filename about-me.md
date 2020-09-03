@@ -13,7 +13,7 @@ sidebar_sort_order: 2
 </p>
 <p class="about-text">
   <span class="fa fa-graduation-cap about-icon"></span>
-  &nbsp;I'm an <b>IIT Bombay</b> graduate and a self-taught <b>Data Scientist</b> 
+  I'm an <b>IIT Bombay</b> graduate and a self-taught <b>Data Scientist</b> 
 </p>
 <p class="about-text">
   <span class="fa fa-briefcase about-icon"></span>
