@@ -4,3 +4,23 @@
 ---
 
 @import "hydeout";
+
+#aboutme-section {
+    font-size: 19px;
+  }
+  
+  .about-text {
+    position: relative;
+    margin-left: 29px;
+  }
+  
+  .about-icon {
+    position: absolute;
+    left: -29px;
+    margin-top: 6px;
+  }
+  
+  #aboutme-section p:last-child {
+    margin-bottom: 0;
+  }
+  

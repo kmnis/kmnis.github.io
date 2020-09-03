@@ -5,27 +5,27 @@ sidebar_link: true
 sidebar_sort_order: 2
 ---
 
-<p></p>
+<p class="about-text"></p>
 
-<p>
-  <span class="fa fa-user"></span>
-  &nbsp;&nbsp;Hi 👋 My name is <b>Manish Sihag</b>
+<p class="about-text">
+  <span class="fa fa-user about-icon"></span>
+  Hi 👋 My name is <b>Manish Sihag</b>
 </p>
-<p>
-  <span class="fa fa-graduation-cap"></span>
+<p class="about-text">
+  <span class="fa fa-graduation-cap about-icon"></span>
   &nbsp;I'm an <b>IIT Bombay</b> graduate and a self-taught <b>Data Scientist</b> 
 </p>
-<p>
-  <span class="fa fa-briefcase"></span>
-  &nbsp;&nbsp;I have <b>2yr+</b> research experience in the field of <b>AI in drug discovery</b>
+<p class="about-text">
+  <span class="fa fa-briefcase about-icon"></span>
+  I have <b>2yr+</b> industry as well as research experience in the field of <b> Data Science</b> and <b>AI in drug discovery</b>
 </p>
-<p>
-  <span class="fa fa-file-text"></span>
-  &nbsp;&nbsp;Download my CV here <a href="/files/resume.pdf" style="color: inherit"><span class="fa fa-download"></span></a>
+<p class="about-text">
+  <span class="fa fa-file-text about-icon"></span>
+  Download my CV here <a href="/files/resume.pdf" style="color: inherit"><span class="fa fa-download"></span></a>
 </p>
-<p>
-  <span class="fa fa-code"></span>
-  &nbsp;&nbsp;Programming languages/tools/softwares, I've worked with:
+<p class="about-text">
+  <span class="fa fa-code about-icon"></span>
+  Programming languages/tools/softwares, I've worked with:
   <div style="float: left; width: 33%">
     <ul>
       <li>Python</li>
@@ -58,24 +58,24 @@ sidebar_sort_order: 2
   </div>
 </p>
 
-<p>
-  <span class="fa fa-heart"></span>
-  &nbsp;&nbsp;My hobbies and free time activitie include:</p>
-<p>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-music"></span>
-  &nbsp;&nbsp;Listening to music as it helps me focus. Currently, "I can see Elvis" is my favourite song
+<p class="about-text">
+  <span class="fa fa-heart about-icon"></span>
+  My hobbies and free time activitie include:</p>
+<p class="about-text">
+  <span class="fa fa-music about-icon"></span>
+  Listening to music as it helps me focus. "I can see Elvis" is my favourite song
 </p>
-<p>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-book"></span>
-  &nbsp;&nbsp;Reading books. Kurt Vonnegut's "The Sirens of Titan" is my favourite book
+<p class="about-text">
+  <span class="fa fa-book about-icon"></span>
+  Reading books. Kurt Vonnegut's "The Sirens of Titan" is my favourite book
 </p>
-<p>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-gamepad"></span>
-  &nbsp;&nbsp;Playing video games
+<p class="about-text">
+  <span class="fa fa-gamepad about-icon"></span>
+  Playing video games
 </p>
 
 <p style="text-align: center;">
-  Reach out to me on&nbsp;
+  <strong>Reach out to me on&nbsp;</strong>
   <a href="https://www.linkedin.com/in/manish-sihag/"
     style="color: inherit" title="Linkedin" aria-label="Linkedin">
     <span class="fa fa-linkedin-square"></span>
@@ -98,7 +98,7 @@ sidebar_sort_order: 2
   </a>&nbsp;
 </p>
 
-<!-- <img style="float: left;" src="/assets/img/blackstar.svg" />&nbsp;&nbsp;&nbsp;\f005 Hey there! I'm <strong>Manish</strong>, an <strong>IIT Bombay</strong> graduate and a self-taught
+<!-- <img style="float: left;" src="/assets/img/blackstar.svg" />&nbsp;\f005 Hey there! I'm <strong>Manish</strong>, an <strong>IIT Bombay</strong> graduate and a self-taught
 <strong>Data Scientist</strong>. I have been doing research in the field of drug discovery
 using AI by combining my knowledge in Chemical Engineering from B.Tech and passion for
 AI. With more than two year of industry experience, I am inclined towards a research career
