@@ -1,8 +1,8 @@
 ---
 layout: project
 title: ADMET Properties Prediction
-start_date: '2020-07-30'
-end_date: '2020-08-24'
+start_date: '2019-02-05'
+end_date: '2019-03-25'
 permalink: /projects/admet-properties-predictor
 related_projects: 
     - Covid Browser

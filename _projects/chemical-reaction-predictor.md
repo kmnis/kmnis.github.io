@@ -2,8 +2,8 @@
 layout: project
 title: Chemical Reaction Predictor
 permalink: /projects/chemical-reaction-predictor
-start_date: '2020-07-30'
-end_date: '2020-08-24'
+start_date: '2018-12-05'
+end_date: '2019-01-30'
 related_projects: 
     - Chemical Reaction Yield Predictor
 related_projects_url: 

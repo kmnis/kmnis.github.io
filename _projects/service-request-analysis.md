@@ -1,15 +1,9 @@
 ---
 layout: project
 title: Service Request Analysis
-start_date: '2020-07-30'
-end_date: '2020-08-24'
+start_date: '2018-09-12'
+end_date: '2018-12-05'
 permalink: /projects/service-request-analysis
-related_projects: 
-    - proj2
-    - Covid Browser
-related_projects_url: 
-    - proj2
-    - covid-browser
 tags: 
     - NLP
     - tensorflow
