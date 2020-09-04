@@ -1,7 +1,7 @@
 <section class="related">
     <h2>Related Projects</h2>
     <ul class="posts-list">
-        {% for project in site.projects limit:3 %}
+        <!-- {% for project in site.projects limit:3 %}
         <li>
             <h3>
                 <a href="{{ project.url }}">
@@ -10,8 +10,8 @@
                 </a>
             </h3>
         </li>
-        {% endfor %}
-        <!-- {% for post in include.post.related_projects limit:3 %}
+        {% endfor %} -->
+        {% for post in include.post.related_projects limit:3 %}
         <li>
           <h3>
             <a href="{{ include.post.related_projects_url[forloop.index0] }}">
@@ -20,6 +20,6 @@
             </a>
           </h3>
         </li>
-      {% endfor %} -->
+      {% endfor %}
     </ul>
 </section>

@@ -5,10 +5,8 @@ start_date: '2020-07-30'
 end_date: '2020-08-24'
 permalink: /projects/admet-properties-predictor
 related_projects: 
-    - proj2
     - Covid Browser
 related_projects_url: 
-    - proj2
     - covid-browser
 tags: 
     - drug-discovery

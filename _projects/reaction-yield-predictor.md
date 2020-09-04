@@ -5,11 +5,9 @@ start_date: '2020-07-30'
 end_date: '2020-08-24'
 permalink: /projects/chemical-reaction-yield-predictor
 related_projects: 
-    - proj2
-    - Covid Browser
+    - Chemical Reaction Predictor
 related_projects_url: 
-    - proj2
-    - covid-browser
+    - chemical-reaction-predictor
 tags: 
     - drug-discovery
     - GCN

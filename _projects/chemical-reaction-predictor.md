@@ -5,11 +5,9 @@ permalink: /projects/chemical-reaction-predictor
 start_date: '2020-07-30'
 end_date: '2020-08-24'
 related_projects: 
-    - proj2
-    - Covid Browser
+    - Chemical Reaction Yield Predictor
 related_projects_url: 
-    - proj2
-    - covid-browser
+    - chemical-reaction-yield-predictor
 tags: 
     - drug-discovery
     - deep-learning
