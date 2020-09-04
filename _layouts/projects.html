@@ -7,15 +7,16 @@ permalink: /projects
   {% include pagination-newer.html %}
 
   {{ content }}
-  {% for post in site.projects %}
+  {% assign sorted_pages = site.projects|sort:"project_sort_order" %}
+  {% for post in sorted_pages %}
   <article class="post-body">
-    <h2 class="post-title">
+    <h3 class="post-title">
       <a href="{{ post.url | relative_url }}">
         {{ post.title }}
       </a>
-    </h2>
+    </h3>
     <div class="post-meta">
-      <span class="post-date">{{ post.start_date | date_to_string }}{{ " - " }}{{ post.end_date | date_to_string }}</span>
+      <span class="post-date" style="font-size: 0.9rem;">{{ post.start_date | date_to_string }}{{ " - " }}{{ post.end_date | date_to_string }}</span>
     </div>
 
     {% if post.excerpt %}

@@ -16,6 +16,7 @@ tags:
     - GCN
     - tensorflow
     - python
+project_sort_order: 2
 ---
 
 <p style="text-align: justify">

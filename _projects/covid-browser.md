@@ -17,9 +17,17 @@ tags:
     - ReactJS
     - Neo4j
     - Graphql
+project_sort_order: 0
 ---
 
 <p style="text-align: justify">The coronavirus pandemic has caused enormous health, economic, environmental, and social challenges to the entire human population. The entire research community is working tirelessly for a vaccine but it could take up to a few years before there's any solution available.</p>
+
+<figure>
+    <img src="/assets/img/corona-virus.gif"
+         style="display: block; margin-left: auto; margin-right: auto; width: 60%; margin-bottom: 0.3rem"
+         alt=""/>
+         <figcaption style="text-align: center; margin-top: 0; font-size: 0.7rem">Kinesin-Walking © John Liebler</figcaption>
+</figure>
 
 <p style="text-align: justify">COVID-19 research browser is aimed to help researchers navigate this fast-growing body of coronavirus literature to efficiently find relevant and up-to-date information. It's a search tool that can search among thousands of publications, authors, journals and show the relevant research.</p>
 
