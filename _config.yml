@@ -28,7 +28,7 @@ plugins:
   - jekyll-gist
   - jekyll-paginate
 
-include: ['_projects']
+include: ['_projects', '_certificates']
 # Sidebar link settings
 sidebar_home_link:  true
 # sidebar_blog_link:  '/blog'   # By default, your home page is your blog
@@ -37,6 +37,8 @@ sidebar_home_link:  true
                                 # to enable a separate blog link.
 collections:
   projects:
+    output: true
+  certificates:
     output: true
 
 disqus:
