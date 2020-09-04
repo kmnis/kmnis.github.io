@@ -17,7 +17,7 @@ sidebar_sort_order: 2
 </p>
 <p class="about-text">
   <span class="fa fa-briefcase about-icon"></span>
-  I have <b>2yr+</b> industry as well as research experience in the field of <b> Data Science</b> and <b>AI in drug discovery</b>
+  I have <b>2yr+</b> of industry as well as research experience in the field of <b> Data Science</b> and <b>AI in drug discovery</b>
 </p>
 <p class="about-text">
   <span class="fa fa-file-text about-icon"></span>
@@ -74,7 +74,7 @@ sidebar_sort_order: 2
   Playing video games
 </p>
 
-<p style="text-align: center;">
+<!-- <p style="text-align: center;">
   <strong>Reach out to me on&nbsp;</strong>
   <a href="https://www.linkedin.com/in/manish-sihag/"
     style="color: inherit" title="Linkedin" aria-label="Linkedin">
@@ -96,7 +96,7 @@ sidebar_sort_order: 2
       style="color: inherit" title="Stackoverflow" aria-label="Stackoverflow">
       <span class="fa fa-stack-overflow"></span>
   </a>&nbsp;
-</p>
+</p> -->
 
 <!-- <img style="float: left;" src="/assets/img/blackstar.svg" />&nbsp;\f005 Hey there! I'm <strong>Manish</strong>, an <strong>IIT Bombay</strong> graduate and a self-taught
 <strong>Data Scientist</strong>. I have been doing research in the field of drug discovery
