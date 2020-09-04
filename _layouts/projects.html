@@ -16,7 +16,7 @@ permalink: /projects
       </a>
     </h3>
     <div class="post-meta">
-      <span class="post-date" style="font-size: 0.9rem;">{{ post.start_date | date_to_string }}{{ " - " }}{{ post.end_date | date_to_string }}</span>
+      <span class="post-date" style="font-size: 0.9rem;">{{ post.start_date | date: "%b %Y" }}{{ " - " }}{{ post.end_date | date: "%b %Y" }}</span>
     </div>
 
     {% if post.excerpt %}
