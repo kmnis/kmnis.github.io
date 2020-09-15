@@ -84,7 +84,7 @@ sidebar_sort_order: 2
     style="color: inherit" title="Linkedin" aria-label="Linkedin">
     <span class="fa fa-linkedin-square"></span>
   </a>&nbsp;
-  <a href="https://www.github.com/sihagmnis36/"
+  <a href="https://www.github.com/mnis/"
       style="color: inherit" title="Github" aria-label="Github">
       <span class="fa fa-github"></span>
   </a>&nbsp;

@@ -7,7 +7,7 @@ remote_theme:     fongandrew/hydeout
 title:            Manish Sihag
 tagline:          'Portfolio'
 description:      'IIT Bombay Graduate | Data Scientist | Web Developer | AI in Drug Discovery'
-url:              https://sihagmnis36.github.io
+url:              https://mnis.github.io
 # baseurl:          '/'
                   # the optional subpath of your site, e.g. "/blog"
                   # NB: This applies to all pages in your Jekyll site.
@@ -17,7 +17,7 @@ url:              https://sihagmnis36.github.io
 
 author:
   name:           'Manish Sihag'
-  url:            https://github.com/sihagmnis36
+  url:            https://github.com/mnis
 
 paginate:         5
 # paginate_path:    '/page:num'
