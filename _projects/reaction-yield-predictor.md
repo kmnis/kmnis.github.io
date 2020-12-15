@@ -4,10 +4,6 @@ title: Chemical Reaction Yield Predictor
 start_date: '2019-04-03'
 end_date: '2019-11-15'
 permalink: /projects/chemical-reaction-yield-predictor
-related_projects: 
-    - Chemical Reaction Predictor
-related_projects_url: 
-    - chemical-reaction-predictor
 tags: 
     - drug-discovery
     - GCN
