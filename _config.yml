@@ -4,9 +4,9 @@ highlighter:      rouge
 remote_theme:     fongandrew/hydeout
 
 # Setup
-title:            Manish Sihag
-tagline:          'Portfolio'
-description:      'IIT Bombay Graduate | Data Scientist | Web Developer | AI in Drug Discovery'
+title:            ChemicBook
+tagline:          'Where Chemistry Meets AI'
+description:      'What happens when the world of Chemistry meets the world of Data Science?'
 url:              https://sihagmnis36.github.io
 # baseurl:          '/'
                   # the optional subpath of your site, e.g. "/blog"
@@ -28,7 +28,7 @@ plugins:
   - jekyll-gist
   - jekyll-paginate
 
-include: ['_projects', '_certificates']
+include: ['_projects', '_certificates', '_posts']
 # Sidebar link settings
 sidebar_home_link:  true
 # sidebar_blog_link:  '/blog'   # By default, your home page is your blog
