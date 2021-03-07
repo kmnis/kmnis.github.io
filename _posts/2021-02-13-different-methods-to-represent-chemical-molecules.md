@@ -159,7 +159,7 @@ What if there are 2 rings? Then we break one bond each from both the rings and a
     <tr>
       <th>Molecule</th>
       <th>SMILES</th>
-      <th>Alternate SMILES</th>
+      <!-- <th>Alternate SMILES</th> -->
       <th>Structure</th>
     </tr>
   </thead>
@@ -167,31 +167,31 @@ What if there are 2 rings? Then we break one bond each from both the rings and a
     <tr>
       <td>1,4-Cyclohexadiene</td>
       <td>C1=CCC=CC1</td>
-      <td>C1C=CCC=C1</td>
+      <!-- <td>C1C=CCC=C1</td> -->
       <td><img style="margin: auto" src="/_images/1,4-cyclohexadiene.svg" width="50%"/></td>
     </tr>
     <tr>
       <td>Benzene</td>
       <td>C1=CC=CC=C1</td>
-      <td></td>
+      <!-- <td></td> -->
       <td><img style="margin: auto" src="/_images/benzene.svg" width="50%"/></td>
     </tr>
     <tr>
       <td>Toluene</td>
       <td>C1=C(C)C=CC=C1</td>
-      <td>C1=CC=CC(C)=C1</td>
+      <!-- <td>C1=CC=CC(C)=C1</td> -->
       <td><img style="margin: auto" src="/_images/toluene.svg" width="50%"/></td>
     </tr>
     <tr>
       <td>Decalin</td>
       <td>C1CCC2CCCCC2C1</td>
-      <td>C2CCC1CCCCC1C2</td>
+      <!-- <td>C2CCC1CCCCC1C2</td> -->
       <td><img style="margin: auto" src="/_images/decalin.svg" width="50%"/></td>
     </tr>
     <tr>
       <td>Bicyclohexyl</td>
       <td>C1CCC(C2CCCCC2)CC1</td>
-      <td>C1CCC(CC1)C2CCCCC2</td>
+      <!-- <td>C1CCC(CC1)C2CCCCC2</td> -->
       <td><img style="margin: auto" src="/_images/bicyclohexyl.svg" width="50%"/></td>
     </tr>
   </tbody>
@@ -208,7 +208,7 @@ Let's start with the famous molecule, Benzene. In Table 3, we already showed tha
     <tr>
       <th>Molecule</th>
       <th>SMILES</th>
-      <th>Alternate SMILES</th>
+      <!-- <th>Alternate SMILES</th> -->
       <th>Structure</th>
     </tr>
   </thead>
@@ -216,31 +216,31 @@ Let's start with the famous molecule, Benzene. In Table 3, we already showed tha
     <tr>
       <td>Phenol</td>
       <td>c1cc(O)ccc1</td>
-      <td>C1(O)C=CCC=C1</td>
+      <!-- <td>C1(O)C=CCC=C1</td> -->
       <td><img style="margin: auto" src="/_images/phenol.svg" width="50%"/></td>
     </tr>
     <tr>
       <td>Pyridine</td>
       <td>c1ccncc1</td>
-      <td>C1=CC=NC=C1</td>
+      <!-- <td>C1=CC=NC=C1</td> -->
       <td><img style="margin: auto" src="/_images/pyridine.svg" width="50%"/></td>
     </tr>
     <tr>
       <td>Benzoic Acid</td>
       <td>c1cc(C(O)=O)ccc1</td>
-      <td>C1=CC(C(O)=O)=CC=C1</td>
+      <!-- <td>C1=CC(C(O)=O)=CC=C1</td> -->
       <td><img style="margin: auto" src="/_images/benzoicacid.svg" width="50%"/></td>
     </tr>
     <tr>
       <td>Isoquinoline</td>
       <td>c1ccc2cnccc2c1</td>
-      <td>C2=CC=C1C=NC=CC1=C2</td>
+      <!-- <td>C2=CC=C1C=NC=CC1=C2</td> -->
       <td><img style="margin: auto" src="/_images/isoquinoline.svg" width="50%"/></td>
     </tr>
     <tr>
       <td>Biphenyl</td>
       <td>c1ccc(-c2ccccc2)cc1</td>
-      <td>C1=CC=C(C2=CC=CC=C2)C=C1</td>
+      <!-- <td>C1=CC=C(C2=CC=CC=C2)C=C1</td> -->
       <td><img style="margin: auto" src="/_images/biphenyl.svg" width="50%"/></td>
     </tr>
   </tbody>
