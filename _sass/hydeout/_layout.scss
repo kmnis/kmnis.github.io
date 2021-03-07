@@ -45,6 +45,7 @@ body {
   }
 
   .site-title .back-arrow { margin-right: 0.5rem; }
+  .site-title .logo-img { display: none; }
 }
 
 .content {
@@ -183,6 +184,7 @@ body {
     .site-title {
       font-size: 3.25rem;
       .back-arrow { display: none; }
+      .logo-img { display: flex; }
     }
 
     p.lead,
