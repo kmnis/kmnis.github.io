@@ -6,7 +6,7 @@ remote_theme:     fongandrew/hydeout
 # Setup
 title:            ChemicBook
 tagline:          'Where Chemistry Meets AI'
-description:      'What happens when the world of Chemistry meets the world of Data Science?'
+description:      'Chemistry Meets Data Science' # 'What happens when the world of Chemistry meets the world of Data Science?'
 url:              https://sihagmnis36.github.io
 # baseurl:          '/'
                   # the optional subpath of your site, e.g. "/blog"

@@ -21,7 +21,7 @@ sidebar_sort_order: 2
 </p>
 <p class="about-text">
   <span class="fa fa-file-text about-icon"></span>
-  Download my CV here <a href="/files/resume.pdf" style="color: inherit"><span class="fa fa-download"></span></a>
+  Checkout my CV here <a href="/files/resume.pdf" style="color: inherit"><span class="fa fa-download"></span></a>
 </p>
 <p class="about-text">
   <span class="fa fa-code about-icon"></span>
@@ -62,20 +62,20 @@ sidebar_sort_order: 2
   Checkout some of my online certificates <a href="/certificates">here</a>
 </p>
 
-<p class="about-text">
+<!-- <p class="about-text">
   <span class="fa fa-heart about-icon"></span>
-  My hobbies and free time activitie include:</p>
+  My hobbies and free time activitie include:</p> -->
 <p class="about-text">
   <span class="fa fa-music about-icon"></span>
-  Listening to music as it helps me focus. "I can see Elvis" is my favourite song
+  I spend my free time listening to music and audio books. "I can see Elvis" is my latest favourite song
 </p>
 <p class="about-text">
   <span class="fa fa-book about-icon"></span>
-  Reading books. Kurt Vonnegut's "The Sirens of Titan" is my favourite book
+  Kurt Vonnegut's "The Sirens of Titan" is my long time favourite book
 </p>
 <p class="about-text">
   <span class="fa fa-gamepad about-icon"></span>
-  Playing video games
+  And I play video games. Lots of them.
 </p>
 
 <!-- <p style="text-align: center;">

@@ -8,12 +8,17 @@ excerpt_separator: <!--more-->
 - mol2
 - InChi/InChiKey
 - Open Babel
+- JSME
 - RdKit
 - DeepChem
-- ECFP Fingerprints
 - Atomic Features
+- Bond Features
 - Adjacency Matrix
-- NWChem -->
+- ECFP Fingerprints
+- DFT Properties (Optional)
+- NWChem (Optional)
+- VMD (Optional)
+- GCN -->
 
 ### SMILES String
 SMILES (Simplified molecular-input line-entry system) is a line notation method to represent molecules as well as reactions. It is also the most common method to represent molecules because of its simplicity and readability to the human eye.
