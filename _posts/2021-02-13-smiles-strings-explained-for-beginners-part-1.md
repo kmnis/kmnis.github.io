@@ -2,6 +2,8 @@
 layout: post
 title: SMILES strings explained for beginners (Part 1)
 excerpt_separator: <!--more-->
+tags:
+  - molecule-featurization
 ---
 
 <!-- - SMILES

@@ -36,7 +36,7 @@
     {% for tag in sortedtags %}
       {% assign all_tagged = "" | split: ',' %}
 
-      <div id="{{ tag | slugify }}">
+      <!-- <div id="{{ tag | slugify }}">
         <h4 style="text-transform: capitalize;">{{ tag }}</h4>
         <ul class="posts-list">
 
@@ -58,26 +58,26 @@
           {% endfor %}
 
         </ul>
-      </div>
+      </div> -->
     {% endfor %}
 
-    <!-- {% for tag_pair in tag_words %}
+    {% for tag_pair in tag_words %}
     {% assign tag = tag_pair | split:'|' | last %}
     <div id="{{ tag | slugify }}" class="posts-for-tag">
-      <h2>{{ tag }}</h2>
+      <h4>{{ tag }}</h4>
       <ul class="posts-list">
         {% for post in site.tags[tag] %}
         <li>
-          <h3>
+          <!-- <h3> -->
             <a href="{{ post.url | relative_url }}">
               {{ post.title }}
               <small>{{ post.date | date_to_string }}</small>
             </a>
-          </h3>
+          <!-- </h3> -->
         </li>
         {% endfor %}
       </ul>
     </div>
-    {% endfor %} -->
+    {% endfor %}
   </div>
 </div>
