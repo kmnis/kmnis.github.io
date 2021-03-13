@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Different methods to represent Chemical Molecules (Part 1)
+title: SMILES strings explained for beginners (Part 1)
 excerpt_separator: <!--more-->
 ---
 
@@ -20,8 +20,7 @@ excerpt_separator: <!--more-->
 - VMD (Optional)
 - GCN -->
 
-### SMILES String
-SMILES (Simplified molecular-input line-entry system) is a line notation method to represent molecules as well as reactions. It is also the most common method to represent molecules because of its simplicity and readability to the human eye.
+SMILES (Simplified molecular-input line-entry system) is a line notation method to represent molecules as well as reactions. It is one of the most common method to represent molecules because of its simplicity and readability to the human eye.
 
 Below are a few examples just to give you an idea about the notation. Don't worry, we will go into details next on how to write these notations.
 ```yaml
@@ -32,7 +31,9 @@ Ethene:  C=C
 <!--more-->
 
 #### Atoms
-All non-Hydrogen atoms are represented by their atomic symbols. In a SMILES string, any unfulfilled valency of an atom is assumed to be Hydrogen. For example, writing a simple `C` means that it's actually a CH<sub>4</sub> (Methane) and not an elemental Carbon. Similarly, `N` is NH<sub>3</sub> (Ammonia) and `O` is H<sub>2</sub>O (Water). 
+All non-Hydrogen atoms are represented by their atomic symbols. Remember the periodic table from the school days?
+
+In a SMILES string, any unfulfilled valency of an atom is assumed to be Hydrogen. For example, writing a simple `C` means that it's actually a CH<sub>4</sub> (Methane) and not an elemental Carbon. Similarly, `N` is NH<sub>3</sub> (Ammonia) and `O` is H<sub>2</sub>O (Water). 
 
 To represent elemental atoms, a `[]`(Square bracket) notation is used. For example, `[S]` is elemental Sulfur. In case you want to explicitly add the Hydrogens to a SMILES string, the square bracket can be used here as well. For example, Methane and Ethane can be written as `[CH4]` and `[CH3][CH3]` respectively. 
 
@@ -149,12 +150,16 @@ Let's take the example of Propionic Acid. If the green highlighted atoms are tak
 In either case, there's a branch and like we just discussed, parentheses are used to create a branch in the SMILES string. So both the following strings are correct for Propionic Acid: `CCC(=O)O`, `CCC(O)=O`
 
 #### Cyclic Structures/Ring Molecules
-All the examples we have seen so far were noncyclic structures. Now, we'll see how to represent cyclic structures. Ring structures are written by breaking each ring at an arbitrary point to make an acyclic structure and adding numerical ring closure labels to show connectivity between non-adjacent atoms.
+All the examples we have seen so far were noncyclic structures. Now, we'll see how to represent cyclic structures.
+
+Ring structures are written by breaking each ring at an arbitrary point to make an acyclic structure and adding numerical ring closure labels to show connectivity between non-adjacent atoms.
 
 Let's take the example of Cyclohexane. If we break the structure at the marked bond, it'll become a linear structure.
 <img style="margin: auto" src="/_images/cyclohexane.png" width="20%"/>
 
 Then we assign a number to both the atoms between which the bond was broken. In this case, the structure is symmetric and hence it doesn't matter which bond we break. The SMILES string will now become `C1CCCCC1`.
+
+NOTE: The number assigned in the SMILE string is just a marker to denote the ring structure. The above SMILE string can also be written as `C2CCCCC2`. But it's a good practice and convention to go with the lowest integer.
 
 What if there are 2 rings? Then we break one bond each from both the rings and assign separate numbers to each involved atom. Let's take a look at a few examples to understand it better.
 
@@ -244,7 +249,7 @@ Let's start with the famous molecule, Benzene. In Table 3, we already showed tha
     </tr>
     <tr>
       <td>Biphenyl</td>
-      <td>c1ccc(-c2ccccc2)cc1</td>
+      <td>c1ccc(c2ccccc2)cc1</td>
       <!-- <td>C1=CC=C(C2=CC=CC=C2)C=C1</td> -->
       <td><img style="margin: auto" src="/_images/biphenyl.svg" width="50%"/></td>
     </tr>
@@ -252,7 +257,7 @@ Let's start with the famous molecule, Benzene. In Table 3, we already showed tha
 </table>
 
 #### Disconnected Structures
-The ions in the ionic molecules are not connected by a covalent bond with each other. Such disconnected compounds are written as individual structures separated by a `.` (period). For example, Sodium Hydroxide will be written as `[Na+].[OH-]`.
+The ions in the ionic molecules are not connected by a covalent bond with each other. Such disconnected compounds are written as individual structures separated by a `.` (period). For example, Sodium Hydroxide in its ionized form will be written as `[Na+].[OH-]`.
 
 The order in which ions or ligands are listed is arbitrary. There is no implied pairing of one charge with another, nor is it necessary to have a net-zero charge. Below are a few examples to understand it better.
 
@@ -278,3 +283,11 @@ The order in which ions or ligands are listed is arbitrary. There is no implied 
     </tr>
   </tbody>
 </table>
+
+#### Summary
+We saw a basic introduction to the SMILES notation just enough to get you started in the field but there are a lot more rules and scenarios we haven't covered. For example, dealing with stereochemistry and chirality of molecules, representing chemical reactions in SMILES notation, etc. That's tutorial for some other day. If you want to jump into them right away, follow the links in the next section.
+
+#### Further Reading
+- <a target="_blank" href="https://www.daylight.com/dayhtml/doc/theory/theory.smiles.html">https://www.daylight.com/dayhtml/doc/theory/theory.smiles.html</a>
+- <a target="_blank" href="https://www.daylight.com/meetings/summerschool98/course/dave/smiles-intro.html">https://www.daylight.com/meetings/summerschool98/course/dave/smiles-intro.html</a>
+- <a target="_blank" href="https://www.daylight.com/dayhtml_tutorials/languages/smiles/index.html">https://www.daylight.com/dayhtml_tutorials/languages/smiles/index.html</a>
