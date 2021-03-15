@@ -24,7 +24,10 @@ tags:
 
 Welcome to the first article in the 10 part [Cheminformatics for Beginners](/tags.html#cheminformatics) series. This blog will introduce you to the SMILES string notation in cheminformatics.
 
+### Introduction
 SMILES (Simplified molecular-input line-entry system) is a line notation method to represent molecules as well as reactions. It is one of the most common method to represent molecules because of its simplicity and readability to the human eye.
+
+<!--more-->
 
 Below are a few examples just to give you an idea about the notation. Don't worry, we will go into details next on how to write these notations.
 ```yaml
@@ -32,16 +35,15 @@ Propane: CCC
 Butane:  CCCC
 Ethene:  C=C
 ```
-<!--more-->
 
-#### Atoms
+### Atoms
 All non-Hydrogen atoms are represented by their atomic symbols. Remember the periodic table from the school days?
 
 In a SMILES string, any unfulfilled valency of an atom is assumed to be Hydrogen. For example, writing a simple `C` means that it's actually a CH<sub>4</sub> (Methane) and not an elemental Carbon. Similarly, `N` is NH<sub>3</sub> (Ammonia) and `O` is H<sub>2</sub>O (Water). 
 
 To represent elemental atoms, a `[]`(Square bracket) notation is used. For example, `[S]` is elemental Sulfur. In case you want to explicitly add the Hydrogens to a SMILES string, the square bracket can be used here as well. For example, Methane and Ethane can be written as `[CH4]` and `[CH3][CH3]` respectively. 
 
-#### Bonds
+### Bonds
 Single, double, and triple bonds are represented by the symbols `-`, `=`, and `#`, respectively. Same as Hydrogens, single bonds are often omitted for simplicity. Adjacent atoms are assumed to be connected by a single or aromatic bond. 
 
 NOTE: As you may have guessed by now, there can be multiple ways to represent a molecule in the SMILES string. For example, all the following notations are correct for Ethane: `CC`, `C-C`, `[CH3]-[CH3]`, `[CH3]-C`
@@ -112,7 +114,7 @@ Here are a few more examples:
   </tbody>
 </table>
 
-#### Charged Molecules
+### Charged Molecules
 In case of charged atoms or molecules, the square bracket notation is the way to go again. The positive charge is represented by a `+` sign and a negative charge by `-` sign. Some examples to clarify:
 
 <table>
@@ -143,7 +145,7 @@ In case of charged atoms or molecules, the square bracket notation is the way to
   </tbody>
 </table>
 
-#### Branched Molecules
+### Branched Molecules
 In some of the molecules in Table 1, you might have noticed a `()`(parentheses) in some of the SMILES. These parentheses indicate a branch in the molecule.
 
 Let's take the example of Propionic Acid. If the green highlighted atoms are taken as a base chain then yellow highlighted atoms will become a branch.
@@ -153,7 +155,7 @@ Let's take the example of Propionic Acid. If the green highlighted atoms are tak
 
 In either case, there's a branch and like we just discussed, parentheses are used to create a branch in the SMILES string. So both the following strings are correct for Propionic Acid: `CCC(=O)O`, `CCC(O)=O`
 
-#### Cyclic Structures/Ring Molecules
+### Cyclic Structures/Ring Molecules
 All the examples we have seen so far were noncyclic structures. Now, we'll see how to represent cyclic structures.
 
 Ring structures are written by breaking each ring at an arbitrary point to make an acyclic structure and adding numerical ring closure labels to show connectivity between non-adjacent atoms.
@@ -211,7 +213,7 @@ What if there are 2 rings? Then we break one bond each from both the rings and a
   </tbody>
 </table>
 
-#### Aromatic Compounds
+### Aromatic Compounds
 The aromatic compounds can be represented by the methods we have learned so far. However, there is a preferred way to represent them: aromatic atoms are represented by lowercase letters. For example, aromatic Carbon by `c`, Nitrogen by `n`, Boron by `b`, and so on.
 
 Let's start with the famous molecule, Benzene. In Table 3, we already showed that Benzene can be represented by `C1=CC=CC=C1`. By this new method, now Benzene can be written as `c1ccccc1`. Here, adjacent atoms are not assumed to be connected by a single bond but rather the lowercase letters tells us that this is a aromatic ring signifying alternate single and double bonds. Let's look at few more examples below:
@@ -260,7 +262,7 @@ Let's start with the famous molecule, Benzene. In Table 3, we already showed tha
   </tbody>
 </table>
 
-#### Disconnected Structures
+### Disconnected Structures
 The ions in the ionic molecules are not connected by a covalent bond with each other. Such disconnected compounds are written as individual structures separated by a `.` (period). For example, Sodium Hydroxide in its ionized form will be written as `[Na+].[OH-]`.
 
 The order in which ions or ligands are listed is arbitrary. There is no implied pairing of one charge with another, nor is it necessary to have a net-zero charge. Below are a few examples to understand it better.
@@ -288,10 +290,10 @@ The order in which ions or ligands are listed is arbitrary. There is no implied 
   </tbody>
 </table>
 
-#### Summary
+### Summary
 We saw a basic introduction to the SMILES notation just enough to get you started in the field but there are a lot more rules and scenarios we haven't covered. For example, dealing with stereochemistry and chirality of molecules, representing chemical reactions in SMILES notation, etc. That's tutorial for some other day. If you want to jump into them right away, follow the links in the next section.
 
-#### Further Reading
-- <a target="_blank" href="https://www.daylight.com/dayhtml/doc/theory/theory.smiles.html">https://www.daylight.com/dayhtml/doc/theory/theory.smiles.html</a>
-- <a target="_blank" href="https://www.daylight.com/meetings/summerschool98/course/dave/smiles-intro.html">https://www.daylight.com/meetings/summerschool98/course/dave/smiles-intro.html</a>
-- <a target="_blank" href="https://www.daylight.com/dayhtml_tutorials/languages/smiles/index.html">https://www.daylight.com/dayhtml_tutorials/languages/smiles/index.html</a>
+### References and Further Reading
+- <a style="overflow-wrap: break-word" target="_blank" href="https://www.daylight.com/dayhtml/doc/theory/theory.smiles.html">https://www.daylight.com/dayhtml/doc/theory/theory.smiles.html</a>
+- <a style="overflow-wrap: break-word" target="_blank" href="https://www.daylight.com/meetings/summerschool98/course/dave/smiles-intro.html">https://www.daylight.com/meetings/summerschool98/course/dave/smiles-intro.html</a>
+- <a style="overflow-wrap: break-word" target="_blank" href="https://www.daylight.com/dayhtml_tutorials/languages/smiles/index.html">https://www.daylight.com/dayhtml_tutorials/languages/smiles/index.html</a>

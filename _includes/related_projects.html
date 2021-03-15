@@ -13,12 +13,12 @@
         {% endfor %} -->
         {% for post in include.post.related_projects limit:3 %}
         <li>
-          <h3>
+          <h4>
             <a href="{{ include.post.related_projects_url[forloop.index0] }}">
               {{ post }}
               <small>{{ post.date | date_to_string }}</small>
             </a>
-          </h3>
+          </h4>
         </li>
       {% endfor %}
     </ul>
