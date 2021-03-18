@@ -7,7 +7,7 @@ remote_theme:     fongandrew/hydeout
 title:            ChemicBook
 tagline:          'Where Chemistry Meets AI'
 description:      'Chemistry Meets Data Science' # 'What happens when the world of Chemistry meets the world of Data Science?'
-url:              https://sihagmnis36.github.io
+url:              https://chemicbook.com
 # baseurl:          '/'
                   # the optional subpath of your site, e.g. "/blog"
                   # NB: This applies to all pages in your Jekyll site.
@@ -24,6 +24,18 @@ paginate:         5
                     # Or '/blog/page:num' if you want to move your index pages
 
 plugins:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-sitemap
+
+gems:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-sitemap
+
+whitelist:
   - jekyll-feed
   - jekyll-gist
   - jekyll-paginate
