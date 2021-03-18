@@ -27,6 +27,7 @@ plugins:
   - jekyll-feed
   - jekyll-gist
   - jekyll-paginate
+  - jekyll-sitemap
 
 include: ['_projects', '_certificates', '_posts', '_images']
 # Sidebar link settings

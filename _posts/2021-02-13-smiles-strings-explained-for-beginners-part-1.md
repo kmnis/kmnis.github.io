@@ -290,6 +290,10 @@ The order in which ions or ligands are listed is arbitrary. There is no implied 
   </tbody>
 </table>
 
+### Cons of SMILES string
+- As we saw earlier, there can be multiple ways to write a SMILES string for a molecule. So the SMILES string are not unique
+- It doesn't provide information about positions of each atom in space, typically with X, Y, and Z cartesian coordinates
+
 ### Summary
 We saw a basic introduction to the SMILES notation just enough to get you started in the field but there are a lot more rules and scenarios we haven't covered. For example, dealing with stereochemistry and chirality of molecules, representing chemical reactions in SMILES notation, etc. That's tutorial for some other day. If you want to jump into them right away, follow the links in the next section.
 
