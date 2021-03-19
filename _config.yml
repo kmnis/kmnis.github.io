@@ -8,7 +8,7 @@ title:            ChemicBook
 tagline:          'Where Chemistry Meets AI'
 description:      'Chemistry Meets Data Science' # 'What happens when the world of Chemistry meets the world of Data Science?'
 url:              https://chemicbook.com
-# baseurl:          '/'
+baseurl:          '/blog'
                   # the optional subpath of your site, e.g. "/blog"
                   # NB: This applies to all pages in your Jekyll site.
                   # If you want to move just the blog index pages but keep
@@ -41,7 +41,7 @@ whitelist:
   - jekyll-paginate
   - jekyll-sitemap
 
-include: ['_projects', '_certificates', '_posts', '_images']
+include: ['_images']
 # Sidebar link settings
 sidebar_home_link:  true
 # sidebar_blog_link:  '/blog'   # By default, your home page is your blog
