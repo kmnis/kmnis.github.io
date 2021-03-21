@@ -10,6 +10,10 @@ layout: default
 
   <div class="post-body">
     {{ content }}
+    {{ "See the certificate" }}
+    <a href="{{ page.pdf_path }}">
+      {{ "here" }}{{"&nbsp;&nbsp;"}}<span class="fa fa-download" title="Show Certificate" aria-label="Show Certificate"></span></a>
+    </a>
     {% include post-tags.html post=page %}
   </div>
 
