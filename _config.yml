@@ -54,6 +54,18 @@ collections:
   certificates:
     output: true
 
+defaults:
+  -
+    scope:
+      path: "_certificates"
+    values:
+      sitemap: false
+  -
+    scope:
+      path: "files"
+    values:
+      sitemap: false
+
 disqus:
   shortname: sihagmnis36-github-io
 
