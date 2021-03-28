@@ -10,7 +10,7 @@ In RdKit, the method `SetProp` is used to set an atomic property for the atoms i
 For this article, we'll look at three different ways to show atom numbers. We'll take the example of Benzamide to show the modifications.
 <img style="margin: auto" src="/_images/benzamide.svg">
 
-First of all import the necessary packages
+First of all import the necessary packages:
 ```python
 from rdkit import Chem
 from rdkit.Chem.Draw import IPythonConsole
@@ -30,7 +30,7 @@ for i, atom in enumerate(mol.GetAtoms()):
 
 mol
 ```
-And the molecule, now ,will look like:
+And the molecule, now, will look like:
 <img style="margin: auto" src="/_images/numbered-atoms-benzamide.svg">
 
 #### 2. Custom labels in place of the atoms
@@ -51,7 +51,7 @@ The molecule will change as:
 <img style="margin: auto" src="/_images/labeled-atoms-benzamide.svg">
 
 #### 3. Atom numbers on top of the atoms
-Both the previous methods had one issue: they became too crowded. A better way to annotate the atoms is by showing the numbers separate from the atomic symbols. To achieve this, set the `atomNote` property of the atoms to a desired value.
+Both the previous methods have two issues: First, it can become overly crowded at times when adding the atom numbers and second, the visual appeal goes away. A better way to annotate the atoms is by showing the numbers separate from the atomic symbols. To achieve this, set the `atomNote` property of the atoms.
 
 ```python
 # Create an rdkit mol object
@@ -68,7 +68,7 @@ And we'll get a much cleaner look for the molecule:
 <img style="margin: auto" src="/_images/noted-atoms-benzamide.svg">
 
 #### Summary
-In this article, we saw three different ways to annotate atoms in RdKit. The annotation doesn't have to be a number but can be any label. This method is also useful when you want to annotate only a selected atoms. Let's say that you want to mark only the Nitrogen atom with a label `Nitrogen`. You can achieve this as follows:
+In this article, we saw three different ways to annotate atoms in RdKit. The annotation doesn't have to be a number but can be any label. This method is also useful when you want to annotate only a selected atoms. Let's say that you want to mark only the Nitrogen atom with a label, say `Nitrogen`. You can achieve this as follows:
 
 ```python
 mol = Chem.MolFromSmiles('c1ccccc(C(N)=O)1')
@@ -79,4 +79,4 @@ mol
 ```
 <img style="margin: auto" src="/_images/n-marked-benzamide.svg">
 
-And that's it for this article. If you have any doubts, feel free to post them in the comments and I'll try to help you out.
+And that's it for this article. If you have any doubts/suggestions/criticism, feel free to post them in the comments. Until next time.
