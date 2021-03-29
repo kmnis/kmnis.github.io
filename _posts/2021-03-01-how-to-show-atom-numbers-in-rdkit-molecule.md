@@ -2,6 +2,10 @@
 layout: post
 title: How to show atom numbers in a RdKit molecule (or how to label atoms in a rdkit molecule)
 excerpt_separator: <!--more-->
+image: /_images/benzamide.svg
+show_main_img_in_blog: false
+author: Manish Sihag
+summary: In RdKit, the method SetProp is used to set an atomic property for the atoms involved in the molecule. This method takes two arguments - the peroperty to set and its value. The idea is simple - Create an rdkit mol object from SMILES string, iterate over the atoms, and set the desired property to a custom value.
 tags:
   - RdKit
 ---

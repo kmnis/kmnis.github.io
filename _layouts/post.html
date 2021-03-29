@@ -13,8 +13,8 @@ layout: default
   <br/>
 
   <div class="post-body" style="text-align: justify;">
-    {% if page.img_src %}
-      <img width=100% src={{page.img_src}} />
+    {% if page.image and page.show_main_img_in_blog != false%}
+      <img width=100% src={{page.image}} />
     {% endif %}
     {{ content }}
   </div>

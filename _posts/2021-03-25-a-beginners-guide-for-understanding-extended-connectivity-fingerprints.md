@@ -4,7 +4,9 @@ title: A beginner's guide for understanding Extended-Connectivity Fingerprints(E
 excerpt_separator: <!--more-->
 tags:
   - Cheminformatics
-img_src: https://cdn.pixabay.com/photo/2018/06/02/08/35/books-3447976_960_720.jpg
+  - Molecular Fingerprints
+  - RdKit
+image: https://cdn.pixabay.com/photo/2018/06/02/08/35/books-3447976_960_720.jpg
 ---
 <!-- <blockquote style="margin-bottom: 30px">
 Any alternative viewpoint with a different emphasis leads to an inequivalent description. There is only one reality but there are many viewpoints. It would be very narrowminded to use only one: we have to learn to be able to imagine several.

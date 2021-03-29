@@ -5,7 +5,7 @@ remote_theme:     fongandrew/hydeout
 
 # Setup
 title:            ChemicBook
-tagline:          'Where Chemistry Meets AI'
+tagline:          'Chemistry Meets Data Science'
 description:      'Chemistry Meets Data Science' # 'What happens when the world of Chemistry meets the world of Data Science?'
 url:              https://chemicbook.com
 # baseurl:          '/'
@@ -28,18 +28,21 @@ plugins:
   - jekyll-gist
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 gems:
   - jekyll-feed
   - jekyll-gist
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 whitelist:
   - jekyll-feed
   - jekyll-gist
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 include: ['_images']
 # Sidebar link settings
@@ -70,3 +73,6 @@ disqus:
   shortname: sihagmnis36-github-io
 
 google_analytics: UA-177002244-1
+
+twitter:
+  username: sihagmnis36

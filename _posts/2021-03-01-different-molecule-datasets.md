@@ -2,6 +2,7 @@
 layout: post
 title: Introduction to different datasets available in Computational Chemistry
 excerpt_separator: <!--more-->
+image: https://azure.microsoft.com/svghandler/open-datasets/?width=600&height=315
 ---
 
 ### Introduction
