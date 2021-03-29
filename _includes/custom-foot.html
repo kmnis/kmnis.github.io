@@ -1,34 +1,16 @@
-<form
-    style="margin-top:2rem; border:none;padding:0px;text-align:center;"
-    action="https://feedburner.google.com/fb/a/mailverify"
-    method="post" target="popupwindow"
-    onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=Chemicbook', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
-    <p>Enter your email address:</p>
-    <p><input type="text" style="width:250px" name="email"/></p>
-    <input type="hidden" value="Chemicbook" name="uri"/>
-    <input type="hidden" name="loc" value="en_US"/>
-    <input type="submit" value="Subscribe" />
-    <p>Delivered by <a href="https://feedburner.google.com" target="_blank">FeedBurner</a></p>
-</form>
-<p style="text-align: center; margin: 0 0 1rem 0;">
+<div class="newsletter-container">
+    <h4 class="newsletter-title">Subscribe</h4>
+    <form class="newsletter-form"
+        action="https://feedburner.google.com/fb/a/mailverify"
+        method="post" target="popupwindow"
+        onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=Chemicbook', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+        <p>Get new posts directly to your inbox</p>
+        <input type="hidden" value="Chemicbook" name="uri"/>
+        <input type="hidden" name="loc" value="en_US"/>
+        <input class="newsletter-email" type="text" name="email" placeholder="name@example.com"/>
+        <input class="newsletter-submit" type="submit" value="Subscribe" />
+    </form>
+</div>
+<p class="footer-text">
     Manish Sihag  •  chemicbook.com
 </p>
-<!-- <div style="text-align: center;">Reach out to me on</div>
-<div style="text-align: center">
-    <a href="https://www.linkedin.com/in/manish-sihag/" style="color: inherit" title="Linkedin" aria-label="Linkedin">
-        <span class="fa fa-linkedin-square"></span>
-    </a>&nbsp;&nbsp;
-    <a href="https://www.github.com/mnis/" style="color: inherit" title="Github" aria-label="Github">
-        <span class="fa fa-github"></span>
-    </a>&nbsp;&nbsp;
-    <a href="https://www.instagram.com/mni.z/" style="color: inherit" title="Instagram" aria-label="Instagram">
-        <span class="fa fa-instagram"></span>
-    </a>&nbsp;&nbsp;
-    <a href="mailto:sihagmanish36@gmail.com" style="color: inherit" title="Email" aria-label="Email">
-        <span class="fa fa-envelope"></span>
-    </a>&nbsp;&nbsp;
-    <a href="https://stackoverflow.com/users/9865225/mnis/" style="color: inherit" title="Stackoverflow"
-        aria-label="Stackoverflow">
-        <span class="fa fa-stack-overflow"></span>
-    </a>
-</div> -->
