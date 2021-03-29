@@ -76,3 +76,9 @@ google_analytics: UA-177002244-1
 
 twitter:
   username: sihagmnis36
+
+# Select which share links to show in posts
+share-links-active:
+  twitter: true
+  facebook: true
+  linkedin: true

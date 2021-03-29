@@ -2,6 +2,8 @@
 layout: post
 title: A beginner's guide for understanding Extended-Connectivity Fingerprints(ECFPs)
 excerpt_separator: <!--more-->
+author: Manish Sihag
+social-share: true
 tags:
   - Cheminformatics
   - Molecular Fingerprints

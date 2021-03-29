@@ -2,6 +2,11 @@
 layout: post
 title: Introduction to different datasets available in Computational Chemistry
 excerpt_separator: <!--more-->
+author: Manish Sihag
+social-share: true
+tags:
+  - Cheminformatics
+  - Datasets
 image: https://azure.microsoft.com/svghandler/open-datasets/?width=600&height=315
 ---
 

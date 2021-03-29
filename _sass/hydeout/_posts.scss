@@ -81,6 +81,13 @@ article + *,
   margin-top: -0.5rem;
 }
 
+.post-author {
+  color: $body-muted;
+  margin-bottom: 1rem;
+  margin-top: -0.5rem;
+  // float: right
+}
+
 .post,
 .page {
   .content li + li {

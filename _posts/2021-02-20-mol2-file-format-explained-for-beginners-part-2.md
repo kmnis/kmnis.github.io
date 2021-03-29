@@ -2,6 +2,8 @@
 layout: post
 title: Mol2 file format explained for beginners (Cheminformatics Part 2)
 excerpt_separator: <!--more-->
+author: Manish Sihag
+social-share: true
 tags:
   - Cheminformatics
 ---

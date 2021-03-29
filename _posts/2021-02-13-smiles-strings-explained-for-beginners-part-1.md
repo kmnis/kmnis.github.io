@@ -2,6 +2,8 @@
 layout: post
 title: SMILES strings explained for beginners (Cheminformatics Part 1)
 excerpt_separator: <!--more-->
+author: Manish Sihag
+social-share: true
 tags:
   - Cheminformatics
 ---
