@@ -15,7 +15,9 @@ layout: default
       </a>
     </h2>
     {% include post-meta.html post=post %}
-
+    {% if post.img_src %}
+      <img class="blog-list-img" src={{post.img_src}} />
+    {% endif %}
     {% if post.excerpt %}
       {{ post.excerpt }}
     {% else %}

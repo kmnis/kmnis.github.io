@@ -91,3 +91,10 @@ article + *,
 button.disqus-load {
   margin-top: 1em;
 }
+
+@media (min-width: $large-breakpoint) {
+  .blog-list-img {
+    max-height: 200px;
+    float: right
+  }
+}

@@ -13,6 +13,9 @@ layout: default
   <br/>
 
   <div class="post-body" style="text-align: justify;">
+    {% if page.img_src %}
+      <img width=100% src={{page.img_src}} />
+    {% endif %}
     {{ content }}
   </div>
 
