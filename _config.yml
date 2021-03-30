@@ -82,3 +82,14 @@ share-links-active:
   twitter: true
   facebook: true
   linkedin: true
+
+# authors:
+#       mnis:
+#         display_name: Manish Sihag
+#         about: Manish is a Chemical Engineering graduate from IIT Bombay. He is the author of this website and is motivated to bring together the field of Chemistry with Data Science.
+#         email: mailto:chemicbook@chemicbook.com
+#         web: http://chemicbook.com
+#         facebook: https://www.facebook.com/manish.sihag.792
+#         twitter: https://twitter.com/sihagmnis36
+#         github: https://github.com/sihagmnis36
+#         gravatar: https://aganitha.ai/company/team/manish//Manish.jpg

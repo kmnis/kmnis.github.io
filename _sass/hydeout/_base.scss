@@ -133,9 +133,10 @@ input[type='submit'] {
   text-transform: uppercase;
 }
 .newsletter-text {
-  font-weight: 600;
+  font-weight: none;
   color: #ddd;
-  text-align: center;
+  text-align: right;
+  font-size: 0.8rem !important;
 }
 
 .newsletter-email, .newsletter-submit {
