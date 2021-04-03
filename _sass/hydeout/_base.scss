@@ -127,7 +127,7 @@ input[type='submit'] {
   text-align:center;
 }
 .newsletter-title {
-  font-size: 1.5em;
+  font-size: 1.5em !important;
   margin: 0;
   color: rgba(255, 255, 255, 0.75) !important;
   text-transform: uppercase;
@@ -188,4 +188,101 @@ input[type='submit'] {
 .footer-text {
   text-align: center;
   margin: 0 0 1rem 0;
+}
+
+#social-share-section {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  line-height: 1.42857143;
+  // font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 18px;
+  color: #404040;
+  box-sizing: border-box;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.sr-only {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  line-height: 1.42857143;
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 18px;
+  color: #404040;
+  box-sizing: border-box;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+.btn-social-icon {
+  position: relative;
+  padding-left: 44px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 34px;
+  width: 34px;
+  padding: 0;
+}
+
+.social-share-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin: auto 5px 0 5px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  // border: 1px solid transparent;
+  border-radius: 25px;
+}
+
+.btn-social-icon>:first-child {
+  border: none;
+  text-align: center;
+  width: 100% !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 32px;
+  line-height: 34px;
+  font-size: 1.6em;
+  text-align: center;
+  border-right: 1px solid rgba(0,0,0,0.2);
+}
+
+.twitter-share {
+  color: #fff;
+  background-color: #55acee;
+  border-color: rgba(0,0,0,0.2);
+}
+
+.facebook-share {
+  color: #fff;
+  background-color: #3b5998;
+  border-color: rgba(0,0,0,0.2);
+}
+
+.linkedin-share {
+  color: #fff;
+  background-color: #007bb6;
+  border-color: rgba(0,0,0,0.2);
 }
