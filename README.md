@@ -1,4 +1,4 @@
-# Portfolio
+# Blog
 
 [chemicbook.com](https://chemicbook.com/)
 
