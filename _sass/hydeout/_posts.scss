@@ -104,3 +104,23 @@ button.disqus-load {
     float: right
   }
 }
+
+@media only screen and (max-width: $large-breakpoint) {
+  .table-1-gcn, .table-2-gcn{
+    width: 100% !important
+  }
+}
+
+.table-1-gcn{
+  float: left;
+  width: 48%;
+  margin-right: 1rem
+}
+
+.table-2-gcn{
+  width: 48%;
+}
+
+iframe[src*="ads-iframe"], #disqus_recommendations {
+  display: none !important;
+}
