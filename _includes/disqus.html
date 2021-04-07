@@ -1,8 +1,6 @@
 {% if site.disqus.shortname %}
   <div id="disqus_thread">
-    <button class="disqus-load" onClick="loadDisqusComments()">
-      Load Comments
-    </button>
+    
   </div>
   <script>
 
@@ -16,13 +14,13 @@
     this.page.url = "{{ page.url | absolute_url }}";
     this.page.identifier = "{{ page.guid or page.id }}" ||
                            "{{ page.url | absolute_url }}";
-  }
-  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
     var d = document, s = d.createElement('script');
     s.src = '//{{ site.disqus.shortname }}.disqus.com/embed.js';
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
-  }
+  })();
   </script>
   <noscript>
     Please enable JavaScript to view the
