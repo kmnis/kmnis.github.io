@@ -8,7 +8,8 @@ tags:
   - Cheminformatics
   - Molecular Fingerprints
   - RdKit
-image: https://cdn.pixabay.com/photo/2018/06/02/08/35/books-3447976_960_720.jpg
+image: /_images/3447976.jpg
+image_caption: https://cdn.pixabay.com/photo/2018/06/02/08/35/books-3447976_960_720.jpg
 ---
 <!-- <blockquote style="margin-bottom: 30px">
 Any alternative viewpoint with a different emphasis leads to an inequivalent description. There is only one reality but there are many viewpoints. It would be very narrowminded to use only one: we have to learn to be able to imagine several.
@@ -166,7 +167,7 @@ To identify such duplicates, each identifier keeps track of the set of bonds tha
 
 This list of bonds effectively defines the substructure within the molecule that is covered by the newly generated feature. Before the newly generated features from an iteration are appended to the fingerprint set, they are checked to see if any structural duplicates exist to either previously generated features or newly discovered features.
 
-So, after removing such duplicates, out fingerprint set will finally be:
+So, after removing such duplicates, our fingerprint set will finally be:
 ```
 [-4080868480043360372, 8311098529014133067, -2155244659601281804, -3602994677767288312, 8573586092015465947, -3879702859024654160, 2648074263463118673, 9209025387859845960, 3790237506519639747, -8399737669368778010, 3271801898087186516, -8234949431280515543, -5902629546112570760, -3660103599533977242]
 ```
@@ -216,4 +217,4 @@ Of course. In the initialization step, you can add any custom features you want 
 
 ### References and Further Reading
 - <a style="overflow-wrap: break-word" target="_blank" href="https://pubs.acs.org/doi/10.1021/ci100050t">Rogers, D., & Hahn, M. (2010). Extended-Connectivity Fingerprints. Journal of Chemical Information and Modeling, 50(5), 742–754. doi:10.1021/ci100050t </a>
-- <a style="overflow-wrap: break-word" target="_blank" href="https://docs.chemaxon.com/display/docs/extended-connectivity-fingerprint-ecfp.md#src-1806333-extendedconnectivityfingerprintecfp-references">https://docs.chemaxon.com/display/docs/extended-connectivity-fingerprint-ecfp.md</a>
+- <a style="overflow-wrap: break-word" target="_blank" href="https://docs.chemaxon.com/display/docs/extended-connectivity-fingerprint-ecfp.md">https://docs.chemaxon.com/display/docs/extended-connectivity-fingerprint-ecfp.md</a>

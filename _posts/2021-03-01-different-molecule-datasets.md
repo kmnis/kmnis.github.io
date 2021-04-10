@@ -7,7 +7,8 @@ social-share: true
 tags:
   - Cheminformatics
   - Datasets
-image: https://azure.microsoft.com/svghandler/open-datasets/?width=600&height=315
+image: /_images/datasets.png
+image_caption: https://azure.microsoft.com/svghandler/open-datasets
 ---
 
 ### Introduction

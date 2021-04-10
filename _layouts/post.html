@@ -14,7 +14,12 @@ layout: default
 
   <div class="post-body">
     {% if page.image and page.show_main_img_in_blog != false%}
-      <img width=100% src={{page.image}} />
+      <figure style="margin: auto 0 1rem 0;">
+        <img style="margin-bottom: 0.2rem;" width=100% src={{page.image}} />
+        {% if page.image_caption %}
+          <figcaption style="font-size: 0.55rem; text-align: center;">Image Source: {{page.image_caption}}</figcaption>
+        {% endif %}
+      </figure>
     {% endif %}
     {{ content }}
   </div>

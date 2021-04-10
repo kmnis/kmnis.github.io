@@ -8,22 +8,6 @@ tags:
   - Cheminformatics
 ---
 
-<!-- - SMILES
-- mol2
-- InChi/InChiKey
-- Open Babel
-- JSME
-- RdKit
-- DeepChem
-- Atomic Features
-- Bond Features
-- Adjacency Matrix
-- ECFP Fingerprints
-- DFT Properties (Optional)
-- NWChem (Optional)
-- VMD (Optional)
-- GCN -->
-
 Welcome to the first article in the 10 part [Cheminformatics for Beginners](/tags.html#cheminformatics) series. This blog will introduce you to the SMILES string notation in cheminformatics.
 
 ### Introduction
