@@ -124,3 +124,9 @@ button.disqus-load {
 iframe[src*="ads-iframe"], #disqus_recommendations {
   display: none !important;
 }
+
+.horizontally-bound-table {
+  overflow-x: auto;
+  display: block;
+  white-space: nowrap;
+}

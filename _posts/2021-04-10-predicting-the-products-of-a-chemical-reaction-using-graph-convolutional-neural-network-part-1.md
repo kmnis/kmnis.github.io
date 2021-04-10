@@ -50,7 +50,7 @@ All features are one-hot encoded. (What's <a target="_blank" href="https://en.wi
 
 For the sake of simplicity, let's say only these four atoms `H`, `C`, `N`, and `O` are possible. Then, Table 1 shows the one-hot encoded matrix for the Phenol molecule. What about the Total degree of the atoms? Table 2 is the one-hot encoded matrix of degree values for Phenol.
 
-<div>
+<div class="horizontally-bound-table">
     <table class="table-1-gcn">
         <caption style="caption-side:top;">Table 1</caption>
         <thead>
@@ -224,85 +224,87 @@ The bond is in conjugation with the aromatic ring so, the value is `1`. and it's
 ```
 Similarly, all bonds can be featurized. Table 3 summarizes the complete edge feature list:
 
-<table>
-    <caption style="caption-side:top;">Table 3</caption>
-    <thead>
-        <tr>
-            <th>Bond</th>
-            <th>SINGLE</th>
-            <th>DOUBLE</th>
-            <th>TRIPLE</th>
-            <th>AROMATIC</th>
-            <th>IsConjugated</th>
-            <th>IsInRing</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>b1</td>
-            <td>1</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <td>b2</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>b3</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>b4</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>b5</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>b6</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>b7</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-    </tbody>
-</table>
+<div class="horizontally-bound-table">
+    <table>
+        <caption style="caption-side:top;">Table 3</caption>
+        <thead>
+            <tr>
+                <th>Bond</th>
+                <th>SINGLE</th>
+                <th>DOUBLE</th>
+                <th>TRIPLE</th>
+                <th>AROMATIC</th>
+                <th>IsConjugated</th>
+                <th>IsInRing</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>b1</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>b2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>b3</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>b4</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>b5</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>b6</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>b7</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 ### Structuring the problem
 Now, we know how nodes and edges are featurized, let's briefly explain how is this problem structured and the complete prediction process. Coley et al. designed their model architecture to reflect the methodology used by the actual lab scientists. There are majorly four steps are involved in the process:
