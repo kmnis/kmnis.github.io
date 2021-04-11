@@ -311,7 +311,7 @@ Now, we know how nodes and edges are featurized, let's briefly explain how is th
 1. First step is what we have already discussed. Given a SMILES string for a molecule, the atoms and bonds are featurized to create a graph. See arrow 1 in the following figure. (What's a SMILES string? Learn about it <a target="_blank" href="https://chemicbook.com/2021/02/13/smiles-strings-explained-for-beginners-part-1.html">here</a>)
 2. Next, a model is trained that learns to identify all possible sites of reactivity. This is analogous to lab scientists identifying the reactive functional groups in the reactants and reagents.
 3. After the second step, the model has given us a list of pairs of atoms that are most likely to form a bond or break an existing one. In this step, the authors enumerate to form all possible products from these bond changes and eliminate the ones which violate the valence rule. For example, see step D in the following figure where three of the products formed are invalid because of various atoms forming more bonds than their valence rule allowed.
-4. Lastly, another model is trained to assign a probability to each of these formed products. The candidate with the highest score can be treated as a major product while the ones with the lower score can act as possible side products.
+4. Lastly, another model is trained to assign a probability to each of these formed products. The candidate with the highest score can be treated as a major product while the ones with the lower score can sometimes help identify impurities (possible side products).
 
 <figure style="margin: auto 0 1rem 0;">
     <img style="margin: auto auto 0.2rem auto" src="/_images/c8sc04228d-f1_hi-res.gif">
