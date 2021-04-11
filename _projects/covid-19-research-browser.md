@@ -3,11 +3,11 @@ layout: project
 title: COVID-19 Research Browser
 start_date: '2020-07-30'
 end_date: '2020-08-24'
-permalink: /projects/covid-browser
+permalink: /projects/covid-19-research-browser
 related_projects: 
     - ADMET Properties Prediction
 related_projects_url: 
-    - admet-properties-predictor
+    - admet-properties-prediction
 tags: 
     - covid-19
     - drug-discovery
@@ -16,6 +16,7 @@ tags:
     - Neo4j
     - Graphql
 project_sort_order: 0
+author: Manish Sihag
 ---
 
 <p style="text-align: justify">The coronavirus pandemic has caused enormous health, economic, environmental, and social challenges to the entire human population. The entire research community is working tirelessly for a vaccine but it could take up to a few years before there's any solution available.</p>

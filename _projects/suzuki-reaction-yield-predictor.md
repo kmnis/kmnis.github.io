@@ -1,9 +1,9 @@
 ---
 layout: project
-title: Chemical Reaction Yield Predictor
+title: Suzuki Reaction Yield Predictor
 start_date: '2019-04-03'
 end_date: '2019-11-15'
-permalink: /projects/chemical-reaction-yield-predictor
+permalink: /projects/suzuki-reaction-yield-predictor
 tags: 
     - drug-discovery
     - GCN
@@ -11,6 +11,7 @@ tags:
     - deep-learning
     - quantum-computations
 project_sort_order: 3
+author: Manish Sihag
 ---
 
 <p style="text-align: justify">After getting the right products for a chemical reaction, chemists need to know how much of a product will form. Getting the actual yield of a reaction is needed for drug synthesis planning and is quite advantageous to decide on whether a synthesis path is to be preferred or avoided.</p>
