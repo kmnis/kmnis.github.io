@@ -24,6 +24,9 @@ In 2018, Coley et al. published a research paper titled <a target="_blank" href=
 ### How does scientists approach this problem in a lab?
 There are majorly two steps involved in the process: first identifying all possible sites of reactivity and then evaluating their relative likelihood of a reaction. In other words, first, find all the atoms that are most likely to form (or break) a bond and then compare them to find the most reactive site.
 
+### Dataset
+The authors used reactions from United States Patent and Trademark Office (USPTO) granted patents. After removing duplicates and erroneous reactions, the authors obtained a set of 480K reactions. Further, the dataset was divided into 400K, 40K, and 40K for training, testing, and validation purposes, respectively.
+
 ### Representing molecules in a graph
 In any machine learning approach, featurizing the data is a very crucial step. In this task, we need to find a way to represent molecules in a way that both computer and the Graph Convolutional Network (GCN) model can understand. GCN is a powerful neural network architecture for machine learning on graphs. A graph consists of two elements: nodes and edges. For this task, atoms act as nodes, and the bonds between them as edges. Further, each node and edge can have properties. For example, in this case, atoms' properties will be the properties of the nodes and bonds' properties the features for the edges. Let's take the example of Phenol. This is a Phenol molecule:
 <img style="margin: auto" src="/_images/labeled-phenol.svg">
@@ -315,8 +318,14 @@ Now, we know how nodes and edges are featurized, let's briefly explain how is th
 
 <figure style="margin: auto 0 1rem 0;">
     <img style="margin: auto auto 0.2rem auto" src="/_images/c8sc04228d-f1_hi-res.gif">
-    <figcaption style="font-size: 0.55rem; text-align: center;">Image Source: Coley et al.</figcaption>
+    <figcaption style="font-size: 0.75rem; text-align: center;">Image Source: Coley et al.</figcaption>
 </figure>
 
 ### But how does it really work?
 So far we have seen how the nodes and edges are featurized and how the task is structured to make the predictions. But how does the graph network actually work? How does it learn to decide the products? We'll jump into that in the second part of this series.
+
+Checkout Part 2 <a href="/2021/04/11/predicting-the-products-of-a-chemical-reaction-using-graph-convolutional-neural-network-part-2.html">here</a>.
+
+### References and Further Reading
+- <a style="overflow-wrap: break-word" target="_blank" href="https://doi.org/10.1039/C8SC04228D">Coley, Connor W.; Jin, Wengong; Rogers, Luke; Jamison, Timothy F.; S Jaakkola, Tommi; Green, William H.; et al. (2018): A Graph-Convolutional Neural Network Model for the Prediction of Chemical Reactivity.</a>
+- <a style="overflow-wrap: break-word" target="_blank" href="https://github.com/connorcoley/rexgen_direct">Template-free prediction of organic reaction outcomes using graph convolutional neural networks</a>
