@@ -25,7 +25,7 @@ In this blog, we'll jump into the inner working of the GCN model and see how the
 ### Predicting the reactive sites
 A chemical reaction, in this problem, is interpreted as a set of changes in bond order in a collection of reactant molecules. In other words, all the reactants and reagents for a reaction are treated as one big graph. Break some bonds, form some bonds: The resultant state of the graph is products. Confused? Okay, let's look at an example. Consider the following reaction:
 
-<p style="text-align: center">A-B + C-D &#129042; A-D + C-B</p>
+<p style="text-align: center">AB + CD &#129042; AD + CB</p>
 
 And, the reactant graph is represented as below. There are single bonds between the pairs (A, B), and (C, D) and 0 bonds (no bond) between the pair of (A, C), (A, D), (B, C), and (B, D).
 
