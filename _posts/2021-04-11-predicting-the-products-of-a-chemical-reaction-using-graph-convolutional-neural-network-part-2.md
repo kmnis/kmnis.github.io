@@ -4,7 +4,7 @@ title: Predicting the products of a chemical reaction using graph-convolutional 
 excerpt_separator: <!--more-->
 author: Manish Sihag
 social-share: true
-image: /_images/10504333.jpg
+image: /_images/10504.jpg
 image_caption: <a href='https://www.freepik.com/vectors/school'>School vector created by pch.vector - www.freepik.com</a>
 tags:
   - Cheminformatics
