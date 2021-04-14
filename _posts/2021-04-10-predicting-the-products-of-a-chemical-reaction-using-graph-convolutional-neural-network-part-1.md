@@ -328,4 +328,4 @@ Checkout Part 2 <a href="/2021/04/11/predicting-the-products-of-a-chemical-react
 
 ### References and Further Reading
 - <a style="overflow-wrap: break-word" target="_blank" href="https://doi.org/10.1039/C8SC04228D">Coley, Connor W.; Jin, Wengong; Rogers, Luke; Jamison, Timothy F.; S Jaakkola, Tommi; Green, William H.; et al. (2018): A Graph-Convolutional Neural Network Model for the Prediction of Chemical Reactivity.</a>
-- <a style="overflow-wrap: break-word" target="_blank" href="https://github.com/connorcoley/rexgen_direct">Template-free prediction of organic reaction outcomes using graph convolutional neural networks</a>
+- Python and TensorFlow implementation of this paper is available <a style="overflow-wrap: break-word" target="_blank" href="https://github.com/connorcoley/rexgen_direct">here</a>.
