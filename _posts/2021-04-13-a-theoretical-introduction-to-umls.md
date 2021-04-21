@@ -51,7 +51,7 @@ You can read more about Metathesaurus <a target="_blank" href="https://www.ncbi.
 #### Semantic Network
 Towards the end of the previous section, notice that we tried to classify the concepts into a few categories. For example, "Abdominal Pain" and "Blushing" are classified as Signs or symptoms while "Aged, 80 and over" and "Child" are classified as Age Groups. Similarly, every concept in the Metathesaurus is assigned at least one such category. These categories are called Semantic Types.
 
-Similarly, the relationships between Semantic Types are called Semantic Relationships. As an example, take the Semantic Types "Human" and "Mammal". These are connected by an "isa" (Human is a Mammal) relationship. Another example, "Anatomical Structure" is a "part of" organism. This network of relationships between concepts is called Semantic Network.
+The relationships between Semantic Types are called Semantic Relationships. As an example, take the Semantic Types "Human" and "Mammal". These are connected by an "isa" relationship (Human is a Mammal). Another example, "Anatomical Structure" is a "part of" "Organism". This network of relationships between concepts is called Semantic Network.
 
 The purpose of the Semantic Network is to provide a consistent categorization of all concepts represented in the UMLS Metathesaurus and to provide a set of useful relationships between these concepts.
 
