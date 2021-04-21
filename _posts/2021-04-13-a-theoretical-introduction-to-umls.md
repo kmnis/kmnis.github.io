@@ -11,7 +11,7 @@ tags:
   - UMLS
 ---
 
-We'll split the introduction to UMLS into two parts: theoretical and technical. The blog will cover the theoretical part explaining the theory behind UMLS while the next blog will cover technical aspects of UMLS assuming that you have a running instance of the database. Feel free to read through one or both of the blogs, depending on your requirements.
+We'll split the introduction to UMLS into two parts: theoretical and technical. This blog will cover the theoretical part explaining the theory behind UMLS while the next blog will cover technical aspects of UMLS assuming that you have a running instance of the database. Feel free to read through one or both of the blogs, depending on your requirements.
 
 <!--more-->
 
