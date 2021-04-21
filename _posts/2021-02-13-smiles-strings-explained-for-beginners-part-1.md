@@ -276,7 +276,7 @@ The order in which ions or ligands are listed is arbitrary. There is no implied 
   </tbody>
 </table>
 
-### Cons of SMILES string
+### Disadvantages of a SMILES string
 - As we saw earlier, there can be multiple ways to write a SMILES string for a molecule. So the SMILES string are not unique
 - It doesn't provide information about positions of each atom in space, typically with X, Y, and Z cartesian coordinates
 

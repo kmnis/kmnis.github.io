@@ -5,7 +5,7 @@ excerpt_separator: <!--more-->
 author: Manish Sihag
 social-share: true
 image: /_images/10504.jpg
-image_caption: <a href='https://www.freepik.com/vectors/school'>School vector created by pch.vector - www.freepik.com</a>
+image_caption: <a href='https://www.freepik.com/vectors/school'>pch.vector - Freepik</a>
 tags:
   - Cheminformatics
   - Research Explained

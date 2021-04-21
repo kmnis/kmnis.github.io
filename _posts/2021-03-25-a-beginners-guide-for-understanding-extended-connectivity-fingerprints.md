@@ -11,26 +11,10 @@ tags:
 image: /_images/3447976.jpg
 image_caption: https://cdn.pixabay.com/photo/2018/06/02/08/35/books-3447976_960_720.jpg
 ---
-<!-- <blockquote style="margin-bottom: 30px">
-Any alternative viewpoint with a different emphasis leads to an inequivalent description. There is only one reality but there are many viewpoints. It would be very narrowminded to use only one: we have to learn to be able to imagine several.
-<br/><br/>
-<cite>Hans Primas</cite>
-</blockquote> -->
-
-<!-- A molecular descriptor can be thought of as a mythological animal having several different meanings which depend on one’s point of view. -->
-
-<!-- Although, experimental measurements would be the most direct way of obtaining safe and high-quality information to represent molecules, the time, costs, and hazards involved in the experimentation are the major limiting factors. Molecular descriptors, on the other hand, are much easier to compute. But it is obvious - almost trivial - that a single descriptor or a small number of numbers cannot wholly represent the molecular complexity or model all the physicochemical responses and biological interactions. As a consequence, although we must get used to living with approximate models, we have to keep in mind that "approximate" is not a synonym of "useless". -->
 
 Extended-Connectivity Fingerprints(ECFPs) are a type of molecular fingerprint explicitly designed to capture molecular features relevant to molecular activity. They are among the most popular similarity search tools in drug discovery and they are effectively used in a wide variety of applications.
 
 <!--more-->
-
-<!-- ### Applications
-One of the major applications of ECFPs is in the area of high-throughput screening (HTS). In the evaluation of HTS results, ECFPs are widely used to analyze false positive and/or false-negative hits. Furthermore, ECFPs are frequently applied in ligand-based virtual screening studies to distinguish between actives and inactives. Comprehensive studies revealed that these circular fingerprints are typically among the best performing search tools.
-
-Various other areas of drug research related to similarity searching, including chemical clustering and compound library analysis, successfully utilize the rich information encoded in these fingerprints.
-
-Besides similarity searching, ECFPs are well suited to the recognition of the presence or absence of particular substructures. -->
 
 ### ECFP Generation Process
 There are four steps involved in generating ECFP features for a molecule. First, we'll explain them briefly by using the example of Benzamide and then go into details in a later part.

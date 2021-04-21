@@ -13,7 +13,9 @@ image_caption: https://azure.microsoft.com/svghandler/open-datasets
 
 ### Introduction
 The advances in Machine Learning field have proven useful ranging from applications in Natural Language Processing to Computer Vision. These remarkably successful demonstrations have drawn high interests from the physical and biological science communities.
+
 <!--more-->
+
 For instance, ML-enhanced abilities to predict molecular properties with high precision, efficient generations of novel molecular structures, and better strategies in synthesis planning and rectrosynthesis will significantly accelerate drug design and novel material discovery. However, the scarcity of high-quality datasets and the lack of transferability of ML techniques impede the wide-scale adoption of molecular ML techniques in practice.
 
 Here, I introduce a collection of most common datasets which can be used in the field.

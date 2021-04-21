@@ -14,6 +14,7 @@ Welcome to the second blog in the 10 part [Cheminformatics for Beginners](/tags.
 One major setback from the SMILES notation was that it could not provide the positions of each atom in space, typically with X, Y, and Z cartesian coordinates. Mol2 file solves this problem. It is a plain text tabular format that represents a single or multiple chemical compounds and holds atomic coordinates, chemical bond information, and metadata of a molecule.
 
 <!--more-->
+
 ### Anatomy of a mol2 file
 A mol2 file consists of multiple sections with each section containing a part of the information about the molecule. For example, the section `@<TRIPOS>ATOM` contains atomic coordinates, and the section `@<TRIPOS>BOND` contains information about how atoms are connected
 
