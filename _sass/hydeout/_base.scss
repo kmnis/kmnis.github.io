@@ -286,24 +286,3 @@ input[type='submit'] {
   background-color: #007bb6;
   border-color: rgba(0,0,0,0.2);
 }
-
-.fa-custom-twtr:before {
-  content: "\f099";
-}
-
-.fa-custom-lnkdn:before {
-  content: "\f0e1";
-}
-
-.fa-custom-fbk:before {
-  content: "\f09a";
-}
-
-.fa-icons {
-  display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
