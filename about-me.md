@@ -7,6 +7,27 @@ sidebar_sort_order: 2
 
 <p class="about-text"></p>
 
+<!-- A great way to get a layman's introduction to a topic is to find a chemist applying deep learning to one of the chemistry topics -->
+
+<!-- A Data Scientist trying to teach Chemistry
+
+A Chemical Engineer trying to teach Data Science -->
+
+<!-- <table style="background-color: white; border: none">
+  <tr style="background-color: white; border: none">
+    <td style="background-color: white; border: none">A Chemical Engineer turned Data Scientist</td>
+    <td style="background-color: white; border: none">A Data Scientist turned Chemical Engineer</td>
+  </tr>
+</table> -->
+
+<div style="margin-bottom: 1rem">
+  <div style="display: inline-block; font-size: 0.9rem">A Chemical Engineer turned Data Scientist</div>
+  <div class="hide-in-mobile" style="font-size: 0.9rem">•</div>
+  <div style="display: inline-block; font-size: 0.9rem">A Data Scientist turned Chemical Engineer</div>
+</div>
+
+---
+
 <p class="about-text">
   <span class="fa fa-user about-icon"></span>
   Hi 👋 My name is <b>Manish Sihag</b>
@@ -19,10 +40,10 @@ sidebar_sort_order: 2
   <span class="fa fa-briefcase about-icon"></span>
   I have <b>2yr+</b> of industry as well as research experience in the field of <b> Data Science</b> and <b>AI in drug discovery</b>
 </p>
-<p class="about-text">
+<!-- <p class="about-text">
   <span class="fa fa-file-text about-icon"></span>
   Checkout my CV here <a href="/files/resume.pdf" style="color: inherit"><span class="fa fa-download"></span></a>
-</p>
+</p> -->
 <p class="about-text">
   <span class="fa fa-code about-icon"></span>
   Programming languages/tools/softwares, I've worked with:
@@ -38,8 +59,8 @@ sidebar_sort_order: 2
   </div>
   <div style="float: left; width: 33%">
     <ul>
-      <li>ML</li>
-      <li>DS</li>
+      <li>SQL</li>
+      <li>Postgres</li>
       <li>Keras</li>
       <li>Java</li>
       <li>Graphql</li>
@@ -50,10 +71,10 @@ sidebar_sort_order: 2
     <ul>
       <li>R</li>
       <li>NLP</li>
-      <li>Lua</li>
+      <li>JavaScript</li>
       <li>Linux</li>
       <li>Matlab</li>
-      <li>Octave</li>
+      <li>RdKit</li>
     </ul>
   </div>
 </p>

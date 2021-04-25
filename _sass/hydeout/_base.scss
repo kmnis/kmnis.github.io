@@ -286,3 +286,15 @@ input[type='submit'] {
   background-color: #007bb6;
   border-color: rgba(0,0,0,0.2);
 }
+
+@media screen and (max-width: 600px) {
+  .hide-in-mobile {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .hide-in-mobile {
+    display: inline-block !important;
+  }
+}
