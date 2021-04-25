@@ -298,3 +298,12 @@ input[type='submit'] {
 .fa-custom-fbk:before {
   content: "\f09a";
 }
+
+.fa-icons {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
