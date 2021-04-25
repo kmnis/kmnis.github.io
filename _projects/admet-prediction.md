@@ -22,4 +22,4 @@ author: Manish Sihag
 <p style="text-align: justify">Beforehand knowledge of pharmacokinetic properties like Absorption(A) coefficient, Distribution coefficient(D), Metabolism rate(M), Excretion rate(E), Toxicity(T) and Bioavailability for potential drugs in drug discovery trials can save a significant amount of time and money resources for researchers.</p>
 
 <p style="text-align: justify">I developed different variations of Graph Convolutional Networks like
-<span style="color: #bf616a; background-color: #f9f9f9">Gated network</span>, <span style="color: #bf616a; background-color: #f9f9f9">Attention network</span> and <span style="color: #bf616a; background-color: #f9f9f9">Gated-Augmented-Attention Networks(GAGCNs)</span> for thr task. The models were able to distinguish between drugs with higher and lower values of properties like Bioavailability.</p>
+Gated network, Attention network and, Gated-Augmented-Attention Networks(GAGCNs) for the task. The models were able to distinguish between drugs with higher and lower values of properties like Bioavailability with 88% accuracy.</p>

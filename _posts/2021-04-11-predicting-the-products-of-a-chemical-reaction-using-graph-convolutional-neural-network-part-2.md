@@ -16,10 +16,9 @@ This is a continuation of a 2 part series in predicting the products of a chemic
 In part 1, we:
 1. First introduced the problem statement
 2. Then we saw how a molecule is represented in a graph network
-3. Next we looked into the node and edge features and how they're calculated
-4. And finally, briefly looked into how Coley et al. structured the problem
-
 <!--more-->
+3. Next we looked into the node and edge features and how they're calculated
+4. And finally, briefly looked into how Coley et al. structured the problem to make the final prediction
 
 In this blog, we'll jump into the inner working of the GCN model and see how the model actually work.
 
