@@ -1,8 +1,8 @@
 ---
 layout: project
 title: Suzuki Reaction Yield Predictor
-start_date: '2019-04-03'
-end_date: '2019-11-15'
+start_date: '2019-02-03'
+end_date: '2019-12-15'
 permalink: /projects/suzuki-reaction-yield-predictor
 tags: 
     - drug-discovery
@@ -19,3 +19,37 @@ author: Manish Sihag
 <p style="text-align: justify">This project was related to predicting the yield of a Suzuki class of chemical reactions given the actual product. This was an 11 month long, end-to-end project which included tasks from acquiring and cleaning data from various sources to deploying deep learning models on servers for client usage.</p>
 
 <p style="text-align: justify">With nearly 500+ machine learning and deep learning models trained, this project required steps from featurizing chemical molecules into numerical vectors to performing quantum computations.</p>
+
+### Structuring the problem
+1. Predicting the yield of reactions
+2. Classifying reactions into high- and low-yielding reactions
+3. Ranking a given list of reactions in the order of their yields
+
+### List of descriptors experimented with
+1. Occupancy descriptors
+2. Potential energy in a grid
+3. Unversal Force Field (UFF) parameters
+4. ECFP features
+5. Modified ECFP features
+6. DFT-based properties
+7. Atom Pair - Bond Pair (AP-BP) descriptors
+8. Functional Group decmposition
+9. Structural properties
+10. Experimental conditions
+
+### Different Models
+1. RandomForest
+2. XGBoost
+3. Feed Forward Neural Network
+4. Graph Convolutional Network
+5. Gated Graph Convolutional Network
+6. Attention Graph Convolutional Network
+7. Gated-Attention Graph Convolutional Network
+
+### Approaches
+1. A combination of atom level and molecule level properties
+2. Batching Strategies  
+    i. Random Batching  
+    ii. Balanced Batching  
+    iii. Ratio Balancing  
+    iv. Curriculum Training
