@@ -38,7 +38,7 @@ A Chemical Engineer trying to teach Data Science -->
 </p>
 <p class="about-text">
   <span class="fa fa-flask about-icon"></span>
-  I have <b>~3yrs</b> of industry-research experience in the field of <b>Data Science</b> and <b>AI in drug discovery</b>
+  I have <b>3yrs</b> of industry-research experience in the field of <b>Data Science</b> and <b>AI in drug discovery</b>
 </p>
 <p class="about-text">
   <span class="fa fa-briefcase about-icon"></span>
