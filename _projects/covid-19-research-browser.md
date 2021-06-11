@@ -30,4 +30,8 @@ author: Manish Sihag
 
 <p style="text-align: justify">COVID-19 research browser is aimed to help researchers navigate this fast-growing body of coronavirus literature to efficiently find relevant and up-to-date information. It's a search tool that can search among thousands of publications, authors, journals and show the relevant research.</p>
 
+<p style="text-align: justify">See this project in action <a href="https://covid.hub.aganitha.ai/research" target="_blank">here</a>.</p>
+
+<p style="text-align: justify">I also setup a similar pipeline for Rare Diseases and Cancer. See them in action <a href="https://rdhub.hub.aganitha.ai/research" target="_blank">here</a> and <a href="https://oncology-gu.hpc.aganitha.ai/research-browser" target="_blank">here</a>, respectively.</p>
+
 <p style="text-align: justify">I also worked on another version of this project where the research papers were not limited to COVID-19. This search engine included over 48 million papers, nearly 68 million authors, and over 50 thousand journals and yet the results could be fetched in less than a second. Another version included over 208 million papers, nearly 253 million authors and over 60 thousand journals, basically covering almost every paper written since the year 1800.</p>
