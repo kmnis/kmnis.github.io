@@ -20,14 +20,14 @@ author: Manish Sihag
 
 <p style="text-align: justify">With nearly 500+ machine learning and deep learning models trained, this project required steps from featurizing chemical molecules into numerical vectors to performing quantum computations.</p>
 
-#### Structuring the problem
+### Structuring the problem
 There were mainly three approaches tried to structure the problem:
 
 1. Predicting the yield of reactions
 2. Classifying reactions into high- and low-yielding reactions
 3. Ranking a given list of reactions in the order of their yields
 
-#### List of descriptors
+### List of descriptors
 Following descriptors were experimented in different combinations for modelling:
 
 1. Occupancy descriptors
@@ -41,7 +41,7 @@ Following descriptors were experimented in different combinations for modelling:
 9. Structural properties
 10. Experimental conditions
 
-#### Models
+### Models
 Many models were tried for the problem. Some of them includes:
 
 1. RandomForest
