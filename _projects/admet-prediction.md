@@ -23,3 +23,5 @@ author: Manish Sihag
 
 <p style="text-align: justify">I developed different variations of Graph Convolutional Networks like
 Gated network, Attention network and, Gated-Augmented-Attention Networks(GAGCNs) for the task. The models were able to distinguish between drugs with higher and lower values of properties like Bioavailability with 88% accuracy.</p>
+
+<p style="text-align: justify">The implementation code is propriety property of <a href="https://aganitha.ai/" target="_blank">Aganitha Cognitive Solutions</a>.</p>
