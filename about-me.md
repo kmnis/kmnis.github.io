@@ -38,7 +38,7 @@ A Chemical Engineer trying to teach Data Science -->
 </p>
 <p class="about-text">
   <span class="fa fa-briefcase about-icon"></span>
-  I have <b>2yr+</b> of industry as well as research experience in the field of <b> Data Science</b> and <b>AI in drug discovery</b>
+  I have <b>~3yrs</b> of industry-research experience in the field of <b>Data Science</b> and <b>AI in drug discovery</b>. I'm currently working as a <b>Data Scientist</b> at <a href="https://aganitha.ai/" target="_blank">Aganitha Cognitive Solutions</a>
 </p>
 <!-- <p class="about-text">
   <span class="fa fa-file-text about-icon"></span>
