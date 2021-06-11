@@ -21,11 +21,15 @@ author: Manish Sihag
 <p style="text-align: justify">With nearly 500+ machine learning and deep learning models trained, this project required steps from featurizing chemical molecules into numerical vectors to performing quantum computations.</p>
 
 ### Structuring the problem
+There were mainly three approaches tried to structure the problem:
+
 1. Predicting the yield of reactions
 2. Classifying reactions into high- and low-yielding reactions
 3. Ranking a given list of reactions in the order of their yields
 
-### List of descriptors experimented with
+### List of descriptors
+Following descriptors were experimented in different combinations for modelling:
+
 1. Occupancy descriptors
 2. Potential energy in a grid
 3. Unversal Force Field (UFF) parameters
@@ -37,7 +41,9 @@ author: Manish Sihag
 9. Structural properties
 10. Experimental conditions
 
-### Different Models
+### Models
+Many models were tried for the problem. Some of them includes:
+
 1. RandomForest
 2. XGBoost
 3. Feed Forward Neural Network
@@ -46,10 +52,4 @@ author: Manish Sihag
 6. Attention Graph Convolutional Network
 7. Gated-Attention Graph Convolutional Network
 
-### Approaches
-1. A combination of atom level and molecule level properties
-2. Batching Strategies  
-    i. Random Batching  
-    ii. Balanced Batching  
-    iii. Ratio Balancing  
-    iv. Curriculum Training
+<p style="text-align: justify">The implementation code is propriety property of <a href="https://aganitha.ai/" target="_blank">Aganitha Cognitive Solutions</a>.</p>
