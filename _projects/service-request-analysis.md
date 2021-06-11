@@ -18,4 +18,6 @@ author: Manish Sihag
 
 <p style="text-align: justify">I built deep learning models using architectures like Self-Attention Networks, Recurrent Neural Networks, Long-Short Term Memory, and Gated Recurrent Unit Networks along with setting up the backend Postgres database for data storage.</p>
 
+<p style="text-align: justify">The implementation code is propriety property of <a href="aganitha.ai" target="_blank">Aganitha Cognitive Solutions</a>.</p>
+
 <!-- <p style="text-align: justify">Automation of this process saved hundreds of work-hours for the client weekly.</p> -->
