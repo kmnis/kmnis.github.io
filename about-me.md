@@ -7,19 +7,6 @@ sidebar_sort_order: 2
 
 <p class="about-text"></p>
 
-<!-- A great way to get a layman's introduction to a topic is to find a chemist applying deep learning to one of the chemistry topics -->
-
-<!-- A Data Scientist trying to teach Chemistry
-
-A Chemical Engineer trying to teach Data Science -->
-
-<!-- <table style="background-color: white; border: none">
-  <tr style="background-color: white; border: none">
-    <td style="background-color: white; border: none">A Chemical Engineer turned Data Scientist</td>
-    <td style="background-color: white; border: none">A Data Scientist turned Chemical Engineer</td>
-  </tr>
-</table> -->
-
 <div style="margin-bottom: 1rem">
   <div style="display: inline-block; font-size: 0.9rem">A Chemical Engineer turned Data Scientist</div>
   <div class="hide-in-mobile" style="font-size: 0.9rem">•</div>

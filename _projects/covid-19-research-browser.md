@@ -15,11 +15,11 @@ tags:
     - ReactJS
     - Neo4j
     - Graphql
-project_sort_order: 0
+project_sort_order: 1
 author: Manish Sihag
 ---
 
-<p style="text-align: justify">The coronavirus pandemic has caused enormous health, economic, environmental, and social challenges to the entire human population. The entire research community has worked tirelessly for a vaccine but could we help speeding up these efforts even more?.</p>
+<p style="text-align: justify">The coronavirus pandemic has caused enormous health, economic, environmental, and social challenges to the entire human population. The entire research community has worked tirelessly for a vaccine but could we help speeding up these efforts even more?</p>
 
 <figure>
     <img src="/assets/img/corona-virus.gif"

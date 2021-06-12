@@ -13,7 +13,7 @@ tags:
     - GCN
     - tensorflow
     - deep-learning
-project_sort_order: 4
+project_sort_order: 2
 author: Manish Sihag
 ---
 

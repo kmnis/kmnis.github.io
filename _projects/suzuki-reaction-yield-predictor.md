@@ -10,7 +10,7 @@ tags:
     - tensorflow
     - deep-learning
     - quantum-computations
-project_sort_order: 3
+project_sort_order: 0
 author: Manish Sihag
 ---
 
