@@ -2,7 +2,7 @@
 layout: project
 title: Chem Data Lake Solution
 start_date: '2020-03-01'
-end_date: '2019-06-25'
+end_date: '2020-06-25'
 permalink: /projects/chem-data-lake-solution
 related_projects: 
     - COVID-19 Research Browser
