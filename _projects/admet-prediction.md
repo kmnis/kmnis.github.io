@@ -1,7 +1,7 @@
 ---
 layout: project
 title: ADMET Properties Prediction
-start_date: '2019-02-05'
+start_date: '2019-01-05'
 end_date: '2019-03-25'
 permalink: /projects/admet-properties-prediction
 related_projects: 

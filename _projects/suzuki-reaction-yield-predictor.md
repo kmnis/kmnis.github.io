@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Suzuki Reaction Yield Predictor
-start_date: '2019-02-03'
+start_date: '2019-03-03'
 end_date: '2019-12-15'
 permalink: /projects/suzuki-reaction-yield-predictor
 tags: 
