@@ -1,9 +1,9 @@
 ---
 layout: project
-title: Healthcare Query Chatbot
+title: QA Chatbot
 start_date: '2017-05-01'
 end_date: '2017-07-15'
-permalink: /projects/healthcare-query-chatbot
+permalink: /projects/qa-chatbot
 related_projects: 
     - Email Request Analysis
 related_projects_url: 

@@ -5,9 +5,9 @@ start_date: '2018-09-12'
 end_date: '2018-12-05'
 permalink: /projects/email-request-analysis
 related_projects: 
-    - Healthcare Query Chatbot
+    - QA Chatbot
 related_projects_url: 
-    - healthcare-query-chatbot
+    - qa-chatbot
 tags: 
     - NLP
     - tensorflow
