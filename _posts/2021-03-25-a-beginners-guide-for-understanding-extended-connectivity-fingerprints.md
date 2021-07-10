@@ -194,6 +194,16 @@ NOTE: Some literature also uses a `_`(underscore) to denote the diameter of the 
 ### Can we use features other than the Daylight invariants rule?
 Of course. In the initialization step, you can add any custom features you want to the tuple. In fact, there are many variations of ECFP depending on the properties of the atoms used. For example, Sybyl atom types(called SCFPs, or aLogP atom codes(called LCFPs), etc.
 
+### What is a bit collision?
+Let's say you end up with a hash value of `-4080868480043360372` in one of the iterations. As we discussed earlier, this value represents some information about the molecule and we convert it to a bit vector by calculating its remainder after dividing it by the vector length, 1024. In this case, it's 908. So 908<sup>th</sup> value in the 1024 long vector is set to 1.
+
+Now let's say, in another iteration, you also get the hash value of `-14439656419269748` whose remainder is also 908. Both the values are pointing to the same 908<sup>th</sup> index of the fingerprint and as a result some information about the molecule is lost. This is called a bit collision.
+
+However, if we increase the vector length to be 2048, the remainders will be 908 and 1932, respectively. As a result, it's avoiding the loss of information. There might still be bit collisions which can be avoided by increasing the fingerprint size further to higher values.
+
+### So does that mean the bigger the size of fingerprint the better?
+No. There's a trade-off between information stored vs sparsity in the data. While a longer fingerprint may avoid bit collisions, it also brings more sparsity in the data. Out of the 1024 bits, there are only a few of the bits that are 1's (3-30 generally). Increasing the size will almost double the number of redundant zeros while it may not even avoid any collision (the collisions are plausible but infrequent). Typically, a 1024 length is sufficient.
+
 ### Some important points
 - Hydrogen atoms and bonds to hydrogen atoms are ignored
 - The identifier value depends on the hashing function. So two different hash functions or programming languages might produce different identifiers. The idea is to have a consistent function to hash certain values.
