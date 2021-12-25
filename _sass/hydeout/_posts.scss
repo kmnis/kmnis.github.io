@@ -95,7 +95,9 @@ article + *,
 }
 
 button.disqus-load {
+  margin: 0 auto;
   margin-top: 1em;
+  display: block;  
 }
 
 @media (min-width: $large-breakpoint) {
@@ -122,6 +124,9 @@ button.disqus-load {
 }
 
 iframe[src*="ads-iframe"], #disqus_recommendations {
+  display: none !important;
+}
+iframe[sandbox]:not([sandbox=""]) {
   display: none !important;
 }
 
