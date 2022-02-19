@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: chemicbook.com
+Token: 61c12e870c9e49bed47b7f4c8b62f25e1eab72ce4f9e005dc2e98bb4914c4dca
