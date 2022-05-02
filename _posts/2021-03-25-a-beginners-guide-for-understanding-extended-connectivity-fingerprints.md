@@ -112,7 +112,7 @@ identifier_updated = hash(tuple([1, -2155244659601281804, 1, -360299467776728831
 print(identifier_updated)
 # 3790237506519639747
 ```
-4. This process is repeated for all atoms for a prespecified number of iterations. the updated values will be:
+4. This process is repeated for all atoms for a prespecified number of iterations. the updated values after first iteration will be:
 ```
 1: -3879702859024654160
 2:  2648074263463118673
@@ -125,8 +125,8 @@ print(identifier_updated)
     NOTE: Notice how the atom 2 and 3 have the same identifier after initial iteration but it changes after the first iteration. Think why?
 
     This is because the atoms are identical when we just look at them individually but becomes different when looking at their environment (Atom 2 is connected to a -CH<sub>3</sub> group while atom 3 is connected to a -C(=O)NH<sub>2</sub> group).
-
-5. After each iteration, the identifiers are added to a feature list created from the previous iteration. For example, after the initialization step, we got 6 identifiers to our feature list. After the next iteration, we'll have six more identifiers added to the feature list. So, after the initial and first iteration, our feature list will become:
+5. Similarly, for the second iteration, we'll do the exact same thing but this time we'll use the updated identifiers. To say it differently, we used identifiers from initial iteration to get values for the first iteration. The same way, we'll use the identifiers from first iteration to get values for the second iteration.
+6. After each iteration, the identifiers are added to a feature list created from the previous iteration. For example, after the initialization step, we got 6 identifiers to our feature list. After the next iteration, we'll have six more identifiers added to the feature list. So, after the initial and first iteration, our feature list will become:
 ```
 [-4080868480043360372, 8311098529014133067, 8311098529014133067, -2155244659601281804, -3602994677767288312, 8573586092015465947, -3879702859024654160, 2648074263463118673, 9209025387859845960, 3790237506519639747, -8399737669368778010, 3271801898087186516]
 ```
