@@ -77,7 +77,7 @@ sidebar_sort_order: 2
 <!-- <p class="about-text">
   <span class="fa fa-heart about-icon"></span>
   My hobbies and free time activitie include:</p> -->
-<p class="about-text">
+<!-- <p class="about-text">
   <span class="fa fa-music about-icon"></span>
   I spend my free time listening to music and audio books. "I can see Elvis" is my latest favourite song
 </p>
@@ -88,7 +88,7 @@ sidebar_sort_order: 2
 <p class="about-text">
   <span class="fa fa-gamepad about-icon"></span>
   And I play video games. Lots of them.
-</p>
+</p> -->
 
 <!-- <p style="text-align: center;">
   <strong>Reach out to me on&nbsp;</strong>
