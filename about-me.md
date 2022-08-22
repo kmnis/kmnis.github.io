@@ -21,16 +21,16 @@ sidebar_sort_order: 2
 </p>
 <p class="about-text">
   <span class="fa fa-graduation-cap about-icon"></span>
-  I'm an <b>IIT Bombay</b> graduate and a self-taught <b>Data Scientist</b> 
+  I graduated from <b>IIT Bombay</b> in 2018 and currently pursuing my Masters in Data Science at <b>The University of Chicago</b>
 </p>
 <p class="about-text">
   <span class="fa fa-flask about-icon"></span>
-  I have <b>3yrs</b> of industry-research experience in the field of <b>Data Science</b> and <b>AI in drug discovery</b>
+  I have <b>4yrs</b> of experience as a <b>Data Scientist</b>. I'm highly interested in exploring applications of <b>AI in Drug Discovery</b>
 </p>
-<p class="about-text">
+<!-- <p class="about-text">
   <span class="fa fa-briefcase about-icon"></span>
-  I'm currently working as a <b>Data Scientist</b> at <a href="https://aganitha.ai/" target="_blank">Aganitha Cognitive Solutions</a>
-</p>
+  I'm currently pursuing my Masters in Data Science at The University of Chicago
+</p> -->
 <!-- <p class="about-text">
   <span class="fa fa-file-text about-icon"></span>
   Checkout my CV here <a href="/files/resume.pdf" style="color: inherit"><span class="fa fa-download"></span></a>
