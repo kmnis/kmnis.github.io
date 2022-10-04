@@ -38,7 +38,7 @@ Once all atoms have generated their new identifiers, the old identifiers are rep
 
 **Step 3 - De-duplication Stage:** The third stage removes the duplicate features from our generated feature list. This is best explained with a proper example so we'll explain this in detail later.
 
-**Step 4 - Forming the bit vector:** Once all the identifiers are calculated for a specified number of iterations, the final step is to reduce these identifiers into a bit vector. This will be best explained with an example later.
+**Step 4 - Forming the bit array:** Once all the identifiers are calculated for a specified number of iterations, the final step is to reduce these identifiers into a bit array. This will be best explained with an example later.
 
 NOTE: This process is repeated for all the atoms in the molecule not just for the one atom I have shown (atom no. 6). One by one, each atom is chosen as a center and then the same process is repeated. Once the whole process is completed, each atom will have an identifier that will contain substructural information from all parts of the molecule.
 
@@ -98,7 +98,7 @@ The next step is updating these identifiers to include information about the nei
 ```
 2. Next, we add two more numbers to this array for each non-hydrogen neighbor. The first of these numbers is the bond order with that particular atom and the second is that atom's current identifier. Values 1, 2, 3, and 4 are used for single, double, triple, and aromatic bonds, respectively. Further, to avoid any ordering dependency in this attachment list, the attachments are sorted using their number pairs.
 
-    For example, atom 4 is connected to 5, 3, and 6 with a single, single and double bond, respectively. The feature vector will now become:
+    For example, atom 4 is connected to 5, 3, and 6 with a single, single and double bond, respectively. The feature array will now become:
 ```python
 [(1, -2155244659601281804), (1, -3602994677767288312), (1, 8311098529014133067), (2, 8573586092015465947)]
 ```
@@ -157,28 +157,28 @@ So, after removing such duplicates, our fingerprint set will finally be:
 [-4080868480043360372, 8311098529014133067, -2155244659601281804, -3602994677767288312, 8573586092015465947, -3879702859024654160, 2648074263463118673, 9209025387859845960, 3790237506519639747, -8399737669368778010, 3271801898087186516, -8234949431280515543, -5902629546112570760, -3660103599533977242]
 ```
 
-### Step 4 - Converting the identifiers to a bit vector
-Now, the last step that's left is to convert these identifiers into a computer-usable bit vector. The steps for this part are straightforward:
-1. First, the user has to choose the length of the fingerprint vector. Traditionally, a length of 1024 is used.
-2. Once the length is decided, we initialize a zero-vector of the decided length.
+### Step 4 - Converting the identifiers to a bit array
+Now, the last step that's left is to convert these identifiers into a computer-usable bit array. The steps for this part are straightforward:
+1. First, the user has to choose the length of the fingerprint array. Traditionally, a length of 1024 is used.
+2. Once the length is decided, we initialize a zero-array of the decided length.
 ```python
 import numpy as np
 fp = np.zeros(1024)
 print(fp)
 # array([0., 0., 0., ..., 0., 0., 0.])
 ```
-3. Now, divide each identifier with the vector length (1024) and calculate the remainder. In programming languages like Python, it can be achieved by using the `%` operator. e.g. `-4080868480043360372 % 1024` = `908`. Similarly, calculate the reminder for all the identifiers.
+3. Now, divide each identifier with the array length (1024) and calculate the remainder. In programming languages like Python, it can be achieved by using the `%` operator. e.g. `-4080868480043360372 % 1024` = `908`. Similarly, calculate the reminder for all the identifiers.
 ```python
 remainders = [908, 331, 244, 520, 475, 176, 849, 840, 707, 742, 84, 553, 632, 358]
 ```
-4. Lastly, set the values in the bit vector to one at the indices equal to the remainders. In other words, set the values to 1 in the positions 908, 331, ..., 358.
+4. Lastly, set the values in the bit array to one at the indices equal to the remainders. In other words, set the values to 1 in the positions 908, 331, ..., 358.
 ```python
 for x in remainders:
     fp[x] = 1
 print(fp)
 # [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ```
-This bit vector is our final fingerprint for the molecule.
+This bit array is our final fingerprint for the molecule.
 
 ### Intuitive Explanation
 Let's quickly go through the process one more time to understand it intuitively. Think of each identifier as a substructure. The following figure shows the effect of iteration on taking Oxygen as the center.
@@ -196,11 +196,11 @@ NOTE: Some literature also uses a `_`(underscore) to denote the diameter of the 
 Of course. In the initialization step, you can add any custom features you want to the tuple. In fact, there are many variations of ECFP depending on the properties of the atoms used. For example, Sybyl atom types(called SCFPs, or aLogP atom codes(called LCFPs), etc.
 
 ### What is a bit collision?
-Let's say you end up with a hash value of `-4080868480043360372` in one of the iterations. As we discussed earlier, this value represents some information about the molecule and we convert it to a bit vector by calculating its remainder after dividing it by the vector length, 1024. In this case, it's 908. So 908<sup>th</sup> value in the 1024 long vector is set to 1.
+Let's say you end up with a hash value of `-4080868480043360372` in one of the iterations. As we discussed earlier, this value represents some information about the molecule and we convert it to a bit array by calculating its remainder after dividing it by the array length, 1024. In this case, it's 908. So 908<sup>th</sup> value in the 1024 long array is set to 1.
 
 Now let's say, in another iteration, you also get the hash value of `-14439656419269748` whose remainder is also 908. Both the values are pointing to the same 908<sup>th</sup> index of the fingerprint and as a result some information about the molecule is lost. This is called a bit collision.
 
-However, if we increase the vector length to be 2048, the remainders will be 908 and 1932, respectively. As a result, it's avoiding the loss of information. There might still be bit collisions which can be avoided by increasing the fingerprint size further to higher values.
+However, if we increase the array length to be 2048, the remainders will be 908 and 1932, respectively. As a result, it's avoiding the loss of information. There might still be bit collisions which can be avoided by increasing the fingerprint size further to higher values.
 
 ### So does that mean the bigger the size of fingerprint the better?
 No. There's a trade-off between information stored vs sparsity in the data. While a longer fingerprint may avoid bit collisions, it also brings more sparsity in the data. Out of the 1024 bits, there are only a few of the bits that are 1's (3-30 generally). Increasing the size will almost double the number of redundant zeros while it may not even avoid any collision (the collisions are plausible but infrequent). Typically, a 1024 length is sufficient.
