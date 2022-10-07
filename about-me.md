@@ -5,26 +5,30 @@ sidebar_link: true
 sidebar_sort_order: 2
 ---
 
-<p class="about-text"></p>
+<!--<p class="about-text"></p>-->
 
+There's always one more thing to learn
+
+<!--
 <div style="margin-bottom: 1rem">
   <div style="display: inline-block; font-size: 0.9rem">A Chemical Engineer turned Data Scientist</div>
   <div class="hide-in-mobile" style="font-size: 0.9rem">•</div>
   <div style="display: inline-block; font-size: 0.9rem">A Data Scientist turned Chemical Engineer</div>
 </div>
+-->
 
 ---
 
 <p class="about-text">
   <span class="fa fa-user about-icon"></span>
-  Hi 👋 My name is <b>Manish Sihag</b>
+  Hey! 👋 Nice to see you. My name is <b>Manish Sihag</b>
 </p>
 <p class="about-text">
   <span class="fa fa-graduation-cap about-icon"></span>
-  I graduated from <b>IIT Bombay</b> in 2018 and currently pursuing my Masters in Data Science at <b>The University of Chicago</b>
+  I have a Bachelor's degree in Chemical Engineering from <b>IIT Bombay</b> and currently pursuing my Masters in Data Science at <b>The University of Chicago</b>
 </p>
 <p class="about-text">
-  <span class="fa fa-flask about-icon"></span>
+  <span class="fa fa-briefcase about-icon"></span>
   I have <b>4yrs</b> of experience as a <b>Data Scientist</b>. I'm highly interested in exploring applications of <b>AI in Drug Discovery</b>
 </p>
 <!-- <p class="about-text">
