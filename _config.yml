@@ -17,7 +17,7 @@ url:              https://chemicbook.com
 
 author:
   name:           'Manish Sihag'
-  url:            https://github.com/sihagmnis36
+  url:            https://github.com/kmnis
 
 paginate:         5
 paginate_path:    '/page/:num'
@@ -91,5 +91,5 @@ share-links-active:
 #         web: http://chemicbook.com
 #         facebook: https://www.facebook.com/manish.sihag.792
 #         twitter: https://twitter.com/sihagmnis36
-#         github: https://github.com/sihagmnis36
+#         github: https://github.com/kmnis
 #         gravatar: https://aganitha.ai/company/team/manish//Manish.jpg
