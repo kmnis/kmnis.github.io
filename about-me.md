@@ -25,11 +25,11 @@ There's always one more thing to learn
 </p>
 <p class="about-text">
   <span class="fa fa-graduation-cap about-icon"></span>
-  I have a Bachelor's degree in Chemical Engineering from <b>IIT Bombay</b> and currently pursuing my Masters in Data Science at <b>The University of Chicago</b>
+  I have a Bachelor's degree in Chemical Engineering from <b>IIT Bombay</b> and currently pursuing my Masters in Analytics at <b>The University of Chicago</b>
 </p>
 <p class="about-text">
   <span class="fa fa-briefcase about-icon"></span>
-  I have <b>4yrs</b> of experience as a <b>Data Scientist</b>. I'm highly interested in exploring applications of <b>AI in Drug Discovery</b>
+  I have <b>4yrs</b> of experience as a <b>Data Scientist</b>. I'm highly interested in exploring applications of <b>AI in Drug Discovery</b> as well as Natural Language Processing
 </p>
 <!-- <p class="about-text">
   <span class="fa fa-briefcase about-icon"></span>
