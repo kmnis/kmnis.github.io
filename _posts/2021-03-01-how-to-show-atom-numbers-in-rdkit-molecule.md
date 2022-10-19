@@ -4,7 +4,7 @@ title: How to show atom numbers in a RdKit molecule (or how to label atoms in a 
 excerpt_separator: <!--more-->
 image: /_images/benzamide.svg
 show_main_img_in_blog: false
-author: Manish Sihag
+author: Manish Kumar
 social-share: true
 tags:
   - RdKit

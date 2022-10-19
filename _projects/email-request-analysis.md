@@ -15,7 +15,7 @@ tags:
     - SQL
     - PostgreSQL
 project_sort_order: 5
-author: Manish Sihag
+author: Manish Kumar
 ---
 
 <p style="text-align: justify">Any large organization often receives hundreds, probably thousands, of emails everyday from their customers and redirecting them to respective divisions within the company can require significant time and manpower. An automatic classification of these emails into several categories in order to redirect them to repective divisions can help save the time as well money resources.</p>

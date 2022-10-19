@@ -16,7 +16,7 @@ tags:
     - Neo4j
     - Graphql
 project_sort_order: 1
-author: Manish Sihag
+author: Manish Kumar
 ---
 
 <p style="text-align: justify">The coronavirus pandemic has caused enormous health, economic, environmental, and social challenges to the entire human population. The entire research community has worked tirelessly for a vaccine but could we help speeding up these efforts even more?</p>

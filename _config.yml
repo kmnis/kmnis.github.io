@@ -16,7 +16,7 @@ url:              https://chemicbook.com
                   # sidebar_blog_link below.
 
 author:
-  name:           'Manish Sihag'
+  name:           'Manish Kumar'
   url:            https://github.com/kmnis
 
 paginate:         5
@@ -85,11 +85,11 @@ share-links-active:
 
 # authors:
 #       mnis:
-#         display_name: Manish Sihag
+#         display_name: Manish Kumar
 #         about: Manish is a Chemical Engineering graduate from IIT Bombay. He is the author of this website and is motivated to bring together the field of Chemistry with Data Science.
 #         email: mailto:chemicbook@chemicbook.com
 #         web: http://chemicbook.com
-#         facebook: https://www.facebook.com/manish.sihag.792
+#         facebook: https://www.facebook.com/mnis.36
 #         twitter: https://twitter.com/kmnis_
 #         github: https://github.com/kmnis
 #         gravatar: https://aganitha.ai/company/team/manish//Manish.jpg

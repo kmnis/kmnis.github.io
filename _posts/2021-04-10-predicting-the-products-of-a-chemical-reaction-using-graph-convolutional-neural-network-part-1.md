@@ -2,7 +2,7 @@
 layout: post
 title: Predicting the products of a chemical reaction using graph-convolutional neural network (Part 1)
 excerpt_separator: <!--more-->
-author: Manish Sihag
+author: Manish Kumar
 social-share: true
 image: /_images/61305.jpg
 image_caption: https://images3.alphacoders.com/613/thumbbig-61305.jpg

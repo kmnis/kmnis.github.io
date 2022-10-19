@@ -2,7 +2,7 @@
 layout: post
 title: A beginner's guide for understanding Extended-Connectivity Fingerprints(ECFPs)
 excerpt_separator: <!--more-->
-author: Manish Sihag
+author: Manish Kumar
 social-share: true
 tags:
   - Cheminformatics

@@ -2,7 +2,7 @@
 layout: post
 title: Predicting the products of a chemical reaction using graph-convolutional neural network (Part 2)
 excerpt_separator: <!--more-->
-author: Manish Sihag
+author: Manish Kumar
 social-share: true
 image: /_images/10504.jpg
 image_caption: <a href='https://www.freepik.com/vectors/school'>pch.vector - Freepik</a>

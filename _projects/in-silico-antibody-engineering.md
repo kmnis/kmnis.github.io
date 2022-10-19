@@ -17,7 +17,7 @@ tags:
     - cheminformatics
     - data-storage
 project_sort_order: 4
-author: Manish Sihag
+author: Manish Kumar
 ---
 
 <p style="text-align: justify">Traditional approaches for antibody structure prediction like X-ray crystallography and NMR are time-consuming and does not support high-throughput pipeline. In-silico based approaches can solve these problems by speeding up the process and High-throughput screening.</p>

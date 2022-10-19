@@ -13,7 +13,7 @@ tags:
     - tensorflow
     - deep-learning
 project_sort_order: 6
-author: Manish Sihag
+author: Manish Kumar
 ---
 
 <p style="text-align: justify">To any customer-oriented organization, a large number of queries from customers are often repetitive and can be answered by an automatic chatbot machine. This not only saves the time but also manpower needed for the task.</p>

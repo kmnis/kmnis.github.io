@@ -11,7 +11,7 @@ tags:
     - deep-learning
     - quantum-computations
 project_sort_order: 0
-author: Manish Sihag
+author: Manish Kumar
 ---
 
 <p style="text-align: justify">Chemical reaction experimentations in a lab is a slow and expensive process. Even after getting the right products for a chemical reaction, chemists need to know how much of a product will form. Getting the actual yield of a reaction is needed for drug synthesis planning and is quite advantageous to decide on whether a synthesis path is to be preferred or avoided.</p>

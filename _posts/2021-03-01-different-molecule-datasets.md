@@ -2,7 +2,7 @@
 layout: post
 title: Introduction to different datasets available in Computational Chemistry
 excerpt_separator: <!--more-->
-author: Manish Sihag
+author: Manish Kumar
 social-share: true
 tags:
   - Cheminformatics

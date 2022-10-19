@@ -17,7 +17,7 @@ tags:
     - cheminformatics
     - data-storage
 project_sort_order: 3
-author: Manish Sihag
+author: Manish Kumar
 ---
 
 <p style="text-align: justify">Chemical and medical experimental data storage pipelines often struggle with uniformity and standardization across different teams and labs. With a large number of experiments being carried out, it can become increasingly tough to replicate and keeping track of the results.</p>

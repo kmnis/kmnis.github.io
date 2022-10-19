@@ -2,7 +2,7 @@
 layout: post
 title: A theoretical introduction to Unified Medical Language System (UMLS) for beginners
 excerpt_separator: <!--more-->
-author: Manish Sihag
+author: Manish Kumar
 social-share: true
 image: /_images/5228730.jpg
 image_caption: <a href='https://www.freepik.com/vectors/people'>stories - Freepik</a>

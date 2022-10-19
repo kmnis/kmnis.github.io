@@ -21,7 +21,7 @@ There's always one more thing to learn
 
 <p class="about-text">
   <span class="fa fa-user about-icon"></span>
-  Hey! 👋 Nice to see you. My name is <b>Manish Sihag</b>
+  Hey! 👋 Nice to see you. My name is <b>Manish Kumar</b>
 </p>
 <p class="about-text">
   <span class="fa fa-graduation-cap about-icon"></span>
@@ -96,11 +96,11 @@ There's always one more thing to learn
 
 <!-- <p style="text-align: center;">
   <strong>Reach out to me on&nbsp;</strong>
-  <a href="https://www.linkedin.com/in/manish-sihag/"
+  <a href="https://www.linkedin.com/in/kmnis/"
     style="color: inherit" title="Linkedin" aria-label="Linkedin">
     <span class="fa fa-linkedin-square"></span>
   </a>&nbsp;
-  <a href="https://www.github.com/mnis/"
+  <a href="https://www.github.com/kmnis/"
       style="color: inherit" title="Github" aria-label="Github">
       <span class="fa fa-github"></span>
   </a>&nbsp;
@@ -112,7 +112,7 @@ There's always one more thing to learn
       style="color: inherit" title="Email" aria-label="Email">
       <span class="fa fa-envelope"></span>
   </a>&nbsp;
-  <a href="https://stackoverflow.com/users/9865225/mnis/"
+  <a href="https://stackoverflow.com/users/9865225/betelgeuse"
       style="color: inherit" title="Stackoverflow" aria-label="Stackoverflow">
       <span class="fa fa-stack-overflow"></span>
   </a>&nbsp;
