@@ -8,7 +8,7 @@ tags:
   - Cheminformatics
 ---
 
-Welcome to the first article in the 10 part [Cheminformatics for Beginners](/tags.html#cheminformatics) series. This blog will introduce you to the SMILES string notation in cheminformatics.
+Welcome to the first article in the [Cheminformatics for Beginners](/tags.html#cheminformatics) series. This blog will introduce you to the SMILES string notation in cheminformatics.
 
 ### Introduction
 SMILES (Simplified molecular-input line-entry system) is a line notation method to represent molecules as well as reactions. It is one of the most common method to represent molecules because of its simplicity and readability to the human eye.
