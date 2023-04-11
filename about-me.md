@@ -25,7 +25,7 @@ There's always one more thing to learn
 </p>
 <p class="about-text">
   <span class="fa fa-graduation-cap about-icon"></span>
-  I have a Bachelor's degree in Chemical Engineering from <b>IIT Bombay</b> and currently pursuing my Masters in Analytics at <b>The University of Chicago</b>
+  I have a Bachelor's degree in Chemical Engineering from <b>IIT Bombay</b> and currently pursuing my Masters in Applied Data Science at <b>The University of Chicago</b>
 </p>
 <p class="about-text">
   <span class="fa fa-briefcase about-icon"></span>
@@ -49,6 +49,7 @@ There's always one more thing to learn
       <li>Docker</li>
       <li>Neo4j</li>
       <li>ReactJS</li>
+      <li>PySpark</li>
       <li>Bash</li>
     </ul>
   </div>
@@ -57,8 +58,9 @@ There's always one more thing to learn
       <li>SQL</li>
       <li>Postgres</li>
       <li>Keras</li>
-      <li>Java</li>
+      <li>MLFlow</li>
       <li>Graphql</li>
+      <li>Hadoop</li>
       <li>CSS</li>
     </ul>
   </div>
@@ -69,6 +71,7 @@ There's always one more thing to learn
       <li>JavaScript</li>
       <li>Linux</li>
       <li>Matlab</li>
+      <li>SparkNLP</li>
       <li>RdKit</li>
     </ul>
   </div>
