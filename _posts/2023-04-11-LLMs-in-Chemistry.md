@@ -16,9 +16,7 @@ Unless you're living under a rock, you probably have heard about ChatGPT by now.
 
 <!--more-->
 
-Naturally, researchers are exploring the applications of large language models (LLMs) in various domains. In this blog, we'll explore some of the ways in which LLMs can be used in chemistry. For each task, we'll do a literature survey to check existing work and progress.
-
-Just to be clear, this is an article about what can be achieved with LLMs in Chemistry and not necessarily mean whatever work that has already been done will have great results. LLMs are very new and obviously we're still figuring out their applications. Literature survey in the article is just to support that researchers are going in this direction. Let's dive in.
+Naturally, researchers are exploring the applications of large language models (LLMs) in various domains. In this blog, we'll explore some of the ways in which LLMs can be used in chemistry. For each task, we'll do a literature survey to check existing work and progress. Let's dive in.
 
 ## 1. Molecule editing using natural language
 
