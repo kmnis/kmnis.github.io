@@ -11,12 +11,9 @@ tags:
   - UMLS
 ---
 
-We'll split the introduction to UMLS into two parts: theoretical and technical. This blog will cover the theoretical aspect explaining the theory behind UMLS while the next blog will cover technical aspects of UMLS assuming that you have a running instance of the database. Feel free to read through one or both of the blogs, depending on your requirements.
+Let's try to get a brief overview of what UMLS is, and then we'll jump into more details. So, in simple terms, UMLS is a collection of many controlled biomedical vocabularies to provide cross-walk among them and to enable interaction between computer systems. To simplify it further, there are multiple biomedical vocabularies out there developed by different organizations. Each of them has come up with their own set of IDs assigned to each term. UMLS helps in mapping each of them to one common ID.
 
 <!--more-->
-
-### Introduction
-First, let's try to get a brief overview of what UMLS is, and then we'll jump into more details. So, in simple terms, UMLS is a collection of many controlled biomedical vocabularies to provide cross-walk among them and to enable interaction between computer systems. To simplify it further, there are multiple biomedical vocabularies out there developed by different organizations. Each of them has come up with their own set of IDs assigned to each term. UMLS helps in mapping each of them to one common ID.
 
 Let's take an example of the concept `fever`. It's represented by D005334 in Medical Subject Headings (MeSH), 386661006 and 50177009 in SNOMED-CT, 780.6 in ICD-9-CM, 10016558 in the Medical Dictionary for Regulatory Activities terminology (MedDRA), X25 in Perioperative Nursing Data Set, GO:0001660 in Gene Ontology, and U001776 in the Library of Congress Subject Headings. 100 more vocabularies have included `fever` in their list with a different ID. You can see the problem here: There are as many variations in the IDs as there are vocabularies and there is a need for something that can bring all these terminologies together. That is exactly the purpose of UMLS. It unifies all these codes and maps them to a single biomedical concept (C0015967 in the case of fever).
 
