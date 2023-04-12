@@ -76,12 +76,12 @@ There's always one more thing to learn
     </ul>
   </div>
 </p>
-<p class="about-text">
+<!-- <p class="about-text">
   <span class="fa fa-certificate about-icon"></span>
   Checkout some of my online certificates <a href="/certificates">here</a>
 </p>
 
-<!-- <p class="about-text">
+<p class="about-text">
   <span class="fa fa-heart about-icon"></span>
   My hobbies and free time activitie include:</p> -->
 <!-- <p class="about-text">
