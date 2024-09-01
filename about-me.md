@@ -111,7 +111,7 @@ There's always one more thing to learn
       style="color: inherit" title="Instagram" aria-label="Instagram">
       <span class="fa fa-instagram"></span>
   </a>&nbsp;
-  <a href="mailto:sihagmanish36@gmail.com"
+  <a href="mailto:<my-email>"
       style="color: inherit" title="Email" aria-label="Email">
       <span class="fa fa-envelope"></span>
   </a>&nbsp;
