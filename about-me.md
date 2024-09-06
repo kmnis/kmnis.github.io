@@ -25,11 +25,11 @@ There's always one more thing to learn
 </p>
 <p class="about-text">
   <span class="fa fa-graduation-cap about-icon"></span>
-  I have a Bachelor's degree in Chemical Engineering from <b>IIT Bombay</b> and currently pursuing my Masters in Applied Data Science at <b>The University of Chicago</b>
+  I have a Bachelor's degree in Chemical Engineering from <b>IIT Bombay</b> and a Masters in Applied Data Science from <b>The University of Chicago</b>
 </p>
 <p class="about-text">
   <span class="fa fa-briefcase about-icon"></span>
-  I have <b>4yrs</b> of experience as a <b>Data Scientist</b>. I'm highly interested in exploring applications of <b>AI in Drug Discovery</b> as well as Natural Language Processing
+  I have <b>5yrs</b> of experience as a <b>Data Scientist</b>. I'm highly interested in Natural Language Processing, Large Language Models, GenAI, and AI in Drug Discovery
 </p>
 <!-- <p class="about-text">
   <span class="fa fa-briefcase about-icon"></span>
@@ -66,9 +66,9 @@ There's always one more thing to learn
   </div>
   <div style="float: right; width: 34%">
     <ul>
-      <li>R</li>
+      <li>Microsoft Azure</li>
       <li>NLP</li>
-      <li>JavaScript</li>
+      <li>R</li>
       <li>Linux</li>
       <li>Matlab</li>
       <li>SparkNLP</li>
@@ -79,9 +79,9 @@ There's always one more thing to learn
 <!-- <p class="about-text">
   <span class="fa fa-certificate about-icon"></span>
   Checkout some of my online certificates <a href="/certificates">here</a>
-</p>
+</p> -->
 
-<p class="about-text">
+<!-- <p class="about-text">
   <span class="fa fa-heart about-icon"></span>
   My hobbies and free time activitie include:</p> -->
 <!-- <p class="about-text">
