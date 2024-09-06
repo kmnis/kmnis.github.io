@@ -5,7 +5,6 @@ excerpt_separator: <!--more-->
 author: Manish Kumar
 social-share: true
 image: /_images/758342.jpg
-image_caption: ""
 tags:
   - Cheminformatics
   - LLMs
