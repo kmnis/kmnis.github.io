@@ -3,7 +3,7 @@ layout: project
 title: Neural Style Transfer
 subtitle: Real-time style transfer with AdaIN
 summary: "An Adaptive Instance Normalization style-transfer implementation with TensorFlow and PyTorch, VGG perceptual losses, encoder-decoder networks, and training visualizations."
-year: "2023-2026"
+year: "2023"
 status: "Open source implementation"
 project_sort_order: 5
 permalink: /projects/style-transfer
