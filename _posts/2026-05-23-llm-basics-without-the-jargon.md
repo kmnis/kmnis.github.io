@@ -179,10 +179,12 @@ The solution here is PEFT: It addresses this problem by freezing most of the pre
 3. **Training on New Data:** When new data is passed through the model, it uses both the frozen weight matrix 𝑊 and the new small trainable weights. Since 𝑊 is frozen, its values are not changed. However, the new weights are updated during training, allowing them to learn the new information.
 4. **Final Output:** Lastly, the new weights either modify or augment the existing model's output. This way, the model retains its general knowledge while also incorporating the new, specialized information.
 
+![PEFT](/_images/llm-blog/peft-explanation.png)
+
 To summarize, PEFT adds a small number of new trainable weights while keeping most of the original model weights unchanged. These new weights learn the specialized information from the new dataset, and during generation they modify or guide the model's output. This allows the model to adapt to a domain like medicine with much lower training cost, while reducing the risk of overwriting the general knowledge learned during pre-training. When a user asks a medical question, such as "What are the symptoms of diabetes?", the model can use both its general language understanding and the task-specific adjustments learned during fine-tuning to produce a more relevant answer.
 
 <aside class="note" markdown="1">
-**Note:** Please note that the explanation provided below is an extremely simplified overview of PEFT and LoRA. In reality, the process is somewhat more complex. Additionally, the approach described above of freezing weights is just one (albeit the most commonly used) of many approaches.
+**Note:** Please note that the explanation provided above is an extremely simplified overview of PEFT and LoRA. In reality, the process is somewhat more complex. Additionally, the approach described above of freezing weights is just one (albeit the most commonly used) of many approaches.
 </aside>
 
 <aside class="note" markdown="1">
@@ -217,6 +219,8 @@ If you recall a matrix property from your school days: If you multiply two matri
 The internal dimension, *r* (in above example *8*) is called the **rank** of the matrix. Usually, a rank of 8 or 16 is sufficient without sacrificing too much accuracy, however some tasks might require up to 64. The matrices 𝐴 and 𝐵 are called **adapters** as they *adapt* the pre-trained model to new tasks by making minimal, yet effective changes.
 
 ![LoRA Adapters](/_images/llm-blog/lora-adapters.png)
+
+![LoRA vs Full Finetuning](/_images/llm-blog/normal-vs-lora-finetuning.png)
 
 Here's a question for you: If LoRA is so effective in reducing computational requirements, is LoRA a one-stop solution for all finetuning tasks?
 
