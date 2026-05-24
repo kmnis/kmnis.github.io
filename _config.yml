@@ -76,6 +76,9 @@ share-links-active:
   facebook: true
   linkedin: true
 
+kramdown:
+  toc_levels: 2..3
+
 # authors:
 #       mnis:
 #         display_name: Manish Kumar

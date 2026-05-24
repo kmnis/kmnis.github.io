@@ -23,4 +23,21 @@
   #aboutme-section p:last-child {
     margin-bottom: 0;
   }
+
+.note {
+  background: #f5fbfd;
+  border-left: 0.25rem solid $cyan;
+  border-radius: 0.25rem;
+  color: $gray-5;
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+}
+
+.note p:last-child {
+  margin-bottom: 0;
+}
+
+.note strong:first-child {
+  color: $gray-6;
+}
   

@@ -6,8 +6,9 @@
 {% for node in pages_list %}
   {% if node.title != null %}
     {% if node.sidebar_link %}
+      {% assign link_title = node.sidebar_title | default: node.title %}
       <a class="page-link {% if page.url == node.url %} active{% endif %}"
-          href="{{ node.url | relative_url | remove: '.html' }}">{{ node.title }}</a>
+          href="{{ node.url | relative_url | remove: '.html' }}">{{ link_title }}</a>
     {% endif %}
   {% endif %}
 {% endfor %}

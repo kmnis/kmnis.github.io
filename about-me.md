@@ -1,130 +1,23 @@
 ---
 layout: page
-title: About Me
+title: About ChemicBook
 sidebar_link: true
+sidebar_title: About
 sidebar_sort_order: 2
 ---
 
-<!--<p class="about-text"></p>-->
+Hey! 👋 Thanks for stopping by.
 
-There's always one more thing to learn
+ChemicBook is a technical blog about chemistry, data science, and AI.
 
-<!--
-<div style="margin-bottom: 1rem">
-  <div style="display: inline-block; font-size: 0.9rem">A Chemical Engineer turned Data Scientist</div>
-  <div class="hide-in-mobile" style="font-size: 0.9rem">•</div>
-  <div style="display: inline-block; font-size: 0.9rem">A Data Scientist turned Chemical Engineer</div>
-</div>
--->
+The idea behind this blog is simple: make complex technical topics easy to understand and intuitive without stripping away the depth that makes them useful.
 
----
+Here, you’ll find beginner-friendly explanations, paper summaries, technical walkthroughs, and notes from things I’m learning. Some posts are introductory, while others go deeper into methods, papers, and implementation details. But the goal is always the same: to help you understand not just what something does, but why it works and where it can be useful.
 
-<p class="about-text">
-  <span class="fa fa-user about-icon"></span>
-  Hey! 👋 Nice to see you. My name is <b>Manish Kumar</b>
-</p>
-<p class="about-text">
-  <span class="fa fa-graduation-cap about-icon"></span>
-  I have a Bachelor's degree in Chemical Engineering from <b>IIT Bombay</b> and a Masters in Applied Data Science from <b>The University of Chicago</b>
-</p>
-<p class="about-text">
-  <span class="fa fa-briefcase about-icon"></span>
-  I have <b>5yrs</b> of experience as a <b>Data Scientist</b>. I'm highly interested in Natural Language Processing, Large Language Models, GenAI, and AI in Drug Discovery
-</p>
-<!-- <p class="about-text">
-  <span class="fa fa-briefcase about-icon"></span>
-  I'm currently pursuing my Masters in Data Science at The University of Chicago
-</p> -->
-<!-- <p class="about-text">
-  <span class="fa fa-file-text about-icon"></span>
-  Checkout my CV here <a href="/files/resume.pdf" style="color: inherit"><span class="fa fa-download"></span></a>
-</p> -->
-<p class="about-text">
-  <span class="fa fa-code about-icon"></span>
-  Programming languages/tools/softwares, I've worked with:
-  <div style="float: left; width: 33%">
-    <ul>
-      <li>Python</li>
-      <li>Tensorflow</li>
-      <li>Docker</li>
-      <li>Neo4j</li>
-      <li>ReactJS</li>
-      <li>PySpark</li>
-      <li>Bash</li>
-    </ul>
-  </div>
-  <div style="float: left; width: 33%">
-    <ul>
-      <li>SQL</li>
-      <li>Postgres</li>
-      <li>Keras</li>
-      <li>MLFlow</li>
-      <li>Graphql</li>
-      <li>Hadoop</li>
-      <li>CSS</li>
-    </ul>
-  </div>
-  <div style="float: right; width: 34%">
-    <ul>
-      <li>Microsoft Azure</li>
-      <li>NLP</li>
-      <li>R</li>
-      <li>Linux</li>
-      <li>Matlab</li>
-      <li>SparkNLP</li>
-      <li>RdKit</li>
-    </ul>
-  </div>
-</p>
-<!-- <p class="about-text">
-  <span class="fa fa-certificate about-icon"></span>
-  Checkout some of my online certificates <a href="/certificates">here</a>
-</p> -->
+<b>A little bit about me</b>
 
-<!-- <p class="about-text">
-  <span class="fa fa-heart about-icon"></span>
-  My hobbies and free time activitie include:</p> -->
-<!-- <p class="about-text">
-  <span class="fa fa-music about-icon"></span>
-  I spend my free time listening to music and audio books. "I can see Elvis" is my latest favourite song
-</p>
-<p class="about-text">
-  <span class="fa fa-book about-icon"></span>
-  Kurt Vonnegut's "The Sirens of Titan" is my long time favourite book
-</p>
-<p class="about-text">
-  <span class="fa fa-gamepad about-icon"></span>
-  And I play video games. Lots of them.
-</p> -->
+My name is <span class="fa fa-user"></span> <b>Manish Kumar</b>. I'm a Sr. Data Scientist with <span class="fa fa-briefcase"></span> <b>~7 years</b> of experience and a background in Chemical Engineering from <span class="fa fa-graduation-cap"></span> <b>IIT Bombay</b> and Applied Data Science from <span class="fa fa-graduation-cap"></span> <b>The University of Chicago</b>.
 
-<!-- <p style="text-align: center;">
-  <strong>Reach out to me on&nbsp;</strong>
-  <a href="https://www.linkedin.com/in/kmnis/"
-    style="color: inherit" title="Linkedin" aria-label="Linkedin">
-    <span class="fa fa-linkedin-square"></span>
-  </a>&nbsp;
-  <a href="https://www.github.com/kmnis/"
-      style="color: inherit" title="Github" aria-label="Github">
-      <span class="fa fa-github"></span>
-  </a>&nbsp;
-  <a href="https://www.instagram.com/mni.z/"
-      style="color: inherit" title="Instagram" aria-label="Instagram">
-      <span class="fa fa-instagram"></span>
-  </a>&nbsp;
-  <a href="mailto:<my-email>"
-      style="color: inherit" title="Email" aria-label="Email">
-      <span class="fa fa-envelope"></span>
-  </a>&nbsp;
-  <a href="https://stackoverflow.com/users/9865225/betelgeuse"
-      style="color: inherit" title="Stackoverflow" aria-label="Stackoverflow">
-      <span class="fa fa-stack-overflow"></span>
-  </a>&nbsp;
-</p> -->
+I hope you find something here that makes a difficult idea feel a little easier.
 
-<!-- <img style="float: left;" src="/assets/img/blackstar.svg" />&nbsp;\f005 Hey there! I'm <strong>Manish</strong>, an <strong>IIT Bombay</strong> graduate and a self-taught
-<strong>Data Scientist</strong>. I have been doing research in the field of drug discovery
-using AI by combining my knowledge in Chemical Engineering from B.Tech and passion for
-AI. With more than two year of industry experience, I am inclined towards a research career
-in the field of AI. <br>In my spare time, I read books, I write code, I
-play video games, and I travel around to explore the nature. Take a look at some
-of the clicks from my travel diary. -->
+Thanks for reading.
