@@ -127,7 +127,7 @@ The choice of vocabulary size is a critical design decision. A larger vocabulary
 
 Further, each token in the vocabulary is indexed, meaning each token is assigned a unique number, like a label. For example, the word "hello" might be labeled as number 1, "world" as number 2, and so on. When the model works with text, it uses these numbers instead of the words themselves.
 
-So if the model can only generate the tokens that are part of the vocabulary, then here's a question for you: how come ChatGPT is able to generate the below answer correctly if the model has never seen the text "asjl54;437qwdnklca"? Take a minute to think about it. The next section will try to answer this question for you.
+So if the model can only generate the tokens that are part of the vocabulary, then here's a question for you: how come ChatGPT is able to generate a random text like "asjl54;437qwdnklca" correctly even if the model has never seen such text before? Take a minute to think about it. The next section will try to answer this question for you.
 
 #### Tokenization
 Tokenization is the process of translating strings (i.e. text) into sequences of tokens. Below are some most commonly used tokenization methods.
