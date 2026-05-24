@@ -214,7 +214,7 @@ Now let's take two smaller matrices:
 
 If you recall a matrix property from your school days: If you multiply two matrices - 𝐴 (dimension *m x r*) and 𝐵 (dimension *r x n*), the dimension of the new matrix will be *m x n*. So if we multiply 𝐴 and 𝐵 above, we'll get a *1000 x 1000* matrix, which is the same size as the full update we wanted. Knowing this, what if we learn two smaller matrices 𝐴 and 𝐵 instead of learning one huge update matrix directly? This way, we only have to finetune *16,000* parameters compared to the original 1 million and if we multiply 𝐴 and 𝐵, we'll get the same dimension as 𝑊. This is exactly what LoRA does. By learning two low-rank matrices instead of one large matrix, it reduces the number of trainable parameters by more than *98%*, thereby lowering the computational cost. The mathematical idea behind LoRA is that low-rank approximations can capture the most important variations in the data with fewer parameters.
 
-The internal dimension, *r* (in above example *8*) is called the **rank** of the matrix. Usually, a rank of 8 or 16 is sufficient without sacrificing too much accuracy, however some tasks might require up to 64. The matrices 𝐴 and 𝐵 are called **adaptors** as they *adapt* the pre-trained model to new tasks by making minimal, yet effective changes.
+The internal dimension, *r* (in above example *8*) is called the **rank** of the matrix. Usually, a rank of 8 or 16 is sufficient without sacrificing too much accuracy, however some tasks might require up to 64. The matrices 𝐴 and 𝐵 are called **adapters** as they *adapt* the pre-trained model to new tasks by making minimal, yet effective changes.
 
 ![LoRA Adapters](/_images/llm-blog/lora-adapters.png)
 
@@ -234,7 +234,7 @@ In case there's still confusion, here's a step-by-step explanation:
 - Let's say 60 GB RAM is required for full finetuning the Llama-7b model, assuming 16 bit precision. This includes around 14 GB (Llama-7b model size) to load the model in memory and remaining for the training steps like gradient computation
 - During inference, we'll only need around 14 GB of RAM (plus some additional requirement for loading the data and other processes) since training is done, so no more gradients
 - When using LoRA, gradients are not computed for the frozen layers so we will need 14 GB to load the original model plus a few additional GBs depending on the rank of the matrices to load the smaller matrices plus some more RAM for their gradient and optimizer state computations. Typically, it goes around 16 GB total
-- Lastly, during inference for the finetuned model, once again 14 GB to load the original model plus maybe 1 or 2 GB for loading the adaptors, depending on the rank. Let's call it 16 GB just as an example
+- Lastly, during inference for the finetuned model, once again 14 GB to load the original model plus maybe 1 or 2 GB for loading the adapters, depending on the rank. Let's call it 16 GB just as an example
 
 <aside class="note" markdown="1">
 **Note:** The numbers mentioned above are rough estimates and can vary significantly depending on your training setup. For example, if you use a large batch size while fine-tuning, higher RAM will be required.
