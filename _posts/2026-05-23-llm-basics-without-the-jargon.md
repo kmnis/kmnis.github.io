@@ -136,16 +136,13 @@ Tokenization is the process of translating strings (i.e. text) into sequences of
 2. **Subword Tokenization:** Breaks words into smaller units (subwords) based on frequency and patterns in the language. Efficient for handling rare and out-of-vocabulary words.
 3. **Character Tokenization:** Splits text into individual characters. Provides fine-grained control but can be computationally expensive and less efficient for capturing meaning. 
 
+As the below table shows, each method has a trade-off. Word tokenization is easy to understand, but it struggles with rare or new words because every word needs to exist in the vocabulary. Character tokenization can represent almost any text, but it makes sequences very long. Subword tokenization sits in the middle: it can handle unfamiliar words by breaking them into smaller known pieces, while still keeping the sequence shorter than character-level tokenization. This is why many modern LLMs use subword-based tokenization methods.
+
+Here's a quick comparison:
+
+![Tokenization Methods](/_images/llm-blog/tokenization-methods-comparison.png)
+
 ![Tokenization](/_images/llm-blog/tokenization.png)
-
-Here are some positive and negative examples for each of the 4 methods:
-
-| **Tokenization Method** | **Positive Example**                                                                                                                                   | **Why Positive**                                                   | **Negative Example**                                                                                                                   | **Why Negative**                                                   |
-|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
-| **Word Tokenization**   | **Text:** "Artificial Intelligence is fascinating." **Tokens:** ["Artificial", "Intelligence", "is", "fascinating", "."]                                | Correctly splits text into meaningful words and punctuation.     | **Text:** "Can't you see?" **Tokens:** ["Can", "'t", "you", "see", "?"]                                                                | Incorrectly splits contraction "Can't" into "Can" and "'t".       |
-| **Subword Tokenization**| **Text:** "biochemistry" **Tokens:** ["bio", "chemistry"]                                                                                              | Breaks down word into meaningful subwords.                       | **Text:** "misunderstanding" **Tokens:** ["mis", "under", "standing"]                                                                 | May split words into less meaningful subwords.                    |
-| **Character Tokenization**| **Text:** "data" **Tokens:** ["d", "a", "t", "a"]                                                                                                      | Captures every character, useful for fine-grained analysis.       | **Text:** "Natural Language Processing" **Tokens:** ["N", "a", "t", "u", "r", "a", "l", " ", "L", "a", "n", "g", "u", "a", "g", "e", " ", "P", "r", "o", "c", "e", "s", "s", "i", "n", "g"] | Makes text long and fragmented, losing word-level information.    |
-| **Sentence Tokenization**| **Text:** "Good morning! Have a nice day." **Tokens:** ["Good morning!", "Have a nice day."]                                                            | Correctly identifies sentence boundaries.                        | **Text:** "E.g. he arrived late. He missed the meeting." **Tokens:** ["E.g.", "he arrived late.", "He missed the meeting."]           | Incorrectly splits "E.g." into a separate sentence.               |
 
 <aside class="note" markdown="1">
 **Note:** Models like GPT-4 use a method called Byte-Pair Encoding (BPE) tokenization method explained very well in [this Wikipedia article](https://en.wikipedia.org/wiki/Byte_pair_encoding).
