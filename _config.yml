@@ -47,15 +47,8 @@ sidebar_home_link:  true
 collections:
   projects:
     output: true
-  certificates:
-    output: true
 
 defaults:
-  -
-    scope:
-      path: "_certificates"
-    values:
-      sitemap: false
   -
     scope:
       path: "files"
