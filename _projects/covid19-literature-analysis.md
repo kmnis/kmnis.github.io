@@ -34,24 +34,44 @@ collaborators:
 gallery:
   - url: https://raw.githubusercontent.com/kmnis/covid19-literature-analysis/main/images/data_prep.png
     alt: "CORD-19 data preprocessing pipeline"
+  - url: https://raw.githubusercontent.com/kmnis/covid19-literature-analysis/main/images/methodology.png
+    alt: "COVID-19 literature analysis methodology"
   - url: https://raw.githubusercontent.com/kmnis/covid19-literature-analysis/main/images/final-graph.png
     alt: "COVID-19 literature graph visualization"
-  - url: https://raw.githubusercontent.com/kmnis/covid19-literature-analysis/main/images/topic1.png
-    alt: "Topic modeling result example"
 related_projects:
   - docscribe
   - zen-ai
   - automatic-essay-grading
 ---
 
-The CORD-19 dataset gave researchers a massive, fast-growing corpus of coronavirus literature. This project asks a practical question: how can researchers move through that body of work without reading every paper linearly?
+COVID-19 Literature Analysis is a machine-learning project for exploring the CORD-19 research corpus. The goal is to make a large collection of coronavirus-related papers easier to search, cluster, and understand.
 
-The pipeline parses nested JSON papers and metadata, prepares the data for distributed processing, and applies topic modeling to group similar publications. The project also explores graph representations, where authors, papers, and journals become nodes connected by publishing relationships.
+The project combines data preprocessing, topic modeling, distributed data workflows, and graph database experiments. Instead of treating the literature as a flat list of papers, it explores both thematic clusters and relationships between papers, authors, and journals.
 
-### Technical Shape
+### What The Project Does
 
-The repository is organized around data preparation, visualization, graph database exploration, and modeling notebooks. A Docker-backed Neo4j workflow imports author-paper-journal relationships, while topic modeling examples summarize distinct research clusters.
+- Parses CORD-19 JSON papers and metadata into analysis-ready data.
+- Uses topic modeling to group similar publications and surface major themes.
+- Explores PySpark and Hadoop-oriented workflows for larger-scale literature processing.
+- Models paper-author-journal relationships as a graph.
+- Demonstrates graph storage and visualization with Neo4j and PySpark GraphFrames.
 
-### Why It Matters
+### Data Pipeline
 
-Scientific literature becomes more valuable when its structure is searchable. This project turns a large research corpus into a set of navigable themes and relationships.
+CORD-19 includes nested JSON files for papers plus metadata files with additional publication information. The preprocessing workflow converts that raw structure into cleaner tabular data that can be used for modeling and visualization.
+
+The repository includes both Python and PySpark preprocessing work. This makes the project useful as a literature-analysis experiment and as a small example of how scientific text data can be prepared for distributed processing.
+
+### Modeling And Graph Analysis
+
+Topic modeling is used to identify clusters of related papers. The sample outputs in the repository show themes such as immune response and antibodies, pandemic effects on society and mental health, and infection detection or virus-related research.
+
+The graph workflow represents papers, authors, and journals as nodes connected by relationships such as publication and authorship. This makes it possible to explore the research landscape structurally, not just textually.
+
+### Results
+
+The project includes visual outputs for preprocessing, methodology, graph views, and topic examples. Together, they show a workflow for turning a large research corpus into navigable themes and relationships.
+
+### Limitations
+
+Topic modeling is exploratory. It can reveal useful themes, but the resulting clusters still need human interpretation. The project is best read as an analysis and navigation prototype rather than a definitive map of COVID-19 research.

@@ -49,14 +49,41 @@ related_projects:
   - covid19-literature-analysis
 ---
 
-DocScribe is a medical question-and-answer assistant designed around two practical needs: helping users understand individual medical reports, and making longitudinal patient history easier to retrieve and summarize.
+DocScribe is a prototype medical assistant for working with clinical reports. The idea is simple: instead of making someone manually scan long reports, discharge notes, or visit histories, the system lets them ask questions and get report-aware answers.
 
-The system combines a notebook-based web UI, embedding/index creation from medical transcripts, and LLM-based question answering. The training data combines medical transcripts, WikiDoc-style medical reference data, and patient-facing WikiPatient information. The README describes 4.5k generated QA prompts from medical transcripts and a Vicuna-13B fine-tuning workflow using LoRA, PEFT, and bitsandbytes.
+The project explores two related use cases. First, it helps explain and summarize a single medical report. Second, it makes patient history easier to search across multiple visits, so relevant findings, treatments, adverse reactions, and follow-up details can be retrieved conversationally.
 
-### Technical Shape
+### What DocScribe Does
 
-The architecture uses embeddings and indexes to connect uploaded reports with a question-answering layer. LangChain and Hugging Face support the retrieval and model orchestration, while the interface uses Jupyter notebooks for upload and interaction workflows.
+- Answers general medical questions using a medical-domain language model workflow.
+- Accepts medical transcripts and reports as context for patient-specific questions.
+- Summarizes information across reports, including treatment plans and visit history.
+- Retrieves relevant details from patient history instead of relying only on a model's general memory.
+- Demonstrates workflows for report analysis, medical coding, adverse reactions, PDF inputs, and general QA.
 
-### Why It Matters
+### System Design
 
-Medical information is dense, fragmented, and often hard for patients to interpret. DocScribe prototypes a more conversational layer over that information while keeping the report itself central to the answer.
+DocScribe combines retrieval with language-model reasoning. Uploaded reports are transformed into text, embedded, and indexed so that relevant chunks can be retrieved when a user asks a question. The retrieved context is then passed into the question-answering layer, keeping the answer grounded in the supplied medical material.
+
+The prototype interface is notebook-based, which makes the workflow easy to inspect: upload or select reports, create embeddings, ask questions, and review the generated answers. LangChain and Hugging Face are used around the retrieval and model workflow.
+
+### Data And Model
+
+The project uses a mix of medical transcript and reference-style datasets:
+
+- MTSamples medical transcripts
+- WikiDoc medical reference data
+- WikiPatient patient-facing medical information
+- Around 4.5k generated question-answer pairs from medical transcripts
+
+The model workflow is built around Vicuna-13B with LoRA, PEFT, and bitsandbytes. This keeps the fine-tuning setup more practical while still adapting the model toward medical question answering and report interpretation.
+
+### Example Workflows
+
+The repository includes examples for questions like: What does this transcript say about the patient's treatment plan? What adverse reactions are mentioned? Are there possible report errors? What medical codes may be relevant? How can multiple visits be summarized?
+
+Those examples are useful because they show the project as more than a chatbot. The core pattern is report-grounded QA: the system should use the supplied medical context, not just produce a plausible medical-sounding response.
+
+### Limitations
+
+DocScribe is a prototype, not a clinical decision-support system. Medical QA has high safety and privacy requirements, so a system like this would need expert validation, stronger evaluation, careful handling of protected health information, and guardrails around uncertainty before any real clinical use.

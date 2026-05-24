@@ -36,14 +36,34 @@ related_projects:
   - docscribe
 ---
 
-This neural style transfer project implements the AdaIN approach for transferring the style of one image onto the content structure of another. The goal is real-time arbitrary style transfer: preserve the semantic layout of the content image while matching the feature statistics of a style reference.
+Neural Style Transfer is an implementation of arbitrary image style transfer using Adaptive Instance Normalization. The goal is to combine the content of one image with the visual style of another while keeping the output recognizable and coherent.
 
-The implementation includes TensorFlow/Keras and PyTorch components, an encoder-decoder architecture, a VGG-based perceptual loss network, and a training pipeline with monitoring callbacks.
+The project includes TensorFlow/Keras and PyTorch components, an encoder-decoder network, a VGG-based perceptual loss network, and utilities for training visualization.
 
-### Technical Shape
+### What The Project Does
 
-The README documents a 30-epoch training setup with Adam, mean squared error objectives, a style weight of 4.0, and visual training output at each epoch. The repository also includes a `localtoon` variant that experiments with a StyleGAN2-based cartoonization direction.
+- Transfers style from a reference image onto a content image.
+- Uses Adaptive Instance Normalization to match feature statistics between content and style.
+- Preserves content structure through a perceptual content loss.
+- Encourages style matching through feature-statistic losses.
+- Tracks training progress with visual callbacks and generated GIFs.
 
-### Why It Matters
+### Model Architecture
 
-Style transfer is a useful bridge between classical computer vision intuition and generative image systems: it makes feature representations, perceptual loss, and image reconstruction easy to inspect visually.
+The model follows an encoder-decoder structure. The encoder extracts feature representations from the content and style images. AdaIN adjusts the content features so their channel-wise statistics match the style features. The decoder then reconstructs an image from the adjusted representation.
+
+A VGG-based loss network is used to measure whether the output preserves content structure while adopting the texture, color, and pattern characteristics of the style image.
+
+### Training Workflow
+
+The README documents a 30-epoch training setup using Adam with a low learning rate, mean squared error objectives, and a style-weighted loss. The training monitor visualizes the style image, content image, and generated output over time, which makes model progress easier to inspect.
+
+The repository also includes a `localtoon` variant that experiments with a StyleGAN2-based cartoonization direction.
+
+### Results
+
+Style transfer is visually interpretable: the output can be judged by whether the content layout remains recognizable while the style reference influences color, brush texture, and pattern. The project includes sample images and utilities for creating animated outputs from training progress.
+
+### Limitations
+
+Style transfer models can struggle when the content and style images are very different in structure, texture density, or color distribution. The output is also sensitive to loss weights and training data, so visual quality often requires experimentation rather than a single universal setting.

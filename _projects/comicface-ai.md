@@ -43,14 +43,34 @@ related_projects:
   - docscribe
 ---
 
-comicface.ai is a compact generative vision project: upload or provide a face image, and transform it toward a comic-book visual style.
+comicface.ai is a generative computer-vision project for turning portrait photos into comic-style faces. It focuses on a clear image-to-image task: preserve the face structure while changing the visual style.
 
-The project uses a paired synthetic dataset of 10,000 face/comic examples, each at 1024 by 1024 resolution. Two modeling approaches are explored: a convolutional variational autoencoder and a Pix2Pix GAN. The repository includes training notebooks, inference notebooks, model architecture code, saved model progress GIFs, and sample outputs.
+The project compares two approaches to the same problem: a convolutional variational autoencoder and a Pix2Pix GAN. It also includes a Hugging Face demo so the model can be tried interactively.
 
-### Technical Shape
+### What comicface.ai Does
 
-The implementation separates data loading, model networks, losses, training utilities, and app code. The notebooks document exploratory data analysis, CVAE training, Pix2Pix training, and Pix2Pix inference.
+- Converts face images into comic-style versions.
+- Uses a paired dataset of real and comic-style synthetic faces.
+- Compares CVAE and Pix2Pix-style image translation approaches.
+- Includes training progress GIFs and sample generated outputs.
+- Provides a Hugging Face Space for interactive use.
 
-### Why It Matters
+### Dataset
 
-It is a focused example of applied generative AI: a clear input, a playful output, and a side-by-side look at how different neural architectures behave on the same translation task.
+The project uses a Kaggle dataset with 10,000 paired face/comic images. Each pair gives the model both the source portrait and the desired comic-style target, which makes it suitable for supervised image-to-image translation.
+
+This paired setup is especially useful for Pix2Pix, where the model learns a mapping from one visual domain to another rather than generating images from scratch.
+
+### Models
+
+The convolutional VAE explores a reconstruction-based approach: compress the face image into a latent representation, then decode it into a stylized output. This can capture broad structure, but may produce softer or less detailed results.
+
+Pix2Pix frames the task as conditional generation. A generator creates the comic-style image while a discriminator pushes the output toward sharper, more realistic comic-domain examples. The repository includes architecture diagrams, training notebooks, inference notebooks, and saved training progress.
+
+### Results
+
+The sample results show the difference between the two modeling approaches. The VAE gives a useful baseline for reconstruction and style transformation, while Pix2Pix is better suited for the paired translation setting and sharper visual outputs.
+
+### Limitations
+
+The output quality depends heavily on the paired training data. A model trained on synthetic comic faces may not generalize equally well to every lighting condition, pose, face shape, or photo style. Like most image-generation systems, it also needs careful handling if used with real personal photos.

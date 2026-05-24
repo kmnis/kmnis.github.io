@@ -49,14 +49,34 @@ related_projects:
   - comicface-ai
 ---
 
-ZenAI explores what it takes to move a general conversational model toward a more careful, supportive dialogue experience. The project was not just a chatbot wrapper; it included data preparation, model training, inference notebooks, intent detection, quantitative evaluation, qualitative response testing, and a Streamlit interface.
+ZenAI is a research prototype for conversational mental-health support. It explores how a general large language model can be adapted into a more focused assistant with supportive response behavior, intent detection, evaluation, and a simple user experience.
 
-The most interesting part of the project is the product boundary. Mental-health-adjacent AI needs more than fluent answers, so the system explicitly treats risks and future safeguards as part of the design. The README documents model metrics, intent-detection evaluation over labeled prompts, user testing snippets, and safety-oriented future work.
+The project is not framed as a replacement for professional care. Its value is in studying the pieces that would be needed for a safer support-oriented assistant: data preparation, model training, response evaluation, prompt/intent handling, and a product interface that makes the system easier to test.
 
-### Technical Shape
+### What ZenAI Does
 
-The repository separates the project into data, training, inference, utilities, and UX. The modeling stack centers on large language models such as Vicuna-13B and Llama 2, with supporting notebooks for evaluation and intent handling. The frontend prototype lives in Streamlit.
+- Provides a chatbot experience for supportive mental-health-adjacent conversations.
+- Uses a fine-tuned LLM workflow rather than relying only on an off-the-shelf model.
+- Adds intent detection to identify sensitive, unsupported, or differently routed prompts.
+- Includes quantitative and qualitative evaluation of model responses.
+- Packages the interaction into a Streamlit interface for user testing and demos.
 
-### Why It Matters
+### System Design
 
-This project is a good example of turning a sensitive AI idea into a system design problem: dataset quality, model behavior, evaluation, product experience, and risk management all had to be considered together.
+The repository separates the work into data, training, inference, utility, and UX layers. Training and inference notebooks handle the model workflow, while the UX folder contains the Streamlit app used to interact with the assistant.
+
+The intent-detection layer is an important design choice. In a sensitive domain, the system needs more than a fluent response generator; it needs a way to recognize when a conversation requires caution, redirection, or a different response strategy.
+
+### Data And Model
+
+The project uses mental-health conversation data and generated dialogue data to adapt the assistant's behavior. The modeling work centers on large language models such as Vicuna-13B and Llama 2, with additional evaluation against baseline LLM responses.
+
+The README also documents an intent-detection evaluation over labeled prompts, which helps show whether the system can recognize categories of user intent rather than treating every message as a normal open-ended chat turn.
+
+### User Experience
+
+ZenAI includes a Streamlit prototype that turns the model into a testable product experience. The UI matters because model behavior is easier to evaluate when users can interact with it as a real assistant instead of only reading notebook outputs.
+
+### Limitations
+
+Mental-health AI has high safety requirements. ZenAI should be understood as a research prototype, not a clinical tool. A production version would need expert review, safety guardrails, crisis-handling policies, privacy controls, stronger evaluation, and clear boundaries around what the assistant can and cannot do.

@@ -43,14 +43,34 @@ related_projects:
   - zen-ai
 ---
 
-Automatic Essay Grading focuses on a real education problem: writing practice is hard to scale, and English Language Learners need feedback that reflects their current language level rather than a generic writing rubric.
+Automatic Essay Grading is an NLP project for evaluating essays written by English Language Learners. The goal is not just to assign a single score, but to reason across multiple writing dimensions that teachers already use when assessing proficiency.
 
-The project uses a dataset of 3,911 argumentative essays written by 8th-12th grade English Language Learners. Each essay is scored across six analytic measures: cohesion, syntax, vocabulary, phraseology, grammar, and conventions. The repository includes preprocessing, exploratory analysis, data mining, ML modeling, and a notebook-based evaluator app.
+The project uses a dataset of argumentative essays from 8th-12th grade students. Each essay has scores for cohesion, syntax, vocabulary, phraseology, grammar, and conventions, making it a useful benchmark for multi-dimensional writing assessment.
 
-### Technical Shape
+### What The Project Does
 
-The repository is divided into `data_prep`, `data_viz`, `modeling`, and `app` directories. The evaluator app uses an OpenAI token for its final interaction layer, while the modeling notebooks explore classical NLP and machine-learning approaches.
+- Processes and analyzes student essay text.
+- Models six writing-proficiency dimensions rather than a single overall grade.
+- Includes exploratory data analysis, preprocessing, data mining, and ML notebooks.
+- Uses topic modeling experiments to understand essay patterns.
+- Provides a notebook-based evaluator app for score-oriented feedback and analysis.
 
-### Why It Matters
+### Dataset
 
-The strongest use case is teacher support: speed up assessment cycles while preserving a richer view of student strengths and weaknesses across multiple dimensions of writing proficiency.
+The dataset contains 3,911 essays written by English Language Learners. The essays were pre-scored by teachers across six analytic measures, with scores ranging from 1 to 5 in half-point increments.
+
+This structure makes the task more nuanced than generic essay scoring. A strong answer may have good vocabulary but weaker grammar, or strong cohesion but limited phraseology. The project is organized around preserving that multi-axis view of writing proficiency.
+
+### Modeling Workflow
+
+The repository separates preprocessing, visualization, modeling, and the evaluator app. The modeling notebooks explore machine-learning and NLP approaches, while the data mining notebook includes topic modeling experiments with BERTopic.
+
+The app layer demonstrates how essay text can be turned into feedback and analysis, rather than leaving the work as notebook-only modeling output.
+
+### Example Workflows
+
+The included screenshots show an evaluator interface, essay scoring output, and essay analysis. These examples help make the project concrete: the system is meant to support writing assessment workflows, not simply train a model in isolation.
+
+### Limitations
+
+Automated writing assessment should be used carefully. Scores can help triage or support feedback, but they should not replace teacher judgment, especially for English Language Learners. Bias, prompt variation, rubric alignment, and explainability all matter in a real educational setting.
