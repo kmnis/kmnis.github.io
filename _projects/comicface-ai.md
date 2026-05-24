@@ -18,11 +18,6 @@ tech_stack:
   - GANs
   - Convolutional VAE
   - Hugging Face Spaces
-tags:
-  - generative-ai
-  - computer-vision
-  - gan
-  - image-generation
 highlights:
   - Portrait-to-comic translation using 10,000 paired face and comic images from a synthetic Kaggle dataset.
   - Side-by-side exploration of a convolutional variational autoencoder and a Pix2Pix GAN.

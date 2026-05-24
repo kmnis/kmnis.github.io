@@ -20,11 +20,6 @@ tech_stack:
   - LoRA
   - PEFT
   - bitsandbytes
-tags:
-  - generative-ai
-  - medical-ai
-  - retrieval
-  - llm
 highlights:
   - Medical QA workflow for general questions, uploaded reports, and patient-specific history retrieval.
   - Training corpus combines medical transcripts, generated QA pairs, WikiDoc, and patient-facing medical data.

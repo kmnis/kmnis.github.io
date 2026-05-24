@@ -18,11 +18,6 @@ tech_stack:
   - AdaIN
   - VGG loss
   - CUDA
-tags:
-  - computer-vision
-  - style-transfer
-  - deep-learning
-  - pytorch
 highlights:
   - Adaptive Instance Normalization implementation for arbitrary image style transfer.
   - VGG-based perceptual loss network for balancing content preservation and style matching.

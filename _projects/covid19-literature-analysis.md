@@ -19,11 +19,6 @@ tech_stack:
   - Neo4j
   - GraphFrames
   - Topic modeling
-tags:
-  - covid-19
-  - machine-learning
-  - nlp
-  - graph-database
 highlights:
   - CORD-19 preprocessing pipeline for nested JSON papers and metadata.
   - Topic modeling workflow for clustering similar papers and surfacing major research themes.

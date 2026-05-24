@@ -18,11 +18,6 @@ tech_stack:
   - PaLM/Bison
   - Streamlit
   - Intent detection
-tags:
-  - generative-ai
-  - llm
-  - mental-health
-  - streamlit
 highlights:
   - Therapy-oriented conversational prototype built around fine-tuned LLM behavior and response evaluation.
   - Intent-detection layer for routing sensitive or unsupported prompts more deliberately.

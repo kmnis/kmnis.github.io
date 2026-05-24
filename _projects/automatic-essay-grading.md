@@ -18,11 +18,6 @@ tech_stack:
   - BERTopic
   - OpenAI API
   - Jupyter
-tags:
-  - nlp
-  - education
-  - machine-learning
-  - data-mining
 highlights:
   - Writing assessment workflow for 3,911 pre-scored ELL essays across six analytic measures.
   - Preprocessing, exploratory analysis, data mining, topic modeling, and ML notebooks.
