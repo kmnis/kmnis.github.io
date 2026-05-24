@@ -5,15 +5,12 @@ subtitle: AI mental health counselor prototype
 summary: "A conversational support prototype that combines fine-tuned LLM behavior, intent detection, model evaluation, and a Streamlit user experience for mental-health-adjacent conversations."
 year: "2023"
 status: "Research prototype"
-role: "Modeling, evaluation, and product experience"
 project_sort_order: 0
 permalink: /projects/zen-ai
 repo_url: https://github.com/zenn-ai/zen
 image: /_images/projects/zen-ai-project-image.png
 image_alt: "ZenAI welcome screen artwork"
 image_background: "linear-gradient(180deg, #FDF3EA 0%, #F8EDE4 55%, #F9F1EA 100%)"
-github_stars: 7
-github_forks: 2
 tech_stack:
   - Python
   - Vicuna-13B
@@ -27,9 +24,9 @@ tags:
   - mental-health
   - streamlit
 highlights:
-  - Fine-tuned and evaluated a therapy-oriented conversational model against baseline LLM behavior.
-  - Built an intent-detection layer to route sensitive or unsupported prompts more deliberately.
-  - Designed a user-facing Streamlit experience and documented risks, testing, and future safety work.
+  - Therapy-oriented conversational prototype built around fine-tuned LLM behavior and response evaluation.
+  - Intent-detection layer for routing sensitive or unsupported prompts more deliberately.
+  - Streamlit user experience with documented risks, testing notes, and future safety work.
 collaborators:
   - name: Manish Kumar
     url: https://www.linkedin.com/in/kmnis/
@@ -54,13 +51,7 @@ related_projects:
 
 ZenAI explores what it takes to move a general conversational model toward a more careful, supportive dialogue experience. The project was not just a chatbot wrapper; it included data preparation, model training, inference notebooks, intent detection, quantitative evaluation, qualitative response testing, and a Streamlit interface.
 
-The most interesting part of the work is the product boundary. Mental-health-adjacent AI needs more than fluent answers, so the project explicitly treated risks and future safeguards as part of the system. The README documents model metrics, intent-detection evaluation over labeled prompts, user testing snippets, and the team’s safety-oriented future work.
-
-### What I Worked On
-
-- Helped build and evaluate the LLM workflow for supportive conversations.
-- Worked through model inference and testing paths, including intent classification.
-- Contributed to the UX direction so the model could be experienced as a product rather than a notebook-only experiment.
+The most interesting part of the project is the product boundary. Mental-health-adjacent AI needs more than fluent answers, so the system explicitly treats risks and future safeguards as part of the design. The README documents model metrics, intent-detection evaluation over labeled prompts, user testing snippets, and safety-oriented future work.
 
 ### Technical Shape
 

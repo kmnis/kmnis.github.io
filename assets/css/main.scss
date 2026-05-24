@@ -326,6 +326,23 @@
   margin: 0;
 }
 
+.project-github-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.7rem;
+}
+
+.project-github-repo,
+.project-github-stat {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.32rem;
+}
+
+.project-github-repo {
+  flex-basis: 100%;
+}
+
 .project-sidebar-section {
   border-top: 1px solid var(--project-line);
   margin-top: 1rem;

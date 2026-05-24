@@ -47,22 +47,30 @@ layout: default
               <dd>{{ page.year }}</dd>
             </div>
           {% endif %}
-          {% if page.role %}
-            <div>
-              <dt>Role</dt>
-              <dd>{{ page.role }}</dd>
-            </div>
-          {% endif %}
           {% if page.license %}
             <div>
               <dt>License</dt>
               <dd>{{ page.license }}</dd>
             </div>
           {% endif %}
-          {% if page.github_stars != nil %}
+          {% if page.repo_url %}
+            {% assign github_repo = page.repo_url | replace: "https://github.com/", "" | replace: "http://github.com/", "" %}
             <div>
               <dt>GitHub</dt>
-              <dd>{{ page.github_stars }} stars{% if page.github_forks != nil %} / {{ page.github_forks }} forks{% endif %}</dd>
+              <dd class="project-github-stats" data-github-repo="{{ github_repo }}">
+                <a class="project-github-repo" href="{{ page.repo_url }}" target="_blank" rel="noopener">
+                  <span class="fa fa-github" aria-hidden="true"></span>
+                  <span>{{ github_repo }}</span>
+                </a>
+                <span class="project-github-stat" data-github-stat="stars" hidden>
+                  <span class="fa fa-star" aria-hidden="true"></span>
+                  <span data-github-stars></span>
+                </span>
+                <span class="project-github-stat" data-github-stat="forks" hidden>
+                  <span class="fa fa-code-fork" aria-hidden="true"></span>
+                  <span data-github-forks></span>
+                </span>
+              </dd>
             </div>
           {% endif %}
         </dl>
@@ -80,7 +88,7 @@ layout: default
 
         {% if page.collaborators %}
           <section class="project-sidebar-section">
-            <h2>Collaborators</h2>
+            <h2>Team Members</h2>
             <ul class="project-collaborators">
               {% for person in page.collaborators %}
                 <li>
@@ -128,3 +136,37 @@ layout: default
     {% include related_projects.html post=page %}
   </article>
 </div>
+
+<script>
+  (function () {
+    var statsBlocks = document.querySelectorAll('[data-github-repo]');
+
+    statsBlocks.forEach(function (block) {
+      var repo = block.getAttribute('data-github-repo');
+      if (!repo || !window.fetch) return;
+
+      fetch('https://api.github.com/repos/' + repo)
+        .then(function (response) {
+          if (!response.ok) throw new Error('GitHub stats unavailable');
+          return response.json();
+        })
+        .then(function (data) {
+          var stars = block.querySelector('[data-github-stars]');
+          var forks = block.querySelector('[data-github-forks]');
+          var starItem = block.querySelector('[data-github-stat="stars"]');
+          var forkItem = block.querySelector('[data-github-stat="forks"]');
+
+          if (stars && starItem) {
+            stars.textContent = data.stargazers_count.toLocaleString();
+            starItem.hidden = false;
+          }
+
+          if (forks && forkItem) {
+            forks.textContent = data.forks_count.toLocaleString();
+            forkItem.hidden = false;
+          }
+        })
+        .catch(function () {});
+    });
+  })();
+</script>

@@ -5,15 +5,12 @@ subtitle: ML and graph workflows for navigating CORD-19 research
 summary: "A machine-learning pipeline for clustering and exploring COVID-19 research papers using CORD-19, PySpark, Hadoop, topic modeling, and graph database experiments."
 year: "2022"
 status: "Open source analysis"
-role: "Data preprocessing, topic modeling, and graph database exploration"
 project_sort_order: 2
 permalink: /projects/covid19-literature-analysis
 repo_url: https://github.com/kmnis/covid19-literature-analysis
 image: /_images/projects/covid19-lit-analysis-project-image.png
 image_alt: "COVID-19 literature analysis methodology"
 image_background: "linear-gradient(180deg, #EDF6FE 0%, #EAF4FD 55%, #E7F2FC 100%);"
-github_stars: 0
-github_forks: 2
 license: MIT
 tech_stack:
   - Python
@@ -28,9 +25,9 @@ tags:
   - nlp
   - graph-database
 highlights:
-  - Parsed and transformed CORD-19 JSON and metadata into analysis-ready structures.
-  - Used topic modeling to cluster similar papers and surface major research themes.
-  - Explored author-paper-journal relationships with Neo4j and PySpark GraphFrames.
+  - CORD-19 preprocessing pipeline for nested JSON papers and metadata.
+  - Topic modeling workflow for clustering similar papers and surfacing major research themes.
+  - Graph database experiments for author-paper-journal relationships with Neo4j and PySpark GraphFrames.
 collaborators:
   - name: Manish Kumar
     url: https://www.linkedin.com/in/kmnis/
@@ -50,12 +47,6 @@ related_projects:
 The CORD-19 dataset gave researchers a massive, fast-growing corpus of coronavirus literature. This project asks a practical question: how can researchers move through that body of work without reading every paper linearly?
 
 The pipeline parses nested JSON papers and metadata, prepares the data for distributed processing, and applies topic modeling to group similar publications. The project also explores graph representations, where authors, papers, and journals become nodes connected by publishing relationships.
-
-### What I Worked On
-
-- Built preprocessing steps for CORD-19 JSON and CSV metadata.
-- Used PySpark and Hadoop-oriented workflows to handle larger literature data.
-- Explored graph storage and visualization through Neo4j and PySpark GraphFrames.
 
 ### Technical Shape
 
