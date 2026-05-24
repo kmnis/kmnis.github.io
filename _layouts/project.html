@@ -2,16 +2,129 @@
 layout: default
 ---
 
-<header>
-  <h1 class="post-title">{{ page.title }}</h1>
-</header>
-<div class="content">
-  {% include project-meta.html post=page %}
-  <!-- {% include post-tags.html post=page %} -->
-  <!-- <br/> -->
-  <div class="post-body">
-    {{ content }}
-  </div>
+<div class="content project-content">
+  <article class="project-detail">
+    <header class="project-detail-hero">
+      <div>
+        <p class="project-kicker">{{ page.status | default: "Project" }}</p>
+        <h1 class="project-detail-title">{{ page.title }}</h1>
+        {% if page.subtitle %}
+          <p class="project-detail-subtitle">{{ page.subtitle }}</p>
+        {% endif %}
+        {% if page.summary %}
+          <p class="project-detail-summary">{{ page.summary }}</p>
+        {% endif %}
+      </div>
 
-  {% include related_projects.html post=page %}
+      <div class="project-actions">
+        {% if page.repo_url %}
+          <a class="project-button" href="{{ page.repo_url }}" target="_blank" rel="noopener">
+            <span class="fa fa-github" aria-hidden="true"></span>
+            GitHub
+          </a>
+        {% endif %}
+        {% if page.demo_url %}
+          <a class="project-button project-button-secondary" href="{{ page.demo_url }}" target="_blank" rel="noopener">
+            <span class="fa fa-external-link" aria-hidden="true"></span>
+            Demo
+          </a>
+        {% endif %}
+      </div>
+    </header>
+
+    {% if page.image %}
+      <figure class="project-lead-image"{% if page.image_background %} style="--project-image-bg: {{ page.image_background }};"{% endif %}>
+        <img src="{{ page.image }}" alt="{{ page.image_alt | default: page.title }}">
+      </figure>
+    {% endif %}
+
+    <div class="project-detail-grid">
+      <aside class="project-sidebar" aria-label="Project details">
+        <dl class="project-facts">
+          {% if page.year %}
+            <div>
+              <dt>Year</dt>
+              <dd>{{ page.year }}</dd>
+            </div>
+          {% endif %}
+          {% if page.role %}
+            <div>
+              <dt>Role</dt>
+              <dd>{{ page.role }}</dd>
+            </div>
+          {% endif %}
+          {% if page.license %}
+            <div>
+              <dt>License</dt>
+              <dd>{{ page.license }}</dd>
+            </div>
+          {% endif %}
+          {% if page.github_stars != nil %}
+            <div>
+              <dt>GitHub</dt>
+              <dd>{{ page.github_stars }} stars{% if page.github_forks != nil %} / {{ page.github_forks }} forks{% endif %}</dd>
+            </div>
+          {% endif %}
+        </dl>
+
+        {% if page.tech_stack %}
+          <section class="project-sidebar-section">
+            <h2>Stack</h2>
+            <ul class="project-chip-list">
+              {% for tech in page.tech_stack %}
+                <li>{{ tech }}</li>
+              {% endfor %}
+            </ul>
+          </section>
+        {% endif %}
+
+        {% if page.collaborators %}
+          <section class="project-sidebar-section">
+            <h2>Collaborators</h2>
+            <ul class="project-collaborators">
+              {% for person in page.collaborators %}
+                <li>
+                  {% if person.url %}
+                    <a href="{{ person.url }}" target="_blank" rel="noopener">{{ person.name }}</a>
+                  {% else %}
+                    {{ person.name }}
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </section>
+        {% endif %}
+      </aside>
+
+      <div class="project-body">
+        {% if page.highlights %}
+          <section class="project-highlight-section">
+            <h2>Highlights</h2>
+            <ul class="project-highlight-list">
+              {% for highlight in page.highlights %}
+                <li>{{ highlight }}</li>
+              {% endfor %}
+            </ul>
+          </section>
+        {% endif %}
+
+        {{ content }}
+
+        {% if page.gallery %}
+          <section class="project-gallery">
+            <h2>Gallery</h2>
+            <div class="project-gallery-grid">
+              {% for item in page.gallery %}
+                <figure>
+                  <img src="{{ item.url }}" alt="{{ item.alt | default: page.title }}" loading="lazy">
+                </figure>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+      </div>
+    </div>
+
+    {% include related_projects.html post=page %}
+  </article>
 </div>

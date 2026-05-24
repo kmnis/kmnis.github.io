@@ -1,46 +1,73 @@
 ---
 layout: default
-permalink: /projects
 ---
 
-<div class="content">
-  {% include pagination-newer.html %}
+<div class="content projects-content">
+  <section class="projects-hero">
+    <p class="project-kicker">Recent Work</p>
+    <h1>{{ page.title }}</h1>
+    <p>
+      A portfolio of applied AI and data science projects, from medical report
+      assistants and research search to generative image systems.
+    </p>
+  </section>
 
   {{ content }}
-  {% assign sorted_pages = site.projects|sort:"project_sort_order" %}
-  {% for post in sorted_pages %}
-  <article class="post-body">
-    <h2 class="post-title">
-      <a href="{{ post.url | relative_url }}">
-        {{ post.title }}
-      </a>
-    </h2>
-    <div class="post-meta">
-      <span class="post-date" style="font-size: 0.9rem;">{{ post.start_date | date: "%b %Y" }}{{ " - " }}{{ post.end_date | date: "%b %Y" }}</span>
-      <span class="post-author">{{ post.author }}</span>
-    </div>
 
-    {% if post.excerpt %}
-      {{ post.excerpt }}
-    {% else %}
-      {{ post.content }}
-    {% endif %}
+  {% assign sorted_projects = site.projects | sort: "project_sort_order" %}
+  <section class="projects-grid" aria-label="Project list">
+    {% for project in sorted_projects %}
+      <article class="project-card">
+        <a class="project-card-media" href="{{ project.url | relative_url }}" aria-label="Open {{ project.title }}"{% if project.image_background %} style="--project-image-bg: {{ project.image_background }};"{% endif %}>
+          {% if project.image %}
+            <img src="{{ project.image }}" alt="{{ project.image_alt | default: project.title }}" loading="lazy">
+          {% else %}
+            <span>{{ project.title }}</span>
+          {% endif %}
+        </a>
 
-    {% if post.excerpt %}
-      {% comment %}Excerpt may be equal to content. Check.{% endcomment %}
-      {% capture content_words %}
-        {{ post.content | number_of_words }}
-      {% endcapture %}
-      {% capture excerpt_words %}
-        {{ post.excerpt | number_of_words }}
-      {% endcapture %}
+        <div class="project-card-copy">
+          <div class="project-card-meta">
+            {% if project.year %}<span>{{ project.year }}</span>{% endif %}
+            {% if project.status %}<span>{{ project.status }}</span>{% endif %}
+          </div>
 
-      {% if content_words != excerpt_words %}
-        <a href="{{ post.url | relative_url }}">More &hellip;</a>
-      {% endif %}
-    {% endif %}
-  </article>
-  {% endfor %}
+          <h2 class="project-card-title">
+            <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+          </h2>
 
-  {% include pagination-older.html %}
+          {% if project.subtitle %}
+            <p class="project-card-subtitle">{{ project.subtitle }}</p>
+          {% endif %}
+
+          {% if project.summary %}
+            <p class="project-card-summary">{{ project.summary }}</p>
+          {% endif %}
+
+          {% if project.tech_stack %}
+            <ul class="project-chip-list" aria-label="{{ project.title }} tech stack">
+              {% for tech in project.tech_stack limit: 4 %}
+                <li>{{ tech }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          <div class="project-card-actions">
+            {% if project.repo_url %}
+              <a class="project-button project-button-secondary" href="{{ project.repo_url }}" target="_blank" rel="noopener">
+                <span class="fa fa-github" aria-hidden="true"></span>
+                GitHub
+              </a>
+            {% endif %}
+            {% if project.demo_url %}
+              <a class="project-button project-button-secondary" href="{{ project.demo_url }}" target="_blank" rel="noopener">
+                <span class="fa fa-external-link" aria-hidden="true"></span>
+                Demo
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </section>
 </div>

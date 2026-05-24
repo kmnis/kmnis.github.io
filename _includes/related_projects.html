@@ -1,25 +1,25 @@
-<section class="related">
-    <h2>Related Projects</h2>
-    <ul class="posts-list">
-        <!-- {% for project in site.projects limit:3 %}
-        <li>
-            <h3>
-                <a href="{{ project.url }}">
-                    {{ project.title }}
-                    <small>{{ project.date | date_to_string }}</small>
-                </a>
-            </h3>
-        </li>
-        {% endfor %} -->
-        {% for post in include.post.related_projects limit:3 %}
-        <li>
-          <h4>
-            <a href="{{ include.post.related_projects_url[forloop.index0] }}">
-              {{ post }}
-              <small>{{ post.date | date_to_string }}</small>
-            </a>
-          </h4>
-        </li>
+{% if include.post.related_projects %}
+  <section class="related project-related">
+    <div class="project-related-heading">
+      <p class="project-kicker">Keep Exploring</p>
+      <h2>Related Projects</h2>
+    </div>
+
+    <div class="project-related-grid">
+      {% for project_id in include.post.related_projects limit: 3 %}
+        {% assign related_project = site.projects | where: "slug", project_id | first %}
+        {% unless related_project %}
+          {% assign related_project = site.projects | where: "project_id", project_id | first %}
+        {% endunless %}
+        {% if related_project %}
+          <a class="project-related-card" href="{{ related_project.url | relative_url }}">
+            <span>{{ related_project.title }}</span>
+            {% if related_project.subtitle %}
+              <small>{{ related_project.subtitle }}</small>
+            {% endif %}
+          </a>
+        {% endif %}
       {% endfor %}
-    </ul>
-</section>
+    </div>
+  </section>
+{% endif %}
