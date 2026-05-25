@@ -22,7 +22,7 @@ Everyone talks about LLMs, but the real magic is often in the pieces around them
 
 ### Introduction
 
-Let's say I ask ChatGPT: "What does Tolkien say about people who wander?". If the relevant passage is not available to the model, it may give a vague answer or say that it needs more information.
+Let's say I ask ChatGPT: "What does Tolkien say about people who wander?" If the relevant passage is not available to the model, it may give a vague answer or say that it needs more information.
 
 Now let's say I provide a short passage first and then ask the same question. For example:
 
@@ -42,7 +42,7 @@ Because I have provided the relevant passage, the chatbot can answer more direct
 
 Let's say a new book is published which ChatGPT has never seen and we want to ask some questions about it. One method we already discussed is to copy and paste the entire book as context and then ask the question at the end. But this method has two major issues.
 
-1.  **Context Length:** Every LLM has a limit on how long the input can be. For example, older GPT-4 had a limit of about 8k tokens (we'll see what's a token in a minute). So if the book has many pages, it might not fit in the context and we'll get an error.
+1.  **Context Length:** Every LLM has a limit on how long the input can be. For example, older GPT-4 had a limit of about 8k tokens (we'll see what a token is in a minute). So if the book has many pages, it might not fit in the context and we'll get an error.
     
 2.  **Finding a needle in a haystack:** Even if it does fit in the context, there's no guarantee that the chatbot will be able to find the right answer due to large amount of information available in the context. The below chart shows that the models can struggle to use relevant information in long contexts, especially when it appears in the middle.
 
@@ -58,7 +58,7 @@ Chunking is the process of splitting a long piece of text into smaller chunks an
 
 There are many ways to split a text and the right method depends on the user and problem you're trying to solve. For example, you can split a long book by chapters, sections, paragraphs, or even sentences. Each of these methods has its own advantages and can be chosen based on the context of the task at hand. Some of the common methods of chunking are:
 
-1.  **Fixed Size Chunking:** This is the most crude and simplest method of segmenting the text. It breaks down the text into chunks of a specified number of characters, regardless of their content or structure. For example, you splitting a text by keeping a maximum of 500 characters in each chunk.
+1.  **Fixed Size Chunking:** This is the most crude and simplest method of segmenting the text. It breaks down the text into chunks of a specified number of characters, regardless of their content or structure. For example, you might split a text by keeping a maximum of 500 characters in each chunk.
     
 2.  **Recursive Chunking:** This method recursively splits the text into chunks until a desired context size is achieved. For example, it can first try to split a text by paragraphs. If any paragraph is still too long, it can further split it by lines or any other method defined by the user.
     
@@ -86,7 +86,7 @@ Imagine you have a large library of books and you want to find all books related
 
 But how does embedding help in finding the relevant chunks? Here's how:
 
-1.  We first embed all the chunks as well as the the user's query into numerical vectors using an embedding model of our choice
+1.  We first embed all the chunks as well as the user's query into numerical vectors using an embedding model of our choice
 2.  Next, we compute cosine similarity between the user query vector with each of the chunks
 3.  Lastly, we can select one or more of the most similar chunks (highest cosine similarity) and pass them as the context
 
@@ -165,12 +165,12 @@ The THE
 THE
 ```
 
-## LLM Finetuning Terminology
+## LLM Fine-tuning Terminology
 
 ### Parameter-Efficient Fine-Tuning (PEFT)
 LLMs like GPT are generally good at understanding and generating text based on general knowledge. However, what if we want to make this model an expert in a specific domain, such as answering medical queries? To achieve this, we need to fine-tune the model using a specialized medical dataset.
 
-Let's take a simple example. Imagine we have already trained an LLM model and for simplicity, let's assume there's only one weight matrix (𝑊) in the model. You enter some input text, the model converts it to tokens, then to embeddings, perform some computation and generates an output. When a new specialized data is presented, we can train this model further (called fine-tuning) on this new data hoping that the LLM will learn the medical knowledge. However, there's an issue: What if the model starts to overwrite its existing knowledge with the new information, potentially forgetting how to perform general tasks it was originally trained for? For example, while training the model to become an expert in medical knowledge, what if it starts forgetting how to understand and perform non-medical tasks? Afterall, a good doctor should have knowledge of the rest of the world too. This issue is called **catastrophic forgetting**.
+Let's take a simple example. Imagine we have already trained an LLM model and for simplicity, let's assume there's only one weight matrix (𝑊) in the model. You enter some input text, the model converts it to tokens, then to embeddings, performs some computation, and generates an output. When new specialized data is presented, we can train this model further (called fine-tuning) on this new data hoping that the LLM will learn the medical knowledge. However, there's an issue: What if the model starts to overwrite its existing knowledge with the new information, potentially forgetting how to perform general tasks it was originally trained for? For example, while training the model to become an expert in medical knowledge, what if it starts forgetting how to understand and perform non-medical tasks? After all, a good doctor should have knowledge of the rest of the world too. This issue is called **catastrophic forgetting**.
 
 The solution here is PEFT: It addresses this problem by freezing most of the pre-trained model and training only a small number of additional or selected parameters, which makes fine-tuning cheaper and can reduce the risk of overwriting the model's existing behavior. Here's how it works:
 
@@ -188,7 +188,7 @@ To summarize, PEFT adds a small number of new trainable weights while keeping mo
 </aside>
 
 <aside class="note" markdown="1">
-**Note:** In the above explanation, I have taken a very simple example, assuming that there's only one weight matrix, however, in reality there are often hundreds, sometimes thousands of small or large weight matrices in an LLM. When we use techniques like PEFT or LoRA, we finetune only a very small number of matrices not all of them.
+**Note:** In the above explanation, I have taken a very simple example, assuming that there's only one weight matrix, however, in reality there are often hundreds, sometimes thousands of small or large weight matrices in an LLM. When we use techniques like PEFT or LoRA, we fine-tune only a very small number of matrices not, all of them.
 </aside>
 
 ![PEFT](/_images/llm-blog/peft.png)
@@ -197,7 +197,7 @@ To summarize, PEFT adds a small number of new trainable weights while keeping mo
 
 #### The Problem
 
-If you want to finetune an open-source model like Llama-2, say, on your laptop, you're faced with the challenge of hardware requirements. You would typically need a minimum of 60 GB VRAM to finetune the Llama-2-7b model (the smallest of the models in Llama 2 family) with 16 bit precision. The requirement doubles to 120 GB if you use Automatic Mixed Precision (AMP), a technique that dynamically switches between 16-bit (half-precision) and 32-bit (single-precision) computations to optimize memory usage and speed. Below chart, borrowed from [here](https://github.com/hiyouga/LLaMA-Factory#hardware-requirement), shows *estimated* hardware requirements for different models.
+If you want to fine-tune an open-source model like Llama-2, say, on your laptop, you're faced with the challenge of hardware requirements. You would typically need a minimum of 60 GB VRAM to fine-tune the Llama-2-7b model (the smallest of the models in Llama 2 family) with 16 bit precision. The requirement doubles to 120 GB if you use Automatic Mixed Precision (AMP), a technique that dynamically switches between 16-bit (half-precision) and 32-bit (single-precision) computations to optimize memory usage and speed. Below chart, borrowed from [here](https://github.com/hiyouga/LLaMA-Factory#hardware-requirement), shows *estimated* hardware requirements for different models.
 
 ![LoRA VRAM Comparison](/_images/llm-blog/lora-vram-comparison.png)
 
@@ -205,26 +205,26 @@ If you're not familiar with what 32 bits and 16 bits precision mean, I'll cover 
 
 #### The Solution
 
-Low-Rank Adaptation (LoRA) is an innovative approach that mitigates these hardware requirements by reducing the number of parameters needing finetuning. To understand LoRA, let's first do a small exercise.
+Low-Rank Adaptation (LoRA) is an innovative approach that mitigates these hardware requirements by reducing the number of parameters needing fine-tuning. To understand LoRA, let's first do a small exercise.
 
-Let's assume that the weight matrix, 𝑊, we saw in the PEFT section, has dimensions of *1000 x 1000*. If we wanted to learn a full update for this matrix, that update would also need the same dimension. This means there would be *1,000,000* values (1 million parameters) that we would need to finetune.
+Let's assume that the weight matrix, 𝑊, we saw in the PEFT section, has dimensions of *1000 x 1000*. If we wanted to learn a full update for this matrix, that update would also need the same dimension. This means there would be *1,000,000* values (1 million parameters) that we would need to fine-tune.
 
 Now let's take two smaller matrices:
 - 𝐴 (dimension *1000 x 8*) - *8000* parameters and
 - 𝐵 (dimension *8 x 1000*) - again *8000* parameters
 - Total combined *16,000* parameters
 
-If you recall a matrix property from your school days: If you multiply two matrices - 𝐴 (dimension *m x r*) and 𝐵 (dimension *r x n*), the dimension of the new matrix will be *m x n*. So if we multiply 𝐴 and 𝐵 above, we'll get a *1000 x 1000* matrix, which is the same size as the full update we wanted. Knowing this, what if we learn two smaller matrices 𝐴 and 𝐵 instead of learning one huge update matrix directly? This way, we only have to finetune *16,000* parameters compared to the original 1 million and if we multiply 𝐴 and 𝐵, we'll get the same dimension as 𝑊. This is exactly what LoRA does. By learning two low-rank matrices instead of one large matrix, it reduces the number of trainable parameters by more than *98%*, thereby lowering the computational cost. The mathematical idea behind LoRA is that low-rank approximations can capture the most important variations in the data with fewer parameters.
+If you recall a matrix property from your school days: If you multiply two matrices - 𝐴 (dimension *m x r*) and 𝐵 (dimension *r x n*), the dimension of the new matrix will be *m x n*. So if we multiply 𝐴 and 𝐵 above, we'll get a *1000 x 1000* matrix, which is the same size as the full update we wanted. Knowing this, what if we learn two smaller matrices 𝐴 and 𝐵 instead of learning one huge update matrix directly? This way, we only have to fine-tune *16,000* parameters compared to the original 1 million and if we multiply 𝐴 and 𝐵, we'll get the same dimension as 𝑊. This is exactly what LoRA does. By learning two low-rank matrices instead of one large matrix, it reduces the number of trainable parameters by more than *98%*, thereby lowering the computational cost. The mathematical idea behind LoRA is that low-rank approximations can capture the most important variations in the data with fewer parameters.
 
-The internal dimension, *r* (in above example *8*) is called the **rank** of the matrix. Usually, a rank of 8 or 16 is sufficient without sacrificing too much accuracy, however some tasks might require up to 64. The matrices 𝐴 and 𝐵 are called **adapters** as they *adapt* the pre-trained model to new tasks by making minimal, yet effective changes.
+The internal dimension, *r* (in above example *8*) is called the **rank** of the matrix. Usually, a rank of 8 or 16 is sufficient without sacrificing too much accuracy, though some tasks might require a higher rank, such as 64. The matrices 𝐴 and 𝐵 are called **adapters** as they *adapt* the pre-trained model to new tasks by making minimal, yet effective changes.
 
 ![LoRA Adapters](/_images/llm-blog/lora-adapters.png)
 
-![LoRA vs Full Finetuning](/_images/llm-blog/normal-vs-lora-finetuning.png)
+![LoRA vs Full Fine-tuning](/_images/llm-blog/normal-vs-lora-finetuning.png)
 
-Here's a question for you: If LoRA is so effective in reducing computational requirements, is LoRA a one-stop solution for all finetuning tasks?
+Here's a question for you: If LoRA is so effective in reducing computational requirements, is LoRA a one-stop solution for all fine-tuning tasks?
 
-As the saying goes, there are no free lunches. In this case, there's a trade-off between accuracy and computational power. While LoRA may reproduce a matrix of original dimension, 1 million parameters will likely capture a lot more information than *16,000* parameters. This raises the topic of Generalization vs. Specialization. Remember, the pretrained models like Llama are trained on many different types of dataset (generalized model) but by finetuning, we're trying to make the model specialized for one task while avoiding the issue of catastrophic forgetting.
+As the saying goes, there are no free lunches. In this case, there's a trade-off between accuracy and computational power. While LoRA may reproduce a matrix of original dimension, 1 million parameters will likely capture a lot more information than *16,000* parameters. This raises the topic of Generalization vs. Specialization. Remember, the pretrained models like Llama are trained on many different types of dataset (generalized model) but by fine-tuning, we're trying to make the model specialized for one task while avoiding the issue of catastrophic forgetting.
 
 <aside class="note" markdown="1">
 **Note:** While LoRA reduces the number of parameters that need to be updated, it does not inherently reduce the model's overall parameter count or memory footprint during inference. In other words, we would still need roughly the same amount of RAM during inference as we did for the original pretrained model during inference. When I say inference, I mean making predictions once the model is trained and ready to use.
@@ -236,7 +236,7 @@ The key idea is this: **training a model needs more memory than simply using it.
 
 When we use a model for inference, the computer mostly needs to keep the model's weights in memory. For example, a 7B model in 16-bit precision may take roughly around 14 GB just to load.
 
-But during full fine-tuning, the computer has to do more than just store the model. It also needs extra temporary memory to keep track of how the model is changing while it learns (these are called **gradients** and **optimizer states** but we'll not go into these details in this post). Since full fine-tuning updates all the model's weights, this extra memory can become huge. That's why the memory requirement can jump from around 14 GB for inference to something much larger, like 60 GB, during training.
+But during full fine-tuning, the computer has to do more than just store the model. It also needs extra temporary memory to keep track of how the model is changing while it learns (these are called **gradients** and **optimizer states** but we won't go into these details in this post). Since full fine-tuning updates all the model's weights, this extra memory can become huge. That's why the memory requirement can jump from around 14 GB for inference to something much larger, like 60 GB, during training.
 
 LoRA reduces this extra training memory by freezing the original model.
 
@@ -254,7 +254,6 @@ A rough way to think about it:
 - **LoRA inference:** load the original model + the small adapters
 
 So LoRA saves memory mainly during fine-tuning, not because the original model becomes smaller, but because we train only a tiny part of it.
-
 
 ![LoRA](/_images/llm-blog/lora.png)
 
