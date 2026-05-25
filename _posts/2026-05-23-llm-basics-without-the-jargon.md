@@ -58,16 +58,16 @@ Chunking is the process of splitting a long piece of text into smaller chunks an
 
 There are many ways to split a text and the right method depends on the user and problem you're trying to solve. For example, you can split a long book by chapters, sections, paragraphs, or even sentences. Each of these methods has its own advantages and can be chosen based on the context of the task at hand. Some of the common methods of chunking are:
 
-1.  **Fixed Size Chunking:** This is the most crude and simplest method of segmenting the text. It breaks down the text into chunks of a specified number of characters, regardless of their content or structure. For example, you might split a text by keeping a maximum of 500 characters in each chunk.
+1.  **Fixed Size Chunking:** This is the most crude and simplest method of segmenting the text. It breaks down the text into chunks of a specified number of characters, regardless of their content or structure. For example, you might split a text by keeping a maximum of 500 characters in each chunk. Instead of characters, you can also use tokens as the unit of chunking. If you're not familiar with what tokens are, don't worry, we'll cover that in the next section.
     
 2.  **Recursive Chunking:** This method recursively splits the text into chunks until a desired context size is achieved. For example, it can first try to split a text by paragraphs. If any paragraph is still too long, it can further split it by lines or any other method defined by the user.
     
-3.  **Document-specific Chunking:** Each document has its own structure. Rather than using a fixed number of characters or a recursive process, this method creates chunks that align with the logical sections of the document, like paragraphs or subsections. For example, if the document contains programming code, it makes sense to ensure that functions or classes are not split in between chunks.
+3.  **Document-specific Chunking:** Each document has its own structure. Rather than using a fixed number of characters or a recursive process, this method creates chunks that align with the logical sections of the document, like headings or paragraphs or subsections. For example, if the document contains programming code, it makes sense to ensure that functions or classes are not split in between chunks.
     
 
 There are other methods like Semantic chunking, token-based chunking, agent-based chunking, etc. You can even write your own functions to define the right approach.
 
-Coming back to the original problem, we wanted to split the book into smaller chunks and only pass the relevant chunks as context. You might notice an immediate issue here: How do we find the right chunks to use as the context? Because, if we already knew where the answer is in the book, we might not even need the chatbot. To understand this, we first need to understand the concept of *Embeddings*.
+Coming back to the original problem, we wanted to split the book into smaller chunks and only pass the relevant chunks as context. You might notice an immediate issue here: How do we find the right chunks to use as the context? You can have thousands of chunks and if you already knew where the answer is in the book, we might not even need the chatbot. To understand this, we first need to understand the concept of *Embeddings*.
 
 ### Embeddings
 
@@ -84,13 +84,15 @@ Suppose we have a small vocabulary of words: ["cat," "dog," "space," "rocket"]. 
 
 Imagine you have a large library of books and you want to find all books related to "space exploration." Instead of searching for the exact words "space exploration" in each book, we can use embeddings to find books that discuss related topics, even if they use different words like "astronomy," "space travel," or "NASA." Embeddings help us understand the context and meaning behind words, making searches more accurate and relevant. The dimension of the embedding vector depends on the model we use. For example, the OpenAI model *text-embedding-3-small* is 1536 long while *text-embedding-3-large* model is 3072 long.
 
+The basic idea is: texts with similar meanings should end up closer together in this number-space. For example, the embedding for "cat" and "dog" might be closer to each other than the embedding for "cat" and "space," because cats and dogs are more semantically similar than cats and space.
+
 But how does embedding help in finding the relevant chunks? Here's how:
 
-1.  We first embed all the chunks as well as the user's query into numerical vectors using an embedding model of our choice
+1.  We first embed all the chunks as well as the user's query into numerical vectors using an embedding model of our choice. So if we have 1000 chunks, we will have 1000 chunk embedding vectors and 1 query embedding vector
 2.  Next, we compute cosine similarity between the user query vector with each of the chunks
 3.  Lastly, we can select one or more of the most similar chunks (highest cosine similarity) and pass them as the context
 
-This process of finding the right chunks and using them as context is called **Retrieval**.
+This process of finding the right chunks and using them as context is called **Retrieval**. That's why this method is called Retrieval Augmented Generation (RAG) - we retrieve relevant information and use it to augment the generation process.
 
 ![Embeddings and Semantic Search](/_images/llm-blog/embeddings-and-semantic-search.png)
 
@@ -102,13 +104,13 @@ As the name indicates, these are specialized databases to store vectors (chunk e
 
 1. **Efficient Similarity Search:** Vector databases are designed to quickly and efficiently perform similarity searches. In other words, vector databases streamline the computation of cosine similarity and finding *top-k* most similar chunks without having to write code for them.
 
-2. **Scalability and Performance:** They are built to handle large volumes of high-dimensional vectors. Depending on the text, there can be millions of chunks and computing the similarity with each of them can take a long time. Vector databases use specialized indexing techniques like Approximate Nearest Neighbor (ANN) search, which significantly speeds up retrieval times compared to brute-force search methods.
+2. **Scalability and Performance:** They are built to handle large volumes of high-dimensional vectors. Depending on the text, there can be millions of chunks and computing the similarity with each of them for every query can take a long time. Vector databases use specialized indexing techniques like Approximate Nearest Neighbor (ANN) search, which significantly speeds up retrieval times compared to brute-force search methods.
 
 Some examples of Vector Databases are Pinecone, Chroma, Qdrant, etc. All of them offer basic functionalities and, for most small use cases, it doesn't really matter which one to use.
 
 ### Wrapping up
 
-Let's quickly recap what we learned so far -  we wanted to ask questions about a book but due to context limit, we split it into chunks using any chunking method of our choice. To find the relevant chunks, we used embedding models to convert both chunks and the user query to numerical vectors and compute cosine similarity between them. We use the top-k most similar chunks as context. Lastly, to store vectors and make similarity search faster, we can use Vector Databases.
+Let's quickly recap what we learned so far -  we wanted to ask questions about a book but due to context limit, we split it into chunks using any chunking method of our choice. To find the relevant chunks, we used embedding models to convert both chunks and the user query to numerical vectors and compute cosine similarity between them. We use the *top-k* most similar chunks as context. Lastly, to store these vectors and make similarity search faster, we use Vector Databases.
 
 ![End-to-end RAG](/_images/llm-blog/end-to-end-rag.png)
 
@@ -118,25 +120,29 @@ Let's quickly recap what we learned so far -  we wanted to ask questions about 
 
 "Gemini 1.5 Pro has a context window of 1 million tokens"
 
-In these statements, what do you think is the meaning of the word "token". If you're thinking a token is equivalent to a word, you're only partially correct. Tokens are the fundamental unit, the atom of Large Language Models. A token can be a word, a subword, a character, or even a punctuation. For example, in the sentence "Hello World!", the tokens could be ["Hello", "World", "!"]. However, many modern models like ChatGPT use subword tokenization, where words are broken down into smaller units to handle rare words and different languages more efficiently. For instance, the word "unhappiness" might be tokenized as ["un", "happiness"].
+In these statements, what do you think is the meaning of the word "token"? If you're thinking a token is equivalent to a word, you're only partially correct. Tokens are the fundamental unit, the *atom* of Large Language Models. A token can be a word, a subword, a character, or even a punctuation. For example, in the sentence "Hello World!", the tokens could be ["Hello", "World", "!"]. However, many modern models like ChatGPT use subword tokenization, where words are broken down into smaller units to handle rare words and different languages more efficiently. For instance, the word "unbelievable" might be tokenized as ["un", "bel", "ievable"].
 
 #### Vocabulary
 The vocabulary of an LLM is a set of all unique tokens that the model can recognize and generate. It's like the model's dictionary. For instance, if a model has a vocabulary size of 50,000, it means there are 50,000 unique tokens that it understands.
 
-The choice of vocabulary size is a critical design decision. A larger vocabulary allows the model to understand and generate more diverse and specific tokens, potentially improving its performance on a wider range of texts. However, it also increases the model's complexity and computational requirements. Conversely, a smaller vocabulary can make the model faster and more efficient but might reduce its ability to handle rare words and nuanced language.
+A larger vocabulary allows the model to understand and generate more diverse and specific tokens, potentially improving its performance on a wider range of texts. However, it also increases the model's complexity and computational requirements. Similarly, a smaller vocabulary can make the model faster and more efficient but might reduce its ability to handle rare words and nuanced language.
 
 Further, each token in the vocabulary is indexed, meaning each token is assigned a unique number, like a label. For example, the word "hello" might be labeled as number 1, "world" as number 2, and so on. When the model works with text, it uses these numbers instead of the words themselves.
 
-So if the model can only generate the tokens that are part of the vocabulary, then here's a question for you: how come ChatGPT is able to generate a random text like "asjl54;437qwdnklca" correctly even if the model has never seen such text before? Take a minute to think about it. The next section will try to answer this question for you.
+So if the model can only generate the tokens that are part of the vocabulary, then here's a question for you: how come ChatGPT is able to generate a random text like "asjl54;437qwdnklca" correctly even if the model has never seen such text before? Take a minute to think about it. The next section will try to answer this question.
 
 #### Tokenization
-Tokenization is the process of translating strings (i.e. text) into sequences of tokens. Below are some most commonly used tokenization methods.
+Tokenization is the process of translating strings (i.e. text) into sequences of tokens. Below are some most commonly used tokenization methods:
 
 1. **Word Tokenization:** Splits text into individual words based on spaces and punctuation. Simple but can be inefficient for rare words and languages with complex morphology.
 2. **Subword Tokenization:** Breaks words into smaller units (subwords) based on frequency and patterns in the language. Efficient for handling rare and out-of-vocabulary words.
 3. **Character Tokenization:** Splits text into individual characters. Provides fine-grained control but can be computationally expensive and less efficient for capturing meaning. 
 
-As the below table shows, each method has a trade-off. Word tokenization is easy to understand, but it struggles with rare or new words because every word needs to exist in the vocabulary. Character tokenization can represent almost any text, but it makes sequences very long. Subword tokenization sits in the middle: it can handle unfamiliar words by breaking them into smaller known pieces, while still keeping the sequence shorter than character-level tokenization. This is why many modern LLMs use subword-based tokenization methods.
+As the below table shows, each method has a trade-off. Word tokenization is easy to understand, but it struggles with rare or new words because every word needs to exist in the vocabulary. For example, if the model has never seen the word "asjl54;437qwdnklca" before, it won't be able to generate it because it's not in the vocabulary.
+
+Character tokenization can represent almost any text, but it makes sequences very long. In other words, the sentence "Hello World!" would be tokenized into ["H", "e", "l", "l", "o", " ", "W", "o", "r", "l", "d", "!"], which is much longer than the word tokenization. This can make it harder for the model to learn and generate coherent text.
+
+Subword tokenization sits in the middle: it can handle unfamiliar words by breaking them into smaller known pieces, while still keeping the sequence shorter than character-level tokenization. This is why many modern LLMs use subword-based tokenization methods.
 
 Here's a quick comparison:
 
@@ -145,25 +151,27 @@ Here's a quick comparison:
 ![Tokenization](/_images/llm-blog/tokenization.png)
 
 <aside class="note" markdown="1">
-**Note:** Models like GPT-4 use a method called Byte-Pair Encoding (BPE) tokenization method explained very well in [this Wikipedia article](https://en.wikipedia.org/wiki/Byte_pair_encoding).
+**Note:** Models like GPT-4 use a method called Byte-Pair Encoding (BPE) tokenization method explained quite well in [this Wikipedia article](https://en.wikipedia.org/wiki/Byte_pair_encoding).
 </aside>
 
 <aside class="note" markdown="1">
-**Note:** Each LLM has their own way of tokenization. Therefore, token vocabulary for LLaMA models can be vastly different than the one for GPT models.
+**Note:** Each LLM has their own way of tokenization. Therefore, token vocabulary for LLaMA models can be vastly different than the one for GPT or Claude models.
 </aside>
 
-Coming back to the question I asked earlier, how can ChatGPT generate a text like "asjl54;437qwdnklca" even if it has never seen it before? The answer lies in the power of subword tokenization. The tokenizer first breaks the text into smaller pieces that already exist in the model's vocabulary. This process is why even seemingly random or unfamiliar text can still be generated and understood by the model. For instance, the text "asjl54;437qwdnklca" might be broken down by GPT-4 into smaller units as shown below.
+Coming back to the question I asked earlier, how can ChatGPT generate a text like "asjl54;437qwdnklca" even if it has never seen it before? The answer lies in the power of subword tokenization. The tokenizer first breaks the text into smaller pieces that already exist in the model's vocabulary. This process is why even seemingly random or unfamiliar text can still be generated and understood by the model. For instance, this text might be broken down by GPT into smaller units as shown below.
 
 ![Subword Tokenization Example](/_images/llm-blog/tokenization-on-unfamiliar-text.png)
 
 You can visit [this link](https://platform.openai.com/tokenizer) and play around with some combination of words to see it yourself.
 
-Question for you: How many unique tokens are there in the below string? Head to the above link and see for yourself.
+Question for you: How many <u>unique</u> (GPT) tokens are there in the below string?
 ```
-the the The
-The THE
-THE
+the the The\nThe THE\nTHE
 ```
+
+Hint: The answer is not 1, 2, 3, or even 6.
+
+It's actually 7. Can you guess why?
 
 ## LLM Fine-tuning Terminology
 
