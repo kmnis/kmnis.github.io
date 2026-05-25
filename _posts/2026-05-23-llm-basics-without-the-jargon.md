@@ -227,14 +227,20 @@ Here's a question for you: If LoRA is so effective in reducing computational req
 As the saying goes, there are no free lunches. In this case, there's a trade-off between accuracy and computational power. While LoRA may reproduce a matrix of original dimension, 1 million parameters will likely capture a lot more information than *16,000* parameters. This raises the topic of Generalization vs. Specialization. Remember, the pretrained models like Llama are trained on many different types of dataset (generalized model) but by finetuning, we're trying to make the model specialized for one task while avoiding the issue of catastrophic forgetting.
 
 <aside class="note" markdown="1">
-**Note:** While LoRA reduces the number of parameters that need to be updated, it does not inherently reduce the model's overall parameter count or memory footprint during inference. In other words, we would still need roughly the same amount of RAM during inference as we did for the original pretrained model during inference. When I say inference, making predictions once the model is trained and ready to use.
+**Note:** While LoRA reduces the number of parameters that need to be updated, it does not inherently reduce the model's overall parameter count or memory footprint during inference. In other words, we would still need roughly the same amount of RAM during inference as we did for the original pretrained model during inference. When I say inference, I mean making predictions once the model is trained and ready to use.
 </aside>
 
 So here's another question for you: If the parameter count is roughly the same, in fact we have added more parameters to the original base LLM, how does requirement reduces during fine-tuning? I mean for training, we still need to load the original model in memory for finetuning, right?
 
-The answer is Yes, we do. We'll still need to load the entire model in memory during finetuning too. However, there's an additional component that you might not be familiar with. While training, additional RAM is required to compute the gradients and optimizer states and larger the weight matrix, higher the memory requirement to store gradients and optimizer states. Since, in PEFT and LoRA, we freeze the original weight matrices, gradients are not computed for them hence no additional RAM is required for them. And since our newly introduced matrices are much smaller in size, the corresponding gradient and optimizer states will also be smaller in size. When I said 60 GB of RAM is required for full-finetuning of Llama-7b model, this 60 GB also includes the RAM requirement for gradients and other training steps.
+The answer is Yes, we do. We'll still need to load the entire model in memory during finetuning too.
 
-In case there's still confusion, here's a step-by-step explanation:
+<aside class="note" markdown="1">
+**Note:** There's an additional and a little advanced component that I haven't covered here. Feel free to skip this section if you're not familiar with it.
+</aside>
+
+While training, additional RAM is required to compute the gradients and optimizer states and larger the weight matrix, higher the memory requirement to store gradients and optimizer states. Since, in PEFT and LoRA, we freeze the original weight matrices, gradients are not computed for them hence no additional RAM is required for them. And since our newly introduced matrices are much smaller in size, the corresponding gradient and optimizer states will also be smaller in size. When I said 60 GB of RAM is required for full-finetuning of Llama-7b model, this 60 GB also includes the RAM requirement for gradients and other training steps.
+
+Here's a step-by-step explanation:
 - Let's say 60 GB RAM is required for full finetuning the Llama-7b model, assuming 16 bit precision. This includes around 14 GB (Llama-7b model size) to load the model in memory and remaining for the training steps like gradient computation
 - During inference, we'll only need around 14 GB of RAM (plus some additional requirement for loading the data and other processes) since training is done, so no more gradients
 - When using LoRA, gradients are not computed for the frozen layers so we will need 14 GB to load the original model plus a few additional GBs depending on the rank of the matrices to load the smaller matrices plus some more RAM for their gradient and optimizer state computations. Typically, it goes around 16 GB total
@@ -244,9 +250,10 @@ In case there's still confusion, here's a step-by-step explanation:
 **Note:** The numbers mentioned above are rough estimates and can vary significantly depending on your training setup. For example, if you use a large batch size while fine-tuning, higher RAM will be required.
 </aside>
 
+![LoRA](/_images/llm-blog/lora.png)
+
 How can this requirement be brought down further? We can use a technique called Quantization.
 
-![LoRA](/_images/llm-blog/lora.png)
 
 ### Quantization
 
