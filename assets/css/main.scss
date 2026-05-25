@@ -41,6 +41,46 @@
   color: $gray-6;
 }
 
+.hint {
+  background: #fffaf0;
+  border-left: 0.25rem solid $yellow;
+  border-radius: 0.25rem;
+  color: $gray-5;
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+}
+
+.hint p:last-child {
+  margin-bottom: 0;
+}
+
+.hint strong:first-child {
+  color: $gray-6;
+}
+
+.answer {
+  background: #f7fbf2;
+  border-left: 0.25rem solid $green;
+  border-radius: 0.25rem;
+  color: $gray-5;
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+}
+
+.answer summary {
+  color: $gray-6;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.answer[open] summary {
+  margin-bottom: 0.75rem;
+}
+
+.answer p:last-child {
+  margin-bottom: 0;
+}
+
 .projects-content,
 .project-content {
   --project-ink: #{$heading-color};

@@ -166,19 +166,30 @@ You can visit [this link](https://platform.openai.com/tokenizer) and play around
 
 Question for you: How many <u>unique</u> (GPT) tokens are there in the below string?
 ```
-the the The\nThe THE\nTHE
+the the The
+The THE
+THE
 ```
 
-Hint: The answer is not 1, 2, 3, or even 6.
+<aside class="hint" markdown="1">
+**Hint:** The answer is not 1, 2, 3, or even 6.
+</aside>
 
-It's actually 7. Can you guess why?
+<details class="answer" markdown="1">
+<summary>Show answer</summary>
+
+There are total **8** tokens and **7** unique tokens - `"the"`, `" the"`, `" The"`, `"The"`, `" THE"`, `"THE"`, and two more for the two linebreaks.
+</details>
 
 ## LLM Fine-tuning Terminology
 
-### Parameter-Efficient Fine-Tuning (PEFT)
-LLMs like GPT are generally good at understanding and generating text based on general knowledge. However, what if we want to make this model an expert in a specific domain, such as answering medical queries? To achieve this, we need to fine-tune the model using a specialized medical dataset.
+Now that we have covered RAG and tokenization, let's talk about fine-tuning. Fine-tuning is the process of taking a pre-trained LLM and training it further on a specific dataset to make it better at a particular task or domain. For example, if we have a general-purpose LLM like GPT-4, we can fine-tune it on a medical dataset to make it better at answering medical questions. However, fine-tuning can be expensive in terms of computational resources and time, especially for large models. To address this, several techniques have been developed to make fine-tuning more efficient. Let's explore some of these techniques.
 
-Let's take a simple example. Imagine we have already trained an LLM model and for simplicity, let's assume there's only one weight matrix (𝑊) in the model. You enter some input text, the model converts it to tokens, then to embeddings, performs some computation, and generates an output. When new specialized data is presented, we can train this model further (called fine-tuning) on this new data hoping that the LLM will learn the medical knowledge. However, there's an issue: What if the model starts to overwrite its existing knowledge with the new information, potentially forgetting how to perform general tasks it was originally trained for? For example, while training the model to become an expert in medical knowledge, what if it starts forgetting how to understand and perform non-medical tasks? After all, a good doctor should have knowledge of the rest of the world too. This issue is called **catastrophic forgetting**.
+### Parameter-Efficient Fine-Tuning (PEFT)
+
+Imagine we have already trained an LLM model and for simplicity, let's assume there's only one weight matrix (𝑊) in the model. You enter some input text, the pipeline converts it to tokens, then to embeddings, performs some computation, and generates an output. When new specialized data is presented, we can train this model further (called fine-tuning) on this new data hoping that the LLM will learn the medical knowledge.
+
+However, there's an issue: What if the model starts to overwrite its existing knowledge with the new information, potentially forgetting how to perform general tasks it was originally trained for? For example, while training the model to become an expert in medical knowledge, what if it starts forgetting how to understand and perform non-medical tasks? After all, a good doctor should have knowledge of the rest of the world too. This issue is called **catastrophic forgetting**.
 
 The solution here is PEFT: It addresses this problem by freezing most of the pre-trained model and training only a small number of additional or selected parameters, which makes fine-tuning cheaper and can reduce the risk of overwriting the model's existing behavior. Here's how it works:
 
@@ -189,10 +200,8 @@ The solution here is PEFT: It addresses this problem by freezing most of the pre
 
 ![PEFT](/_images/llm-blog/peft-explanation.png)
 
-To summarize, PEFT adds a small number of new trainable weights while keeping most of the original model weights unchanged. These new weights learn the specialized information from the new dataset, and during generation they modify or guide the model's output. This allows the model to adapt to a domain like medicine with much lower training cost, while reducing the risk of overwriting the general knowledge learned during pre-training. When a user asks a medical question, such as "What are the symptoms of diabetes?", the model can use both its general language understanding and the task-specific adjustments learned during fine-tuning to produce a more relevant answer.
-
 <aside class="note" markdown="1">
-**Note:** Please note that the explanation provided above is an extremely simplified overview of PEFT and LoRA. In reality, the process is somewhat more complex. Additionally, the approach described above of freezing weights is just one (albeit the most commonly used) of many approaches.
+**Note:** The explanation provided above is an extremely simplified overview of PEFT and LoRA. In reality, the process is somewhat more complex. Additionally, the approach described above of freezing weights is just one (albeit the most commonly used) of many approaches.
 </aside>
 
 <aside class="note" markdown="1">
@@ -205,11 +214,13 @@ To summarize, PEFT adds a small number of new trainable weights while keeping mo
 
 #### The Problem
 
-If you want to fine-tune an open-source model like Llama-2, say, on your laptop, you're faced with the challenge of hardware requirements. You would typically need a minimum of 60 GB VRAM to fine-tune the Llama-2-7b model (the smallest of the models in Llama 2 family) with 16 bit precision. The requirement doubles to 120 GB if you use Automatic Mixed Precision (AMP), a technique that dynamically switches between 16-bit (half-precision) and 32-bit (single-precision) computations to optimize memory usage and speed. Below chart, borrowed from [here](https://github.com/hiyouga/LLaMA-Factory#hardware-requirement), shows *estimated* hardware requirements for different models.
-
-![LoRA VRAM Comparison](/_images/llm-blog/lora-vram-comparison.png)
+If you want to fine-tune an open-source model like Llama-2, say, on your laptop, you're faced with the challenge of hardware requirements. You would typically need a minimum of 60 GB VRAM to fine-tune the Llama-2-7b model (the smallest of the models in Llama 2 family) with 16 bit precision. The requirement doubles to 120 GB if you use Automatic Mixed Precision (AMP), a technique that dynamically switches between 16-bit (half-precision) and 32-bit (single-precision) computations to optimize memory usage and speed.
 
 If you're not familiar with what 32 bits and 16 bits precision mean, I'll cover them in a separate blog post. For now, think of them as different levels of numerical precision that impact the speed and memory usage of your training process. In other words, using 16-bit precision allows you to fit larger models into the same amount of GPU memory, but at the potential cost of reduced numerical accuracy. On the other hand, 32-bit potentially ensures high accuracy but at the expense of increased computational demands. For many applications, this trade-off is worthwhile as it enables training models on more accessible hardware.
+
+Below chart, borrowed from [here](https://github.com/hiyouga/LLaMA-Factory#hardware-requirement), shows *estimated* hardware requirements for different models.
+
+![LoRA VRAM Comparison](/_images/llm-blog/lora-vram-comparison.png)
 
 #### The Solution
 
@@ -222,9 +233,11 @@ Now let's take two smaller matrices:
 - 𝐵 (dimension *8 x 1000*) - again *8000* parameters
 - Total combined *16,000* parameters
 
-If you recall a matrix property from your school days: If you multiply two matrices - 𝐴 (dimension *m x r*) and 𝐵 (dimension *r x n*), the dimension of the new matrix will be *m x n*. So if we multiply 𝐴 and 𝐵 above, we'll get a *1000 x 1000* matrix, which is the same size as the full update we wanted. Knowing this, what if we learn two smaller matrices 𝐴 and 𝐵 instead of learning one huge update matrix directly? This way, we only have to fine-tune *16,000* parameters compared to the original 1 million and if we multiply 𝐴 and 𝐵, we'll get the same dimension as 𝑊. This is exactly what LoRA does. By learning two low-rank matrices instead of one large matrix, it reduces the number of trainable parameters by more than *98%*, thereby lowering the computational cost. The mathematical idea behind LoRA is that low-rank approximations can capture the most important variations in the data with fewer parameters.
+If you recall a matrix property from your school days: If you multiply two matrices - 𝐴 (dimension *m x r*) and 𝐵 (dimension *r x n*), the dimension of the new matrix will be *m x n*. So if we multiply 𝐴 and 𝐵 above, we'll get a *1000 x 1000* matrix, which is the same size as the full update we wanted. Knowing this, what if we learn two smaller matrices 𝐴 and 𝐵 instead of learning one huge update matrix directly? This way, we only have to fine-tune *16,000* parameters compared to 1 million and if we multiply 𝐴 and 𝐵, we'll get the same dimension as 𝑊.
 
-The internal dimension, *r* (in above example *8*) is called the **rank** of the matrix. Usually, a rank of 8 or 16 is sufficient without sacrificing too much accuracy, though some tasks might require a higher rank, such as 64. The matrices 𝐴 and 𝐵 are called **adapters** as they *adapt* the pre-trained model to new tasks by making minimal, yet effective changes.
+This is exactly what LoRA does. By learning two low-rank matrices instead of one large matrix, it reduces the number of trainable parameters by more than *98%*, thereby lowering the computational cost. The mathematical idea behind LoRA is that low-rank approximations can capture the most important variations in the data with fewer parameters.
+
+The internal dimension, *r* (in above example, it's *8*) is called the **rank hyperparameter** or **LoRA rank**. Usually, a rank of 8 or 16 is sufficient without sacrificing too much accuracy, though some tasks might require a higher rank, such as 64. The matrices 𝐴 and 𝐵 together are called **adapters** as they *adapt* the pre-trained model to new tasks by making minimal, yet effective changes.
 
 ![LoRA Adapters](/_images/llm-blog/lora-adapters.png)
 
@@ -232,7 +245,7 @@ The internal dimension, *r* (in above example *8*) is called the **rank** of the
 
 Here's a question for you: If LoRA is so effective in reducing computational requirements, is LoRA a one-stop solution for all fine-tuning tasks?
 
-As the saying goes, there are no free lunches. In this case, there's a trade-off between accuracy and computational power. While LoRA may reproduce a matrix of original dimension, 1 million parameters will likely capture a lot more information than *16,000* parameters. This raises the topic of Generalization vs. Specialization. Remember, the pretrained models like Llama are trained on many different types of dataset (generalized model) but by fine-tuning, we're trying to make the model specialized for one task while avoiding the issue of catastrophic forgetting.
+As the saying goes, there are no free lunches. In this case, there's a trade-off between accuracy and computational power. While LoRA may reproduce a matrix of original dimension, 1 million parameters will likely capture a lot more information than *16,000* parameters. This raises the topic of Generalization vs. Specialization. The pretrained models like Llama are trained on many different types of dataset (generalized model) but by fine-tuning, we're trying to make the model specialized for one task while avoiding the issue of catastrophic forgetting.
 
 <aside class="note" markdown="1">
 **Note:** While LoRA reduces the number of parameters that need to be updated, it does not inherently reduce the model's overall parameter count or memory footprint during inference. In other words, we would still need roughly the same amount of RAM during inference as we did for the original pretrained model during inference. When I say inference, I mean making predictions once the model is trained and ready to use.
@@ -248,24 +261,18 @@ But during full fine-tuning, the computer has to do more than just store the mod
 
 LoRA reduces this extra training memory by freezing the original model.
 
-In simple terms, LoRA says:
-
-> "Don't change the big model directly. Keep it as it is, and only train a few small add-on matrices."
-
 So yes, we still need to load the full base model during fine-tuning. But because we are not updating most of its weights, we do not need all the extra training memory for those weights. We only need that extra memory for the small LoRA adapters.
 
 A rough way to think about it:
 
-- **Using the base model:** load the original model
-- **Full fine-tuning:** load the original model + keep extra training information for all weights
-- **LoRA fine-tuning:** load the original model + keep extra training information only for the small adapters
-- **LoRA inference:** load the original model + the small adapters
+- **Using the base model:** RAM required to load the original model
+- **Full fine-tuning:** RAM required to load the original model + more RAM needed to keep extra training information for <u>all</u> the weights (gradients, optimizer states, and training data)
+- **LoRA fine-tuning:** RAM required to load the original model + more RAM needed to keep extra training information but only for the small adapters. So still more RAM but much less than full fine-tuning
+- **LoRA inference:** RAM required to load the original model + a little more RAM needed to keep the small adapters
 
 So LoRA saves memory mainly during fine-tuning, not because the original model becomes smaller, but because we train only a tiny part of it.
 
-![LoRA](/_images/llm-blog/lora.png)
-
-But notice one important thing: we are still carrying the full base model around.
+But notice one important thing: we are still carrying the full base model around. Meaning that if the base model itself is too large to fit in memory, we won't be able to fine-tune it with LoRA either. For example, if the base model takes 14 GB, and your GPU has only 12 GB of VRAM, you won't be able to load the base model at all, let alone fine-tune it with LoRA.
 
 Can we reduce the size of the base model itself?
 
@@ -293,6 +300,10 @@ We lose a little bit of precision, but for many practical cases, this rounded va
 **Note:** A **bit** is the smallest unit of computer storage, so when you see 32-bit or 16-bit, just think: how much room are we giving the computer to store each number?
 </aside>
 
+<aside class="note" markdown="1">
+**Note:** Using lower precision does <u>not</u> mean we're simply rounding off the weights to fewer decimal places, although it can look that way sometimes. Instead, it means we're using a different way to represent the numbers that takes up less memory. I know this can be a bit confusing. I'll try to explain it in detail in a separate blog post.
+</aside>
+
 For example:
 
 - In 32-bit precision, each weight uses 32 bits of memory
@@ -301,8 +312,6 @@ For example:
 - In 4-bit quantization, each weight uses around 4 bits of memory
 
 In simple words, more bits usually means we can store a value more precisely, but it takes more memory. Fewer bits means we store a more approximate version of the value, but it takes much less memory.
-
-This means that if a model takes around 14 GB in 16-bit precision, a 4-bit version of the same model might take much less memory. The exact number depends on the quantization method and the framework being used, but the main idea is simple: fewer bits per weight means less memory.
 
 The model does not always need every tiny decimal detail of every weight to generate useful answers. By storing approximate values, we can make the model smaller and, in some cases, faster.
 
