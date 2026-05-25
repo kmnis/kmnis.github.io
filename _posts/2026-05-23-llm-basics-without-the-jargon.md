@@ -230,48 +230,61 @@ As the saying goes, there are no free lunches. In this case, there's a trade-off
 **Note:** While LoRA reduces the number of parameters that need to be updated, it does not inherently reduce the model's overall parameter count or memory footprint during inference. In other words, we would still need roughly the same amount of RAM during inference as we did for the original pretrained model during inference. When I say inference, I mean making predictions once the model is trained and ready to use.
 </aside>
 
-So here's another question for you: If the parameter count is roughly the same, in fact we have added more parameters to the original base LLM, how does requirement reduces during fine-tuning? I mean for training, we still need to load the original model in memory for finetuning, right?
+So here's another question: if LoRA still needs the full base model in memory, why does it need so much less memory during fine-tuning?
 
-The answer is Yes, we do. We'll still need to load the entire model in memory during finetuning too.
+The key idea is this: **training a model needs more memory than simply using it.**
 
-<aside class="note" markdown="1">
-**Note:** There's an additional and a little advanced component that I haven't covered here. Feel free to skip this section if you're not familiar with it.
-</aside>
+When we use a model for inference, the computer mostly needs to keep the model's weights in memory. For example, a 7B model in 16-bit precision may take roughly around 14 GB just to load.
 
-While training, additional RAM is required to compute the gradients and optimizer states and larger the weight matrix, higher the memory requirement to store gradients and optimizer states. Since, in PEFT and LoRA, we freeze the original weight matrices, gradients are not computed for them hence no additional RAM is required for them. And since our newly introduced matrices are much smaller in size, the corresponding gradient and optimizer states will also be smaller in size. When I said 60 GB of RAM is required for full-finetuning of Llama-7b model, this 60 GB also includes the RAM requirement for gradients and other training steps.
+But during full fine-tuning, the computer has to do more than just store the model. It also needs extra temporary memory to keep track of how the model is changing while it learns (these are called **gradients** and **optimizer states** but we'll not go into these details in this post). Since full fine-tuning updates all the model's weights, this extra memory can become huge. That's why the memory requirement can jump from around 14 GB for inference to something much larger, like 60 GB, during training.
 
-Here's a step-by-step explanation:
-- Let's say 60 GB RAM is required for full finetuning the Llama-7b model, assuming 16 bit precision. This includes around 14 GB (Llama-7b model size) to load the model in memory and remaining for the training steps like gradient computation
-- During inference, we'll only need around 14 GB of RAM (plus some additional requirement for loading the data and other processes) since training is done, so no more gradients
-- When using LoRA, gradients are not computed for the frozen layers so we will need 14 GB to load the original model plus a few additional GBs depending on the rank of the matrices to load the smaller matrices plus some more RAM for their gradient and optimizer state computations. Typically, it goes around 16 GB total
-- Lastly, during inference for the finetuned model, once again 14 GB to load the original model plus maybe 1 or 2 GB for loading the adapters, depending on the rank. Let's call it 16 GB just as an example
+LoRA reduces this extra training memory by freezing the original model.
 
-<aside class="note" markdown="1">
-**Note:** The numbers mentioned above are rough estimates and can vary significantly depending on your training setup. For example, if you use a large batch size while fine-tuning, higher RAM will be required.
-</aside>
+In simple terms, LoRA says:
+
+> "Don't change the big model directly. Keep it as it is, and only train a few small add-on matrices."
+
+So yes, we still need to load the full base model during fine-tuning. But because we are not updating most of its weights, we do not need all the extra training memory for those weights. We only need that extra memory for the small LoRA adapters.
+
+A rough way to think about it:
+
+- **Using the base model:** load the original model
+- **Full fine-tuning:** load the original model + keep extra training information for all weights
+- **LoRA fine-tuning:** load the original model + keep extra training information only for the small adapters
+- **LoRA inference:** load the original model + the small adapters
+
+So LoRA saves memory mainly during fine-tuning, not because the original model becomes smaller, but because we train only a tiny part of it.
+
 
 ![LoRA](/_images/llm-blog/lora.png)
 
-How can this requirement be brought down further? We can use a technique called Quantization.
+But notice one important thing: we are still carrying the full base model around.
 
+Can we reduce the size of the base model itself?
+
+That's where **quantization** comes in.
 
 ### Quantization
 
 So far, we have talked about reducing the number of weights that need to be trained. Quantization takes a different approach. Instead of reducing the number of weights, it reduces how much memory each weight takes.
 
-Let's go back to a very simple example. Suppose we want to store the number:
+Let's take a very simple example. Suppose we want to store the number:
 
 ```
-3.14159265
+3.141592653589793
 ```
 
-If we store this number very precisely, we need more memory. But what if we store it as:
+For many tasks, we may not need all of those digits. What if we store an approximate version instead:
 
 ```
 3.14
 ```
 
 We lose a little bit of precision, but for many practical cases, this rounded value is good enough. Quantization follows a similar idea. It stores the model weights using fewer bits.
+
+<aside class="note" markdown="1">
+**Note:** A **bit** is the smallest unit of computer storage, so when you see 32-bit or 16-bit, just think: how much room are we giving the computer to store each number?
+</aside>
 
 For example:
 
@@ -280,25 +293,11 @@ For example:
 - In 8-bit quantization, each weight uses around 8 bits of memory
 - In 4-bit quantization, each weight uses around 4 bits of memory
 
+In simple words, more bits usually means we can store a value more precisely, but it takes more memory. Fewer bits means we store a more approximate version of the value, but it takes much less memory.
+
 This means that if a model takes around 14 GB in 16-bit precision, a 4-bit version of the same model might take much less memory. The exact number depends on the quantization method and the framework being used, but the main idea is simple: fewer bits per weight means less memory.
 
-#### A small intuition
-
-Imagine you are storing someone's height. If you write:
-
-```
-175.238492 cm
-```
-
-you are being very precise. But in most cases, writing:
-
-```
-175 cm
-```
-
-is enough. You have compressed the information. You lost some detail, but you kept the useful part.
-
-Quantization does something similar with model weights. The model does not always need every tiny decimal detail of every weight to generate useful answers. By storing approximate values, we can make the model smaller and faster.
+The model does not always need every tiny decimal detail of every weight to generate useful answers. By storing approximate values, we can make the model smaller and, in some cases, faster.
 
 ![Quantization](/_images/llm-blog/quantization.png)
 
@@ -306,24 +305,24 @@ Quantization does something similar with model weights. The model does not alway
 
 Quantization is useful for both inference and fine-tuning.
 
-During **inference**, quantization helps because the model takes less memory. This means we can run larger models on smaller GPUs or even on consumer laptops in some cases. It can also make generation faster because less data needs to be moved around in memory.
+During **inference**, quantization helps because the model takes less memory. This means we can run larger models on smaller GPUs or sometimes even on consumer laptops. It can also make generation faster in some setups because less data needs to be moved around in memory.
 
-During **fine-tuning**, quantization can help because the frozen base model can be loaded in a lower-precision format. Then we only train a small number of additional weights, like the LoRA matrices we discussed earlier.
+During **fine-tuning**, quantization can help because the frozen base model can be loaded in a lower-precision format. Then, with LoRA, we only train a small number of additional weights instead of updating the whole model.
 
-This brings us to a very popular technique called **QLoRA**.
+So to summarize:
+
+- **LoRA** reduces how many weights we train
+- **Quantization** reduces how much memory the stored weights need
+
+This combination leads to a very popular technique called **QLoRA**.
 
 ### Quantized Low-Rank Adaptation (QLoRA)
 
-QLoRA combines the two ideas we just discussed:
-
-1. **Quantization:** Load the original model in a lower-precision format, often 4-bit, to reduce memory usage.
-2. **LoRA:** Add small trainable matrices and update only those during fine-tuning.
-
 Let's use our earlier Llama-7B example.
 
-In normal LoRA fine-tuning, we still need to load the original model in memory. If the model is loaded in 16-bit precision, that alone can take around 14 GB. Then we need some extra memory for LoRA weights, gradients, optimizer states, and training data.
+In normal LoRA fine-tuning, we still need to load the original model in memory. If the model is loaded in 16-bit precision, that alone can take around 14 GB. Then we need some extra memory for the LoRA weights and the temporary information used during training (gradients, optimizer states, and training data).
 
-In QLoRA, the original model is loaded in 4-bit precision. So the base model takes much less memory. However, we do not train the 4-bit base model directly. The base model stays frozen, and we train only the small LoRA weights. This is why QLoRA makes it possible to fine-tune fairly large models on much smaller hardware.
+In QLoRA, the original model is loaded in 4-bit precision. So the base model takes much less memory. However, we do not train the 4-bit base model directly. The base model stays frozen in its compressed form, and we train only the small LoRA weights. This is why QLoRA makes it possible to fine-tune fairly large models on much smaller hardware.
 
 Here's the rough idea:
 
@@ -331,7 +330,7 @@ Here's the rough idea:
 - LoRA: freeze the model and train small low-rank matrices
 - QLoRA: load the frozen model in 4-bit precision and train small low-rank matrices
 
-So if full fine-tuning is like renovating an entire building, LoRA is like adding a small extension to the building, and QLoRA is like doing that while storing the original blueprint in a compressed format.
+So if full fine-tuning is like renovating an entire building, LoRA is like adding a small extension to it, and QLoRA is like adding that extension while keeping the original building stored in a compressed form.
 
 #### Does quantization reduce quality?
 
@@ -343,7 +342,7 @@ The trade-off looks something like this:
 - Lower memory usage means cheaper and more accessible training/inference
 - But very low precision can sometimes reduce answer quality
 
-For many practical use cases, 8-bit or 4-bit quantized models work surprisingly well. But if the task is very sensitive, such as medical diagnosis, legal reasoning, or scientific calculations, we should evaluate the quantized model carefully before trusting it.
+For many practical use cases, 8-bit or 4-bit quantized models work surprisingly well. But if the task is very sensitive, such as medical, legal, or scientific work, we should evaluate the quantized model carefully before trusting it.
 
 #### Quantization vs LoRA vs QLoRA
 
